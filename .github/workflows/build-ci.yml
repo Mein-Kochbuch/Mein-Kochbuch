@@ -1,0 +1,22 @@
+name: MeinKochbuch Build CI
+
+on:
+  push:
+  pull_request_target:
+    branches:
+      - main
+
+
+jobs:
+  build-frontend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+      - name: Run Test and Build
+        run: |
+          npm install
+          npm run test
+          npm run build
