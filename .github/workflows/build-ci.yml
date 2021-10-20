@@ -19,4 +19,4 @@ jobs:
         run: |
           npm install
           npm run test -- -u
-          npm run build
+
