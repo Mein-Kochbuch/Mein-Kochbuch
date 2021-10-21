@@ -25,15 +25,16 @@ const App = () => {
 
     return (
         <SafeAreaView style={backgroundStyle}>
-            <NativeRouter>
-                <Switch>
-                    <View>
-                        <Route path="/" exact>
-                            <MainMenuPage/>
-                        </Route>
-                    </View>
-                </Switch>
-            </NativeRouter>
+            <Switch>
+                <View>
+                    <Route path="/" exact>
+                        <MainMenuPage/>
+                    </Route>
+                    <Route path="/myrecipes" exact>
+                        <MyRecipesPage/>
+                    </Route>
+                </View>
+            </Switch>
         </SafeAreaView>
     );
 };
