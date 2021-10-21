@@ -1,16 +1,27 @@
 import React from 'react';
-import {SafeAreaView, useColorScheme, View,} from 'react-native';
+import {BackHandler, SafeAreaView, useColorScheme, View,} from 'react-native';
 
 import {Colors,} from 'react-native/Libraries/NewAppScreen';
-import {NativeRouter, Route, Switch} from "react-router-native";
+import {Route, Switch, useHistory} from "react-router-native";
 import MainMenuPage from "./src/pages/MainMenuPage";
+import MyRecipesPage from "./src/pages/MyRecipesPage";
 
 const App = () => {
     const isDarkMode = useColorScheme() === 'dark';
+    const history = useHistory();
 
     const backgroundStyle = {
         backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
     };
+
+    const backAction = () => {
+        history.goBack()
+    };
+
+    BackHandler.addEventListener(
+        "hardwareBackPress",
+        backAction
+    );
 
     return (
         <SafeAreaView style={backgroundStyle}>

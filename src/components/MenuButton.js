@@ -1,9 +1,11 @@
 import React from "react";
 import {StyleSheet, Text, TouchableOpacity, useColorScheme} from "react-native";
 import {Colors} from "react-native/Libraries/NewAppScreen";
+import {useHistory} from "react-router-native"
 
-export default function MenuButton({text, style}) {
+export default function MenuButton({text, style, path}) {
     const isDarkMode = useColorScheme() === 'dark';
+    const history = useHistory()
 
     const styles = StyleSheet.create({
         container: {
@@ -24,8 +26,12 @@ export default function MenuButton({text, style}) {
         }
     })
 
+    const onPress = () => {
+        history.push(`/${path}`)
+    }
+
     return (
-        <TouchableOpacity style={{...styles.container, ...style}}>
+        <TouchableOpacity onPress={onPress} style={{...styles.container, ...style}}>
             <Text style={styles.text}>
                 {text}
             </Text>
