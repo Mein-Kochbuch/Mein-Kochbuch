@@ -13,9 +13,8 @@ jobs:
           node-version: '14'
       - name: Build frontend
         run: |
-          cd frontend
           npm install
-          npm run build
+          npm run test -- -u
       - uses: actions/upload-artifact@v2
         with:
           name: test-report
