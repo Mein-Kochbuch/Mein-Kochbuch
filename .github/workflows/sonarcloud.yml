@@ -4,34 +4,20 @@ on:
   pull_request:
     types: [ opened, synchronize, reopened ]
 jobs:
-  build-frontend:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-        with:
-          node-version: '14'
-      - name: Build frontend
-        run: |
-          npm install
-          npm run test -- -u
-      - uses: actions/upload-artifact@v2
-        with:
-          name: test-report
-          path: /test-report.xml
-
   sonarcloud:
     name: SonarCloud
-    needs: build-frontend
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
-      - uses: actions/download-artifact@v2
+      - uses: actions/setup-node@v2
         with:
-          name: test-report
-          path: /
+          node-version: '16'
+      - name: Build frontend
+        run: |
+          npm install
+          npm run test -- -u
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
         env:
