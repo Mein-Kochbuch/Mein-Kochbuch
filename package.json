@@ -11,6 +11,7 @@
     "dev-tools": "react-devtools"
   },
   "dependencies": {
+    "@testing-library/react-native": "^8.0.0",
     "axios": "^0.23.0",
     "react": "17.0.2",
     "react-native": "0.66.1",
