@@ -60,3 +60,4 @@ buck-out/
 /ios/Pods/
 /__tests__/__snapshots__/
 /test-report.xml
+/coverage/
