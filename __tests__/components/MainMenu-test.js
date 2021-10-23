@@ -3,7 +3,7 @@ import React from 'react';
 
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer';
-import MainMenu from "../src/components/MainMenu";
+import MainMenu from "../../src/components/MainMenu";
 
 it('MainMenu Test', () => {
     const component = renderer.create(

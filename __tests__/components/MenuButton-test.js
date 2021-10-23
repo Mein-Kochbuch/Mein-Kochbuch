@@ -3,7 +3,7 @@ import React from 'react';
 
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer';
-import MenuButton from "../src/components/MenuButton";
+import MenuButton from "../../src/components/MenuButton";
 import {fireEvent, render} from '@testing-library/react-native';
 import {Router} from "react-router-native";
 
