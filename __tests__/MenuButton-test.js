@@ -5,16 +5,23 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import MenuButton from "../src/components/MenuButton";
 import {fireEvent, render} from '@testing-library/react-native';
+import {Router} from "react-router-native";
 
 it('MenuButton Button Press', () => {
-    const onEventMock = jest.fn();
+    const history = {
+        push: jest.fn(),
+        listen: jest.fn(),
+        location: {pathname: "/"}
+    }
 
     const {getByText} = render(
-        <MenuButton text={"Test-title"} path={"/test"} onPress={onEventMock}/>
+        <Router history={history}>
+            <MenuButton text={"Test-title"} path={"test"}/>
+        </Router>
     );
 
     fireEvent(getByText('Test-title'), 'onPress');
-    expect(onEventMock).toBeCalled();
+    expect(history.push).toBeCalledWith("/test")
 })
 
 it('MenuButton Default Style Test', () => {

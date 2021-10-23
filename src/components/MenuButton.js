@@ -1,9 +1,11 @@
 import React from "react";
 import {StyleSheet, Text, TouchableOpacity} from "react-native";
 import globalStyles from "../styles/globalStyles";
+import {useHistory} from "react-router-native";
 
-export default function MenuButton({text, style, path, onPress}) {
+export default function MenuButton({text, style, path}) {
     const {border} = globalStyles()
+    const history = useHistory()
 
     const styles = StyleSheet.create({
         container: {
@@ -19,6 +21,10 @@ export default function MenuButton({text, style, path, onPress}) {
             fontSize: 30,
         }
     })
+
+    const onPress = (to) => {
+        history.push(`/${to}`)
+    }
 
     return (
         <TouchableOpacity onPress={() => onPress(path)} style={{...border, ...styles.container, ...style}}>
