@@ -1,5 +1,6 @@
 import {Colors} from "react-native/Libraries/NewAppScreen";
-import {StyleSheet, useColorScheme} from "react-native";
+import {StyleSheet} from "react-native";
+import {useColorScheme} from "react-native-appearance";
 
 export default function globalStyles() {
     const isDarkMode = useColorScheme() === 'dark';
