@@ -29,7 +29,7 @@ export default function MainMenu() {
                 />
             </View>
             <View style={styles.bottommenu}>
-                <MenuButton key={"settings-button"} text={"Settings"}/>
+                <MenuButton key={"settings-button"} text={"Settings"} path={"settings"}/>
             </View>
         </View>
     )

@@ -15,6 +15,19 @@ jest.mock("../../src/hooks/useCookbooks", () => {
     }
 });
 
+jest.mock("../../src/components/MyRecipesList", () => {
+    return (props) => {
+        return <div {...props}/>
+    }
+});
+
+jest.mock("../../src/components/Header", () => {
+    return (props) => {
+        return <div {...props}/>
+    }
+});
+
+
 it('MyRecipeTest Test', () => {
 
     const component = renderer.create(
