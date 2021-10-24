@@ -7,6 +7,19 @@ import MenuButton from "../../src/components/MenuButton";
 import {fireEvent, render} from '@testing-library/react-native';
 import {Router} from "react-router-native";
 
+jest.mock("../../src/styles/globalStyles", () => {
+    return () => {
+        return {
+            border: {
+                borderStyle: "solid",
+                borderColor: '#F3F3F3',
+                borderRadius: 10,
+                borderWidth: 2,
+            },
+        }
+    }
+});
+
 it('MenuButton Button Press', () => {
     const history = {
         push: jest.fn(),
