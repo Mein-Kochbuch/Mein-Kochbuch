@@ -1,36 +1,41 @@
 import React from "react";
-import {StyleSheet, Text, TouchableOpacity} from "react-native";
-import globalStyles from "../styles/globalStyles";
 import {useHistory} from "react-router-native";
+import styled from "styled-components/native";
+import {useColorScheme} from "react-native-appearance";
+import {Colors} from "react-native/Libraries/NewAppScreen";
 
-export default function MenuButton({text, style, path}) {
-    const {border} = globalStyles()
+export default function MenuButton({text, path}) {
     const history = useHistory()
-
-    const styles = StyleSheet.create({
-        container: {
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "space-between",
-            alignItems: "center",
-            width: "80%",
-            minWidth: 300,
-        },
-        text: {
-            textAlign: "center",
-            fontSize: 30,
-        }
-    })
+    const isDarkMode = useColorScheme() === 'dark';
 
     const onPress = (to) => {
         history.push(`/${to}`)
     }
 
     return (
-        <TouchableOpacity onPress={() => onPress(path)} style={{...border, ...styles.container, ...style}}>
-            <Text style={styles.text}>
+        <StyledTouchableOpacity isDarkMode={isDarkMode} onPress={() => onPress(path)}>
+            <StyledText>
                 {text}
-            </Text>
-        </TouchableOpacity>
+            </StyledText>
+        </StyledTouchableOpacity>
     )
 }
+
+const StyledText = styled.Text`
+  text-align: center;
+  font-size: 30px;
+`
+
+const StyledTouchableOpacity = styled.TouchableOpacity`
+  margin: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+  min-width: 300px;
+  border-style: solid;
+  border-color: ${props => props.isDarkMode ? Colors.lighter : Colors.darker};
+  border-radius: 10px;
+  border-width: 2px;
+`
