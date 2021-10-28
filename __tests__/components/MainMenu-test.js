@@ -5,7 +5,6 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import MainMenu from "../../src/components/MainMenu";
 import MenuButton from "../../src/components/MenuButton";
-import {useColorScheme} from "react-native-appearance";
 
 jest.mock("../../src/components/MenuButton", () => {
     return (props) => {
@@ -13,40 +12,36 @@ jest.mock("../../src/components/MenuButton", () => {
     }
 });
 
-jest.mock("react-native-appearance", () => ({
-    useColorScheme: jest.fn(),
-}));
+describe("MainMenu Test", () => {
+    afterEach(() => {
+        jest.clearAllMocks();
+    });
 
-afterEach(() => {
-    jest.clearAllMocks();
-});
+    it('MainMenu Test', () => {
 
+        const component = renderer.create(
+            <MainMenu/>
+        );
 
-it('MainMenu Test', () => {
-    useColorScheme.mockReturnValueOnce('dark');
+        expect(component.toJSON()).toMatchSnapshot()
+        expect(component.toJSON().children.length).toBe(2)
+        expect(component.toJSON().children[0].children.length).toBe(4)
 
-    const component = renderer.create(
-        <MainMenu/>
-    );
+        const testInstance = component.root
 
-    expect(component.toJSON()).toMatchSnapshot()
-    expect(component.toJSON().children.length).toBe(2)
-    expect(component.toJSON().children[0].children.length).toBe(4)
+        expect(testInstance.findAllByType(MenuButton)[0].props.text).toBe("My Recipes")
+        expect(testInstance.findAllByType(MenuButton)[0].props.path).toBe("myrecipes")
 
-    const testInstance = component.root
+        expect(testInstance.findAllByType(MenuButton)[1].props.text).toBe("All Recipes")
+        expect(testInstance.findAllByType(MenuButton)[1].props.path).toBe("recipes")
 
-    expect(testInstance.findAllByType(MenuButton)[0].props.text).toBe("My Recipes")
-    expect(testInstance.findAllByType(MenuButton)[0].props.path).toBe("myrecipes")
+        expect(testInstance.findAllByType(MenuButton)[2].props.text).toBe("Cookbooks")
+        expect(testInstance.findAllByType(MenuButton)[2].props.path).toBe("cookbooks")
 
-    expect(testInstance.findAllByType(MenuButton)[1].props.text).toBe("All Recipes")
-    expect(testInstance.findAllByType(MenuButton)[1].props.path).toBe("recipes")
+        expect(testInstance.findAllByType(MenuButton)[3].props.text).toBe("Ad Recipe")
+        expect(testInstance.findAllByType(MenuButton)[3].props.path).toBe("addrecipe")
 
-    expect(testInstance.findAllByType(MenuButton)[2].props.text).toBe("Cookbooks")
-    expect(testInstance.findAllByType(MenuButton)[2].props.path).toBe("cookbooks")
-
-    expect(testInstance.findAllByType(MenuButton)[3].props.text).toBe("Ad Recipe")
-    expect(testInstance.findAllByType(MenuButton)[3].props.path).toBe("addrecipe")
-
-    expect(testInstance.findAllByType(MenuButton)[4].props.text).toBe("Settings")
-    expect(testInstance.findAllByType(MenuButton)[4].props.path).toBe("settings")
+        expect(testInstance.findAllByType(MenuButton)[4].props.text).toBe("Settings")
+        expect(testInstance.findAllByType(MenuButton)[4].props.path).toBe("settings")
+    })
 })
