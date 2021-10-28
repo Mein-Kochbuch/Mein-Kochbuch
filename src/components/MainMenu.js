@@ -1,49 +1,48 @@
 import React from "react";
-import {StyleSheet, View} from "react-native";
+import {View} from "react-native";
 import MenuButton from "./MenuButton";
+import styled from "styled-components/native";
 
 export default function MainMenu() {
 
     return (
-        <View style={styles.container}>
-            <View style={styles.topmenu}>
-                <MenuButton style={{margin: 12}}
-                            key={"my-recipes-button"}
-                            text={"My Recipes"}
-                            path={"myrecipes"}
+        <StyledMenu>
+            <View>
+                <MenuButton
+                    key={"my-recipes-button"}
+                    text={"My Recipes"}
+                    path={"myrecipes"}
                 />
-                <MenuButton style={{margin: 12}}
-                            key={"all-recipes-button"}
-                            text={"All Recipes"}
-                            path={"recipes"}
+                <MenuButton
+                    key={"all-recipes-button"}
+                    text={"All Recipes"}
+                    path={"recipes"}
                 />
-                <MenuButton style={{margin: 12}}
-                            key={"cookbooks-button"}
-                            text={"Cookbooks"}
-                            path={"cookbooks"}
+                <MenuButton
+                    key={"cookbooks-button"}
+                    text={"Cookbooks"}
+                    path={"cookbooks"}
                 />
-                <MenuButton style={{margin: 12}}
-                            key={"ad-recipe-button"}
-                            text={"Ad Recipe"}
-                            path={"addrecipe"}
+                <MenuButton
+                    key={"ad-recipe-button"}
+                    text={"Ad Recipe"}
+                    path={"addrecipe"}
                 />
             </View>
-            <View style={styles.bottommenu}>
+            <StyledBottomMenu>
                 <MenuButton key={"settings-button"} text={"Settings"} path={"settings"}/>
-            </View>
-        </View>
+            </StyledBottomMenu>
+        </StyledMenu>
     )
 }
 
-const styles = StyleSheet.create({
-    container: {
-        display: "flex",
-        alignItems: "center",
-        flexDirection: "column",
-        height: "80%",
-    },
-    topmenu: {},
-    bottommenu: {
-        marginTop: "auto",
-    }
-})
+const StyledBottomMenu = styled.View`
+  margin-top: auto;
+`
+
+const StyledMenu = styled.View`
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 80%;
+`
