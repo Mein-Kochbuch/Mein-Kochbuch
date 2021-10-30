@@ -1,13 +1,11 @@
 import React from "react";
-import Header from "../components/list/Header";
+import Header from "../../components/list/Header";
 import styled from "styled-components/native";
-import useRecipes from "../hooks/useRecipes";
-import RecipeList from "../components/recipes/RecipeList";
+import useRecipes from "../../hooks/useRecipes";
+import RecipeList from "../../components/recipes/RecipeList";
 
 export default function RecipesPage({title}) {
     const {recipes} = useRecipes()
-
-    console.log(recipes[0])
 
     return (
         <ScrollViewStyled>

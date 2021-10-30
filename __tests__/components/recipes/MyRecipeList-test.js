@@ -21,7 +21,7 @@ jest.mock("../../../src/components/cookbooks/CookbookListItem", () => {
 
 const cookbooks = [{cookbook: "1", pk: "1"}, {cookbook: "2", pk: "2"}]
 
-it('MainMenu Test', () => {
+it('MyRecipesList Test', () => {
     const component = renderer.create(
         <MyRecipesList cookbooks={cookbooks}/>
     );
