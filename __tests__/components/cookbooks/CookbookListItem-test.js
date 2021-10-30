@@ -3,21 +3,16 @@ import React from 'react';
 
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer';
-import MultiListItem from "../../src/components/MultiListItem";
-import MultiListItemImage from "../../src/components/MultiListItemImage";
 import {useColorScheme} from "react-native-appearance";
+import CookbookListItem from "../../../src/components/cookbooks/CookbookListItem";
+import {Image} from "react-native";
+
 
 jest.mock("react-native-appearance", () => ({
     useColorScheme: jest.fn(),
 }));
 
-jest.mock("../../src/components/MultiListItemImage", () => {
-    return (props) => {
-        return <div {...props}/>
-    }
-});
-
-describe("MultiListItem Test", () => {
+describe("CookbookListItem Test", () => {
     afterEach(() => {
         jest.clearAllMocks();
     });
@@ -25,8 +20,12 @@ describe("MultiListItem Test", () => {
     it('dark', () => {
         useColorScheme.mockReturnValueOnce('dark');
 
+        const cookbook = {
+            name: "test-title"
+        }
+
         const component = renderer.create(
-            <MultiListItem title={"test-title"} icon={"test-icon"}/>
+            <CookbookListItem cookbook={cookbook}/>
         );
 
         expect(component.toJSON()).toMatchSnapshot()
@@ -35,14 +34,20 @@ describe("MultiListItem Test", () => {
 
         const testInstance = component.root
 
-        expect(testInstance.findAllByType(MultiListItemImage)[0].props.icon).toBe("test-icon")
+        expect(testInstance.findAllByType(CookbookListItem)[0].props.cookbook).toStrictEqual({name: "test-title"})
+        expect(testInstance.findAllByType(Image)[0].props.source).toStrictEqual({"testUri": "../../../resources/platzhalter.png"})
     })
 
-    it('dark', () => {
+    it('light', () => {
         useColorScheme.mockReturnValueOnce('light');
 
+        const cookbook = {
+            name: "test-title",
+            thumbnail: "test-uri"
+        }
+
         const component = renderer.create(
-            <MultiListItem title={"test-title"} icon={"test-icon"}/>
+            <CookbookListItem cookbook={cookbook}/>
         );
 
         expect(component.toJSON()).toMatchSnapshot()
@@ -51,6 +56,10 @@ describe("MultiListItem Test", () => {
 
         const testInstance = component.root
 
-        expect(testInstance.findAllByType(MultiListItemImage)[0].props.icon).toBe("test-icon")
+        expect(testInstance.findAllByType(CookbookListItem)[0].props.cookbook).toStrictEqual({
+            name: "test-title",
+            thumbnail: "test-uri"
+        })
+        expect(testInstance.findAllByType(Image)[0].props.source).toStrictEqual({"uri": "test-uri"})
     })
 })

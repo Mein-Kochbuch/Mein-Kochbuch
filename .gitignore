@@ -59,6 +59,6 @@ buck-out/
 # CocoaPods
 /ios/Pods/
 /__tests__/__snapshots__/
-/__tests__/*/__snapshots__/
+/__tests__/*/*/__snapshots__/
 /test-report.xml
 /coverage/

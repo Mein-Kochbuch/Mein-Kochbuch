@@ -37,6 +37,9 @@ const App = () => {
                     <Route path="/myrecipes" exact>
                         <MyRecipesPage/>
                     </Route>
+                    <Route path="/recipes" exact>
+                        <RecipesPage title={"All Recipes"}/>
+                    </Route>
                 </View>
             </Switch>
         </SafeAreaView>

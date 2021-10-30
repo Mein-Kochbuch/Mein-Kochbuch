@@ -3,17 +3,17 @@ import React from 'react';
 
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer';
-import MyRecipesList from "../../src/components/MyRecipesList";
-import MultiListItem from "../../src/components/MultiListItem";
-import CookbookListItem from "../../src/components/CookbookListItem";
+import MyRecipesList from "../../../src/components/recipes/MyRecipesList";
+import MultiListItem from "../../../src/components/list/MultiListItem";
+import CookbookListItem from "../../../src/components/cookbooks/CookbookListItem";
 
-jest.mock("../../src/components/MultiListItem", () => {
+jest.mock("../../../src/components/list/MultiListItem", () => {
     return (props) => {
         return <div {...props}/>
     }
 });
 
-jest.mock("../../src/components/CookbookListItem", () => {
+jest.mock("../../../src/components/cookbooks/CookbookListItem", () => {
     return (props) => {
         return <div {...props}/>
     }
@@ -21,7 +21,7 @@ jest.mock("../../src/components/CookbookListItem", () => {
 
 const cookbooks = [{cookbook: "1", pk: "1"}, {cookbook: "2", pk: "2"}]
 
-it('MainMenu Test', () => {
+it('MyRecipesList Test', () => {
     const component = renderer.create(
         <MyRecipesList cookbooks={cookbooks}/>
     );
