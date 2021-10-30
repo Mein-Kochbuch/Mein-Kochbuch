@@ -5,6 +5,7 @@ import {Colors,} from 'react-native/Libraries/NewAppScreen';
 import {Route, Switch, useHistory} from "react-router-native";
 import MainMenuPage from "./src/pages/MainMenuPage";
 import MyRecipesPage from "./src/pages/MyRecipesPage";
+import RecipesPage from "./src/pages/RecipesPage";
 
 const App = () => {
     const isDarkMode = useColorScheme() === 'dark';
@@ -20,7 +21,10 @@ const App = () => {
 
     BackHandler.addEventListener(
         "hardwareBackPress",
-        backAction
+        () => {
+            backAction()
+            return true
+        }
     );
 
     return (
