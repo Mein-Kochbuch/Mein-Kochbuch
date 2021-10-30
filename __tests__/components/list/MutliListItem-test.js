@@ -3,8 +3,8 @@ import React from 'react';
 
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer';
-import MultiListItem from "../../src/components/MultiListItem";
-import MultiListItemImage from "../../src/components/MultiListItemImage";
+import MultiListItem from "../../../src/components/list/MultiListItem";
+import MultiListItemImage from "../../../src/components/list/MultiListItemImage";
 import {useColorScheme} from "react-native-appearance";
 
 jest.mock("react-native-appearance", () => ({

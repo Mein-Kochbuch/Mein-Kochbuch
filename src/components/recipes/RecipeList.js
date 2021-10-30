@@ -2,7 +2,7 @@ import React from "react";
 import {View} from "react-native";
 import RecipeListItem from "./RecipeListItem";
 
-export default function RecipeList({recipes, filter}) {
+export default function RecipeList({recipes}) {
 
     return (
         <View>

@@ -3,9 +3,9 @@ import React from 'react';
 
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer';
-import Header from "../../src/components/Header"
+import Header from "../../src/components/list/Header"
 import MainMenuPage from "../../src/pages/MainMenuPage";
-import MainMenu from "../../src/components/MainMenu";
+import MainMenu from "../../src/components/mainmenu/MainMenu";
 
 jest.mock("../../src/components/MainMenu", () => {
     return (props) => {

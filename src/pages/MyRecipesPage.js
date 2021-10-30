@@ -1,7 +1,7 @@
 import React from "react";
-import Header from "../components/Header";
+import Header from "../components/list/Header";
 import {ScrollView, StyleSheet} from "react-native";
-import MyRecipesList from "../components/MyRecipesList";
+import MyRecipesList from "../components/recipes/MyRecipesList";
 import useCookbooks from "../hooks/useCookbooks";
 
 export default function MyRecipesPage() {

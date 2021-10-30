@@ -1,7 +1,7 @@
 import React from "react";
 import {View} from "react-native";
-import MultiListItem from "./MultiListItem";
-import CookbookListItem from "./CookbookListItem";
+import MultiListItem from "../list/MultiListItem";
+import CookbookListItem from "../cookbooks/CookbookListItem";
 import styled from "styled-components/native";
 
 export default function MyRecipesList({cookbooks}) {

@@ -6,7 +6,7 @@ export default function MultiListItemImage({icon}) {
 
     return (
         icon === "heart" ? <Icon name={"heart"} size={100} color={"#FF0000"}/> :
-            <StyledImage source={require("../../resources/platzhalter.png")}/>
+            <StyledImage source={require("../../../resources/platzhalter.png")}/>
     )
 }
 

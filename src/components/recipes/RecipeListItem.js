@@ -6,7 +6,7 @@ import {useColorScheme} from "react-native-appearance";
 export default function RecipeListItem({recipe}) {
     const isDarkMode = useColorScheme() === 'dark';
 
-    const imageSource = recipe.thumbnail_url ? {uri: recipe.thumbnail_url} : require("../../resources/platzhalter.png")
+    const imageSource = recipe.thumbnail_url ? {uri: recipe.thumbnail_url} : require("../../../resources/platzhalter.png")
 
     return (
         <StyledTouchableOpacity isDarkMode={isDarkMode}>

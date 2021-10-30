@@ -1,8 +1,8 @@
 import React from "react";
-import Header from "../components/Header";
+import Header from "../components/list/Header";
 import styled from "styled-components/native";
 import useRecipes from "../hooks/useRecipes";
-import RecipeList from "../components/RecipeList";
+import RecipeList from "../components/recipes/RecipeList";
 
 export default function RecipesPage({title}) {
     const {recipes} = useRecipes()

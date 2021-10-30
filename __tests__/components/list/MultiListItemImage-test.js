@@ -3,7 +3,7 @@ import React from 'react';
 
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer';
-import MultiListItemImage from "../../src/components/MultiListItemImage";
+import MultiListItemImage from "../../../src/components/list/MultiListItemImage";
 
 it('MultiListItemImage Heart Test', () => {
     const component = renderer.create(

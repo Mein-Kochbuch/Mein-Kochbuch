@@ -4,8 +4,8 @@ import React from 'react';
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer';
 import MyRecipesPage from "../../src/pages/MyRecipesPage";
-import MyRecipesList from "../../src/components/MyRecipesList";
-import Header from "../../src/components/Header"
+import MyRecipesList from "../../src/components/recipes/MyRecipesList";
+import Header from "../../src/components/list/Header"
 
 const cookbooks = [{cookbook: "1", pk: "1"}, {cookbook: "2", pk: "2"}]
 

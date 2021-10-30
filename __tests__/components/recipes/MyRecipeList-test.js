@@ -3,9 +3,9 @@ import React from 'react';
 
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer';
-import MyRecipesList from "../../src/components/MyRecipesList";
-import MultiListItem from "../../src/components/MultiListItem";
-import CookbookListItem from "../../src/components/CookbookListItem";
+import MyRecipesList from "../../../src/components/recipes/MyRecipesList";
+import MultiListItem from "../../../src/components/list/MultiListItem";
+import CookbookListItem from "../../../src/components/cookbooks/CookbookListItem";
 
 jest.mock("../../src/components/MultiListItem", () => {
     return (props) => {
