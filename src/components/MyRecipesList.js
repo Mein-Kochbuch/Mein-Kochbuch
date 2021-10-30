@@ -2,6 +2,7 @@ import React from "react";
 import {View} from "react-native";
 import MultiListItem from "./MultiListItem";
 import CookbookListItem from "./CookbookListItem";
+import styled from "styled-components/native";
 
 export default function MyRecipesList({cookbooks}) {
 
@@ -9,10 +10,14 @@ export default function MyRecipesList({cookbooks}) {
         <View>
             <MultiListItem title={"All Recipes"} icon="all"/>
             <MultiListItem title={"Favorites"} icon="heart"/>
-            <View style={{margin: 10}}/>
+            <Spacer/>
             {
                 cookbooks.map((cookbook) => <CookbookListItem key={cookbook.pk} cookbook={cookbook}/>)
             }
         </View>
     )
 }
+
+const Spacer = styled.View`
+  margin: 12px;
+`
