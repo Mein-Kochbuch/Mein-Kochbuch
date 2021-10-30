@@ -7,13 +7,13 @@ import MyRecipesList from "../../../src/components/recipes/MyRecipesList";
 import MultiListItem from "../../../src/components/list/MultiListItem";
 import CookbookListItem from "../../../src/components/cookbooks/CookbookListItem";
 
-jest.mock("../../src/components/MultiListItem", () => {
+jest.mock("../../../src/components/list/MultiListItem", () => {
     return (props) => {
         return <div {...props}/>
     }
 });
 
-jest.mock("../../src/components/CookbookListItem", () => {
+jest.mock("../../../src/components/cookbooks/CookbookListItem", () => {
     return (props) => {
         return <div {...props}/>
     }

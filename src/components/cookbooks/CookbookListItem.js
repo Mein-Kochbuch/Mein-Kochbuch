@@ -6,12 +6,12 @@ import {useColorScheme} from "react-native-appearance";
 export default function CookbookListItem({cookbook}) {
 
     const isDarkMode = useColorScheme() === 'dark';
-    const imageSource = cookbook.thumbnail ? {uri: cookbook.thumbnail} : require("../../resources/platzhalter.png")
+    const imageSource = cookbook.thumbnail ? {uri: cookbook.thumbnail} : require("../../../resources/platzhalter.png")
 
     return (
         <StyledTouchableOpacity isDarkMode={isDarkMode}>
             <StyledImage source={imageSource}/>
-            <StyledText numberOfLines={3} ellipsizeMode={"clip"}>
+            <StyledText numberOfLines={2} ellipsizeMode={"middle"}>
                 {cookbook.name}
             </StyledText>
         </StyledTouchableOpacity>
@@ -37,8 +37,9 @@ const StyledText = styled.Text`
 `
 
 const StyledTouchableOpacity = styled.TouchableOpacity`
-  padding: 10px;
+  padding: 12px;
   margin: 12px;
+  height: 120px;
   display: flex;
   align-items: center;
   flex-direction: row;

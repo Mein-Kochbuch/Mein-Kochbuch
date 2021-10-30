@@ -6,7 +6,7 @@ import renderer from 'react-test-renderer';
 import MainMenu from "../../../src/components/mainmenu/MainMenu";
 import MenuButton from "../../../src/components/mainmenu/MenuButton";
 
-jest.mock("../../src/components/MenuButton", () => {
+jest.mock("../../../src/components/mainmenu/MenuButton", () => {
     return (props) => {
         return <div {...props}/>
     }
