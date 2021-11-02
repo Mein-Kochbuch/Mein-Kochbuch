@@ -30,14 +30,17 @@ jest.mock("../../../src/components/list/Header", () => {
 
 it('RecipeTest Test', () => {
 
+    const loadNext = () => {
+    }
+
     const component = renderer.create(
-        <RecipesPage title={"test-title"}/>
+        <RecipesPage recipes={recipes} loadNext={loadNext} title={"test-title"}/>
     );
 
     expect(component.toJSON()).toMatchSnapshot()
-    expect(component.toJSON().children.length).toBe(1)
-    expect(component.toJSON().children[0].children.length).toBe(2)
+    expect(component.toJSON().children.length).toBe(2)
     const testInstance = component.root
     expect(testInstance.findByType(Header).props.title).toBe("test-title")
-    expect(testInstance.findByType(RecipeList).props.recipes).toBe(recipes)
+    expect(testInstance.findByType(RecipeList).props.recipes).toStrictEqual(recipes)
+    expect(testInstance.findByType(RecipeList).props.loadMoreRecipes).toBeTruthy()
 })

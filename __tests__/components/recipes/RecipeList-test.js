@@ -20,12 +20,18 @@ it('RecipeList Test', () => {
     );
 
     expect(component.toJSON()).toMatchSnapshot()
-    expect(component.toJSON().children.length).toBe(2)
+    expect(component.toJSON().children.length).toBe(1)
 
     const testInstance = component.root
 
-    expect(testInstance.findAllByType(RecipeListItem)[0].props.recipe).toStrictEqual({title: "test-title-1", pk: "1"})
+    expect(testInstance.findAllByType(RecipeListItem)[0].props.item.item).toStrictEqual({
+        title: "test-title-1",
+        pk: "1"
+    })
 
 
-    expect(testInstance.findAllByType(RecipeListItem)[1].props.recipe).toStrictEqual({title: "test-title-2", pk: "2"})
+    expect(testInstance.findAllByType(RecipeListItem)[1].props.item.item).toStrictEqual({
+        title: "test-title-2",
+        pk: "2"
+    })
 })

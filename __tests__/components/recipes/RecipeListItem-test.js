@@ -20,12 +20,14 @@ describe("RecipeListItem Test", () => {
     it('dark', () => {
         useColorScheme.mockReturnValueOnce('dark');
 
-        const recipe = {
-            title: "test-title"
+        const item = {
+            item: {
+                title: "test-title"
+            }
         }
 
         const component = renderer.create(
-            <RecipeListItem recipe={recipe}/>
+            <RecipeListItem item={item}/>
         );
 
         expect(component.toJSON()).toMatchSnapshot()
@@ -34,20 +36,22 @@ describe("RecipeListItem Test", () => {
 
         const testInstance = component.root
 
-        expect(testInstance.findAllByType(RecipeListItem)[0].props.recipe).toStrictEqual({title: "test-title"})
+        expect(testInstance.findAllByType(RecipeListItem)[0].props.item.item).toStrictEqual({title: "test-title"})
         expect(testInstance.findAllByType(Image)[0].props.source).toStrictEqual({"testUri": "../../../resources/platzhalter.png"})
     })
 
     it('light', () => {
         useColorScheme.mockReturnValueOnce('light');
 
-        const recipe = {
-            title: "test-title",
-            thumbnail_url: "test-uri"
+        const item = {
+            item: {
+                title: "test-title",
+                thumbnail_url: "test-uri"
+            }
         }
 
         const component = renderer.create(
-            <RecipeListItem recipe={recipe}/>
+            <RecipeListItem item={item}/>
         );
 
         expect(component.toJSON()).toMatchSnapshot()
@@ -56,7 +60,7 @@ describe("RecipeListItem Test", () => {
 
         const testInstance = component.root
 
-        expect(testInstance.findAllByType(RecipeListItem)[0].props.recipe).toStrictEqual({
+        expect(testInstance.findAllByType(RecipeListItem)[0].props.item.item).toStrictEqual({
             title: "test-title",
             thumbnail_url: "test-uri"
         })
