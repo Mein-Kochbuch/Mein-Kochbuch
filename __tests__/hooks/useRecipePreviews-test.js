@@ -9,20 +9,25 @@ import useRecipePreviews from "../../src/hooks/useRecipePreviews";
 jest.mock("axios")
 
 describe('useRecipePreviews Test', () => {
+
+    afterEach(() => {
+        jest.clearAllMocks();
+    });
+
     it('useRecipePreviews', async () => {
 
         axios.get.mockImplementation(() => Promise.resolve({data: {results: [{pk: "1", title: "test-title"}]}}));
 
-        let cookbooksHook
+        let recipePreviewHook
         await act(async () => {
-            cookbooksHook = renderHook(() => {
+            recipePreviewHook = renderHook(() => {
                 return useRecipePreviews()
 
             })
         });
 
         expect(axios.get).toBeCalled()
-        expect(cookbooksHook.result.current.recipes).toStrictEqual([{pk: "1", title: "test-title"}])
+        expect(recipePreviewHook.result.current.recipes).toStrictEqual([{pk: "1", title: "test-title"}])
     })
 
     it('useRecipePreviews loadNext', async () => {
