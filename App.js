@@ -8,9 +8,12 @@ import MyRecipesPage from "./src/components/pages/MyRecipesPage";
 import RecipesPage from "./src/components/pages/RecipesPage";
 import styled from "styled-components/native";
 import useRecipePreviews from "./src/hooks/useRecipePreviews";
+import RecipeDetailsPage from "./src/components/pages/RecipeDetailsPage";
+import useRecipeDetails from "./src/hooks/useRecipeDetails";
 
 const App = () => {
     const {recipePreviews, setFilter, loadNext} = useRecipePreviews()
+    const {getRecipeDetailsById} = useRecipeDetails()
     const isDarkMode = useColorScheme() === 'dark';
     const history = useHistory();
 
@@ -36,8 +39,13 @@ const App = () => {
                     <MyRecipesPage/>
                 </Route>
                 <Route path="/recipes" exact>
-                    <RecipesPage recipes={recipePreviews} setFilter={setFilter} loadNext={loadNext}
+                    <RecipesPage recipes={recipePreviews}
+                                 setFilter={setFilter}
+                                 loadNext={loadNext}
                                  title={"All Recipes"}/>
+                </Route>
+                <Route path={"/recipes/:id"}>
+                    <RecipeDetailsPage getRecipeDetailsById={getRecipeDetailsById}/>
                 </Route>
             </Switch>
         </SafeAreaViewStyled>
