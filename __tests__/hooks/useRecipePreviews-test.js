@@ -27,7 +27,7 @@ describe('useRecipePreviews Test', () => {
         });
 
         expect(axios.get).toBeCalled()
-        expect(recipePreviewHook.result.current.recipes).toStrictEqual([{pk: "1", title: "test-title"}])
+        expect(recipePreviewHook.result.current.recipePreviews).toStrictEqual([{pk: "1", title: "test-title"}])
     })
 
     it('useRecipePreviews loadNext', async () => {
@@ -38,19 +38,19 @@ describe('useRecipePreviews Test', () => {
         }));
         axios.get.mockImplementationOnce(() => Promise.resolve({data: {results: [{pk: "2", title: "test-title-2"}]}}));
 
-        let cookbooksHook
+        let recipePreviewsHook
         await act(async () => {
-            cookbooksHook = renderHook(() => {
+            recipePreviewsHook = renderHook(() => {
                 return useRecipePreviews()
             })
         });
 
         await act(async () => {
-            cookbooksHook.result.current.loadNext()
+            recipePreviewsHook.result.current.loadNext()
         })
 
         expect(axios.get).toBeCalledTimes(2)
-        expect(cookbooksHook.result.current.recipes).toStrictEqual([{pk: "1", title: "test-title"}, {
+        expect(recipePreviewsHook.result.current.recipePreviews).toStrictEqual([{pk: "1", title: "test-title"}, {
             pk: "2",
             title: "test-title-2"
         }])
