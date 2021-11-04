@@ -1,20 +1,23 @@
 import React from "react";
 import Header from "../../components/list/Header";
 import styled from "styled-components/native";
-import useRecipes from "../../hooks/useRecipes";
 import RecipeList from "../../components/recipes/RecipeList";
 
-export default function RecipesPage({title}) {
-    const {recipes} = useRecipes()
+export default function RecipesPage({recipes, loadNext, title}) {
+
+    const loadMoreRecipes = () => {
+        loadNext()
+    }
 
     return (
-        <ScrollViewStyled>
+        <ViewStyled>
             <Header title={title}/>
-            <RecipeList recipes={recipes}/>
-        </ScrollViewStyled>
-    );
+            <RecipeList recipes={recipes} loadMoreRecipes={loadMoreRecipes}/>
+        </ViewStyled>
+    )
+
 }
 
-const ScrollViewStyled = styled.ScrollView`
+const ViewStyled = styled.View`
   height: 100%;
 `

@@ -8,18 +8,51 @@ import useRecipes from "../../src/hooks/useRecipes";
 
 jest.mock("axios")
 
-it('useRecipes Test', async () => {
+describe('useRecipes Test', () => {
 
-    axios.get.mockImplementation(() => Promise.resolve({data: {results: [{pk: "1", title: "test-title"}]}}));
-
-    let cookbooksHook
-    await act(async () => {
-        cookbooksHook = renderHook(() => {
-            return useRecipes()
-
-        })
+    afterEach(() => {
+        jest.clearAllMocks();
     });
 
-    expect(axios.get).toBeCalled()
-    expect(cookbooksHook.result.current.recipes).toStrictEqual([{pk: "1", title: "test-title"}])
+    it('useRecipes', async () => {
+
+        axios.get.mockImplementation(() => Promise.resolve({data: {results: [{pk: "1", title: "test-title"}]}}));
+
+        let recipePreviewHook
+        await act(async () => {
+            recipePreviewHook = renderHook(() => {
+                return useRecipes()
+
+            })
+        });
+
+        expect(axios.get).toBeCalled()
+        expect(recipePreviewHook.result.current.recipes).toStrictEqual([{pk: "1", title: "test-title"}])
+    })
+
+    it('useRecipes loadNext', async () => {
+
+        axios.get.mockImplementationOnce(() => Promise.resolve({
+            next: "next-url",
+            data: {results: [{pk: "1", title: "test-title"}]}
+        }));
+        axios.get.mockImplementationOnce(() => Promise.resolve({data: {results: [{pk: "2", title: "test-title-2"}]}}));
+
+        let cookbooksHook
+        await act(async () => {
+            cookbooksHook = renderHook(() => {
+                return useRecipes()
+            })
+        });
+
+        await act(async () => {
+            cookbooksHook.result.current.loadNext()
+        })
+
+        expect(axios.get).toBeCalledTimes(2)
+        expect(cookbooksHook.result.current.recipes).toStrictEqual([{pk: "1", title: "test-title"}, {
+            pk: "2",
+            title: "test-title-2"
+        }])
+    })
 })

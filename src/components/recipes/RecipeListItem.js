@@ -3,8 +3,10 @@ import styled from "styled-components/native";
 import {Colors} from "react-native/Libraries/NewAppScreen";
 import {useColorScheme} from "react-native-appearance";
 
-export default function RecipeListItem({recipe}) {
+export default function RecipeListItem({item}) {
     const isDarkMode = useColorScheme() === 'dark';
+
+    const recipe = item.item
 
     const imageSource = recipe.thumbnail_url ? {uri: recipe.thumbnail_url} : require("../../../resources/platzhalter.png")
 
