@@ -4,19 +4,19 @@ import React from 'react';
 import {act, renderHook} from '@testing-library/react-hooks'
 
 import * as axios from "axios";
-import useRecipes from "../../src/hooks/useRecipes";
+import useRecipePreviews from "../../src/hooks/useRecipePreviews";
 
 jest.mock("axios")
 
-describe('useRecipes Test', () => {
-    it('useRecipes', async () => {
+describe('useRecipePreviews Test', () => {
+    it('useRecipePreviews', async () => {
 
         axios.get.mockImplementation(() => Promise.resolve({data: {results: [{pk: "1", title: "test-title"}]}}));
 
         let cookbooksHook
         await act(async () => {
             cookbooksHook = renderHook(() => {
-                return useRecipes()
+                return useRecipePreviews()
 
             })
         });
@@ -25,7 +25,7 @@ describe('useRecipes Test', () => {
         expect(cookbooksHook.result.current.recipes).toStrictEqual([{pk: "1", title: "test-title"}])
     })
 
-    it('useRecipes loadNext', async () => {
+    it('useRecipePreviews loadNext', async () => {
 
         axios.get.mockImplementationOnce(() => Promise.resolve({
             next: "next-url",
@@ -36,7 +36,7 @@ describe('useRecipes Test', () => {
         let cookbooksHook
         await act(async () => {
             cookbooksHook = renderHook(() => {
-                return useRecipes()
+                return useRecipePreviews()
             })
         });
 

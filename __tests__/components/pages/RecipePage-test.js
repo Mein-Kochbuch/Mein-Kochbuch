@@ -9,7 +9,7 @@ import RecipeList from "../../../src/components/recipes/RecipeList";
 
 const recipes = [{pk: "1", title: "test-title-1"}, {pk: "2", title: "test-title-2"}]
 
-jest.mock("../../../src/hooks/useRecipes", () => {
+jest.mock("../../../src/hooks/useRecipePreviews", () => {
     return () => {
         return {recipes}
     }
