@@ -25,23 +25,21 @@ const applyFilter = (filter) => {
         url = addParameter(url, "time=" + filter.maxDauer);
     }
     if (filter.difficulty) {
-        url = addParameter(url, "diffiltericulty=" + filter.difficulty);
+        url = addParameter(url, "difficulty=" + filter.difficulty);
     }
     if (filter.zutaten) {
-        const ingredients = ""
-        ingredients.append(filter.zutaten.get(0));
+        let ingredients = filter.zutaten[0]
 
-        for (let i = 1; i < filter.zutaten.size(); i++) {
-            ingredients.append("+").append(filter.zutaten.get(i));
+        for (let i = 1; i < filter.zutaten.length; i++) {
+            ingredients = ingredients.concat("+").concat(filter.zutaten[i]);
         }
         url = addParameter(url, "ingredients=" + ingredients);
     }
 
     if (filter.searchWords) {
-        const search = ""
-        search.append(filter.searchWords.get(0));
-        for (let i = 1; i < filter.searchWords.size(); i++) {
-            search.append("+").append(filter.searchWords.get(i));
+        let search = filter.searchWords[0]
+        for (let i = 1; i < filter.searchWords.length; i++) {
+            search = search.concat("+").concat(filter.searchWords[i]);
         }
         url = addParameter(url, "search=" + search);
     }
