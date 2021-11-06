@@ -1,31 +1,36 @@
 import React from "react";
 import styled from "styled-components/native";
-import {Rating} from "react-native-ratings";
+import RatingCompontent from "./RatingCompontent";
+import Icon from "react-native-vector-icons/Feather";
 import {useColorScheme} from "react-native-appearance";
 import Colors from "react-native/Libraries/NewAppScreen/components/Colors";
 
-export default function RecipeDetailsActionBar() {
+export default function RecipeDetailsActionBar({
+                                                   avgRating,
+                                                   ratingCount,
+                                                   ownRating,
+                                                   handleRating,
+                                                   favorite,
+                                                   handleFavorize
+                                               }) {
     const isDarkMode = useColorScheme() === 'dark';
+    const dislikeColor = isDarkMode ? Colors.lighter : Colors.darker
 
     return (
         <ActionBar>
-            <RatingStyled
-                type={"custom"}
-                tintColor={isDarkMode ? Colors.darker : Colors.lighter}
-            />
+            <RatingCompontent
+                ownRating={ownRating}
+                avgRating={avgRating}
+                ratingCount={ratingCount}
+                handleRating={handleRating}/>
+            <Icon name={"heart"} size={35} color={favorite ? "#f10f0f" : dislikeColor} onPress={handleFavorize}/>
         </ActionBar>
     )
 }
-const RatingStyled = styled(Rating)`
-  padding: 12px;
-  width: 250px;
-`
 
 const ActionBar = styled.View`
   display: flex;
+  flex-direction: row;
+  align-items: flex-end;
   margin: 12px;
-  height: 100px;
-  border-radius: 10px;
-  border-width: 1px;
-  border-color: #fff;
 `
