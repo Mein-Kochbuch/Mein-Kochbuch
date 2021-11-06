@@ -6,6 +6,7 @@ import RecipeDetailsImageGallery from "../recipes/details/RecipeDetailsImageGall
 import RecipeDetailsActionBar from "../recipes/details/RecipeDetailsActionBar";
 import styled from "styled-components/native";
 import RecipeDetailsItemComponent from "../recipes/details/RecipeDetailsItemComponent";
+import RecipeDetailsPortions from "../recipes/details/RecipeDetailsPortions";
 
 export default function RecipeDetailsPage({getRecipeDetailsById}) {
     const {id} = useParams()
@@ -18,10 +19,17 @@ export default function RecipeDetailsPage({getRecipeDetailsById}) {
         <ScrollView>
             <RecipeDetailsHeader title={recipe?.title} owner={recipe?.owner}/>
             <RecipeDetailsImageGallery images={recipe?.image_set}/>
-            <RecipeDetailsActionBar/>
+            <RecipeDetailsActionBar
+                avgRating={recipe?.avg_rating}
+                ratingCount={recipe?.rating_count}
+                ownRating={recipe?.rating}
+                handleRating={handleRating}
+                favorite={recipe?.favorite}
+                handleFavorize={handleFavorize}/>
             <RowWrapper>
                 <ItemStyled content={"Duration: " + recipe?.dauer + " min"}/>
                 <ItemStyled content={"Difficulty: " + recipe?.difficulty.difficulty}/>
+                <PortionsStyled content={"Portions: " + recipe?.portionen}/>
             </RowWrapper>
             <ItemWrapper content={"Ingredients:\n" + ingredients}/>
             <ItemWrapper content={"Instructions: \n" + recipe?.anleitung}/>
@@ -29,7 +37,16 @@ export default function RecipeDetailsPage({getRecipeDetailsById}) {
     )
 }
 
+const PortionsStyled = styled(RecipeDetailsPortions)`
+  width: 49%;
+  margin-top: 12px;
+  border-radius: 10px;
+  border-width: 1px;
+  border-color: #fff;
+`
+
 const ItemStyled = styled(RecipeDetailsItemComponent)`
+  width: 49%;
   justify-content: center;
   border-radius: 10px;
   border-width: 1px;
@@ -50,4 +67,5 @@ const RowWrapper = styled.View`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  flex-wrap: wrap;
 `
