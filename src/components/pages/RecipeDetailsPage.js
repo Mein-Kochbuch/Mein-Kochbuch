@@ -8,12 +8,14 @@ import styled from "styled-components/native";
 import RecipeDetailsItemComponent from "../recipes/details/RecipeDetailsItemComponent";
 import RecipeDetailsPortions from "../recipes/details/RecipeDetailsPortions";
 
-export default function RecipeDetailsPage({getRecipeDetailsById}) {
+export default function RecipeDetailsPage({recipeDetails, getRecipeDetailsById}) {
     const {id} = useParams()
-    const recipe = getRecipeDetailsById(id)
+    const recipe = recipeDetails[id]
     const ingredients = recipe?.zutaten_set.reduce((previousValue, currentValue) => {
         return {zutat: previousValue.zutat.concat("\n").concat(currentValue?.zutat)}
     }).zutat
+
+    getRecipeDetailsById(id)
 
     return (
         <ScrollView>

@@ -7,22 +7,16 @@ export default function useRecipeDetails() {
 
     const getRecipeDetailsById = (id) => {
         if (!(id in recipeDetails)) {
-            loadRecipeDetailsById(id)
-        }
-
-        return recipeDetails[id]
-    }
-
-    const loadRecipeDetailsById = async (id) => {
-        await axios.get(url + id)
-            .then((response) => response.data)
-            .then(data => {
-                setRecipeDetails((currentState) => {
-                    return {...currentState, [data.pk]: data}
+            axios.get(url + id)
+                .then((response) => response.data)
+                .then(data => {
+                    setRecipeDetails((currentState) => {
+                        return {...currentState, [data.pk]: data}
+                    })
                 })
-            })
-            .catch(console.error)
+                .catch(console.error)
+        }
     }
 
-    return {getRecipeDetailsById}
+    return {recipeDetails, getRecipeDetailsById}
 }

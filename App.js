@@ -13,7 +13,7 @@ import useRecipeDetails from "./src/hooks/useRecipeDetails";
 
 const App = () => {
     const {recipePreviews, setFilter, loadNext} = useRecipePreviews()
-    const {getRecipeDetailsById} = useRecipeDetails()
+    const {recipeDetails, getRecipeDetailsById} = useRecipeDetails()
     const isDarkMode = useColorScheme() === 'dark';
     const history = useHistory();
 
@@ -45,7 +45,7 @@ const App = () => {
                                  title={"All Recipes"}/>
                 </Route>
                 <Route path={"/recipes/:id"}>
-                    <RecipeDetailsPage getRecipeDetailsById={getRecipeDetailsById}/>
+                    <RecipeDetailsPage getRecipeDetailsById={getRecipeDetailsById} recipeDetails={recipeDetails}/>
                 </Route>
             </Switch>
         </SafeAreaViewStyled>

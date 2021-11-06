@@ -38,7 +38,7 @@ describe("MultiListItem Test", () => {
         expect(testInstance.findAllByType(MultiListItemImage)[0].props.icon).toBe("test-icon")
     })
 
-    it('dark', () => {
+    it('light', () => {
         useColorScheme.mockReturnValueOnce('light');
 
         const component = renderer.create(
