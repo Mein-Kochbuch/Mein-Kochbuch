@@ -23,7 +23,9 @@ export default function RatingCompontent({avgRating, ratingCount, ownRating, han
             </AvgTextStyled>
             <StarIconStyled name={"star"} size={20} color={"#F1C40F"}/>
             <RatingCountTextStyled>
-                ({ratingCount})
+                {
+                    `(${ratingCount})`
+                }
             </RatingCountTextStyled>
         </ViewStyled>
     )
