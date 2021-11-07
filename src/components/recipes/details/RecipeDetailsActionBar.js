@@ -23,7 +23,7 @@ export default function RecipeDetailsActionBar({
                 avgRating={avgRating}
                 ratingCount={ratingCount}
                 handleRating={handleRating}/>
-            <Icon name={"heart"} size={35} color={favorite ? "#f10f0f" : dislikeColor} onPress={handleFavorize}/>
+            <Icon name={"heart"} size={35} color={favorite ? "#F10F0F" : dislikeColor} onPress={handleFavorize}/>
         </ActionBar>
     )
 }
