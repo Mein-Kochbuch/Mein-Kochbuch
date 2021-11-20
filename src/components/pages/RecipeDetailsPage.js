@@ -25,9 +25,7 @@ export default function RecipeDetailsPage({recipeDetails, getRecipeDetailsById})
                 avgRating={recipe?.avg_rating}
                 ratingCount={recipe?.rating_count}
                 ownRating={recipe?.rating}
-                handleRating={handleRating}
-                favorite={recipe?.favorite}
-                handleFavorize={handleFavorize}/>
+                favorite={recipe?.favorite}/>
             <RowWrapper>
                 <ItemStyled content={"Duration: " + recipe?.dauer + " min"}/>
                 <ItemStyled content={"Difficulty: " + recipe?.difficulty.difficulty}/>
