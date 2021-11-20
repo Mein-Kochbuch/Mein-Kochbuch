@@ -18,5 +18,5 @@ jobs:
       - name: Run Test and Build
         run: |
           npm install
-          npm run test -- -u
+          npm run test
 
