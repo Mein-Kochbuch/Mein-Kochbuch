@@ -4,33 +4,33 @@ import React from 'react';
 import {act, renderHook} from '@testing-library/react-hooks'
 
 import * as axios from "axios";
-import useRecipes from "../../src/hooks/useRecipes";
+import useRecipePreviews from "../../src/hooks/useRecipePreviews";
 
 jest.mock("axios")
 
-describe('useRecipes Test', () => {
+describe('useRecipePreviews Test', () => {
 
     afterEach(() => {
         jest.clearAllMocks();
     });
 
-    it('useRecipes', async () => {
+    it('useRecipePreviews', async () => {
 
         axios.get.mockImplementation(() => Promise.resolve({data: {results: [{pk: "1", title: "test-title"}]}}));
 
         let recipePreviewHook
         await act(async () => {
             recipePreviewHook = renderHook(() => {
-                return useRecipes()
+                return useRecipePreviews()
 
             })
         });
 
         expect(axios.get).toBeCalled()
-        expect(recipePreviewHook.result.current.recipes).toStrictEqual([{pk: "1", title: "test-title"}])
+        expect(recipePreviewHook.result.current.recipePreviews).toStrictEqual([{pk: "1", title: "test-title"}])
     })
 
-    it('useRecipes loadNext', async () => {
+    it('useRecipePreviews loadNext', async () => {
 
         axios.get.mockImplementationOnce(() => Promise.resolve({
             next: "next-url",
@@ -38,19 +38,19 @@ describe('useRecipes Test', () => {
         }));
         axios.get.mockImplementationOnce(() => Promise.resolve({data: {results: [{pk: "2", title: "test-title-2"}]}}));
 
-        let cookbooksHook
+        let recipePreviewsHook
         await act(async () => {
-            cookbooksHook = renderHook(() => {
-                return useRecipes()
+            recipePreviewsHook = renderHook(() => {
+                return useRecipePreviews()
             })
         });
 
         await act(async () => {
-            cookbooksHook.result.current.loadNext()
+            recipePreviewsHook.result.current.loadNext()
         })
 
         expect(axios.get).toBeCalledTimes(2)
-        expect(cookbooksHook.result.current.recipes).toStrictEqual([{pk: "1", title: "test-title"}, {
+        expect(recipePreviewsHook.result.current.recipePreviews).toStrictEqual([{pk: "1", title: "test-title"}, {
             pk: "2",
             title: "test-title-2"
         }])

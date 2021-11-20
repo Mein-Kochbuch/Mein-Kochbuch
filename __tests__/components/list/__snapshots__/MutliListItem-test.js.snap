@@ -53,7 +53,7 @@ exports[`MultiListItem Test dark 1`] = `
 </View>
 `;
 
-exports[`MultiListItem Test dark 2`] = `
+exports[`MultiListItem Test light 1`] = `
 <View
   accessible={true}
   collapsable={false}

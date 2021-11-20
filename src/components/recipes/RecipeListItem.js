@@ -2,16 +2,21 @@ import React from "react";
 import styled from "styled-components/native";
 import {Colors} from "react-native/Libraries/NewAppScreen";
 import {useColorScheme} from "react-native-appearance";
+import {useHistory} from "react-router-native";
 
 export default function RecipeListItem({item}) {
+    const history = useHistory()
     const isDarkMode = useColorScheme() === 'dark';
 
     const recipe = item.item
-
     const imageSource = recipe.thumbnail_url ? {uri: recipe.thumbnail_url} : require("../../../resources/platzhalter.png")
 
+    const handleOnPress = () => {
+        history.push("/recipes/" + recipe.pk)
+    }
+
     return (
-        <StyledTouchableOpacity isDarkMode={isDarkMode}>
+        <StyledTouchableOpacity isDarkMode={isDarkMode} onPress={handleOnPress}>
             <ImageStyled source={imageSource}/>
             <StyledTest numberOfLines={2} ellipsizeMode={"middle"}>
                 {recipe.title}

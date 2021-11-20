@@ -7,10 +7,13 @@ import MainMenuPage from "./src/components/pages/MainMenuPage";
 import MyRecipesPage from "./src/components/pages/MyRecipesPage";
 import RecipesPage from "./src/components/pages/RecipesPage";
 import styled from "styled-components/native";
-import useRecipes from "./src/hooks/useRecipes";
+import useRecipePreviews from "./src/hooks/useRecipePreviews";
+import RecipeDetailsPage from "./src/components/pages/RecipeDetailsPage";
+import useRecipeDetails from "./src/hooks/useRecipeDetails";
 
 const App = () => {
-    const {recipes, setFilter, loadNext} = useRecipes()
+    const {recipePreviews, setFilter, loadNext} = useRecipePreviews()
+    const {recipeDetails, getRecipeDetailsById} = useRecipeDetails()
     const isDarkMode = useColorScheme() === 'dark';
     const history = useHistory();
 
@@ -36,7 +39,13 @@ const App = () => {
                     <MyRecipesPage/>
                 </Route>
                 <Route path="/recipes" exact>
-                    <RecipesPage recipes={recipes} setFilter={setFilter} loadNext={loadNext} title={"All Recipes"}/>
+                    <RecipesPage recipes={recipePreviews}
+                                 setFilter={setFilter}
+                                 loadNext={loadNext}
+                                 title={"All Recipes"}/>
+                </Route>
+                <Route path={"/recipes/:id"}>
+                    <RecipeDetailsPage getRecipeDetailsById={getRecipeDetailsById} recipeDetails={recipeDetails}/>
                 </Route>
             </Switch>
         </SafeAreaViewStyled>
