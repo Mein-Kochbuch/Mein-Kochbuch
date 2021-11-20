@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RecipeDetails Header Test 1`] = `
+<View>
+  <Text
+    style={
+      Array [
+        Object {
+          "fontSize": 40,
+          "textAlign": "center",
+        },
+      ]
+    }
+  >
+    Test-Title
+  </Text>
+  <Text
+    style={
+      Array [
+        Object {
+          "textAlign": "center",
+        },
+      ]
+    }
+  >
+    owner-name
+  </Text>
+</View>
+`;

@@ -1,0 +1,100 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RatingComponent Test Favorite True 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignItems": "flex-end",
+        "display": "flex",
+        "flexDirection": "row",
+        "marginBottom": 12,
+        "marginLeft": 12,
+        "marginRight": 12,
+        "marginTop": 12,
+      },
+    ]
+  }
+>
+  <div
+    avgRating={3}
+    handleRating={[Function]}
+    ownRating={5}
+    ratingCount={17}
+    testID="RatingCompontent"
+  />
+  <div
+    color="#F10F0F"
+    name="heart"
+    onPress={[Function]}
+    size={35}
+    testID="Icon"
+  />
+</View>
+`;
+
+exports[`RatingComponent Test Favorite false dark theme 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignItems": "flex-end",
+        "display": "flex",
+        "flexDirection": "row",
+        "marginBottom": 12,
+        "marginLeft": 12,
+        "marginRight": 12,
+        "marginTop": 12,
+      },
+    ]
+  }
+>
+  <div
+    avgRating={3}
+    handleRating={[Function]}
+    ownRating={5}
+    ratingCount={17}
+    testID="RatingCompontent"
+  />
+  <div
+    color="#F3F3F3"
+    name="heart"
+    onPress={[Function]}
+    size={35}
+    testID="Icon"
+  />
+</View>
+`;
+
+exports[`RatingComponent Test Favorite false light theme 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignItems": "flex-end",
+        "display": "flex",
+        "flexDirection": "row",
+        "marginBottom": 12,
+        "marginLeft": 12,
+        "marginRight": 12,
+        "marginTop": 12,
+      },
+    ]
+  }
+>
+  <div
+    avgRating={3}
+    handleRating={[Function]}
+    ownRating={5}
+    ratingCount={17}
+    testID="RatingCompontent"
+  />
+  <div
+    color="#222"
+    name="heart"
+    onPress={[Function]}
+    size={35}
+    testID="Icon"
+  />
+</View>
+`;

@@ -1,0 +1,425 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MultiListItem Test RatingComponent Test dark 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignItems": "flex-end",
+        "display": "flex",
+        "flexDirection": "row",
+      },
+    ]
+  }
+>
+  <View
+    pointerEvents="auto"
+    style={
+      Array [
+        Object {
+          "paddingTop": 12,
+          "width": 200,
+        },
+      ]
+    }
+  >
+    <View
+      onMoveShouldSetResponder={[Function]}
+      onMoveShouldSetResponderCapture={[Function]}
+      onResponderEnd={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderReject={[Function]}
+      onResponderRelease={[Function]}
+      onResponderStart={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      onStartShouldSetResponderCapture={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "justifyContent": "center",
+        }
+      }
+    >
+      <View
+        onLayout={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "bottom": 0,
+            "flexDirection": "row",
+            "justifyContent": "center",
+            "left": 0,
+            "position": "absolute",
+            "right": 0,
+            "top": 0,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "backgroundColor": "#f1c40f",
+              "height": 30,
+              "width": 75,
+            }
+          }
+        />
+        <View
+          style={
+            Object {
+              "backgroundColor": "white",
+              "height": 30,
+              "width": 75,
+            }
+          }
+        />
+      </View>
+      <View>
+        <Image
+          source={
+            Object {
+              "testUri": "../../react-native-ratings/dist/images/star.png",
+            }
+          }
+          style={
+            Object {
+              "height": 30,
+              "tintColor": "#222",
+              "width": 30,
+            }
+          }
+        />
+      </View>
+      <View>
+        <Image
+          source={
+            Object {
+              "testUri": "../../react-native-ratings/dist/images/star.png",
+            }
+          }
+          style={
+            Object {
+              "height": 30,
+              "tintColor": "#222",
+              "width": 30,
+            }
+          }
+        />
+      </View>
+      <View>
+        <Image
+          source={
+            Object {
+              "testUri": "../../react-native-ratings/dist/images/star.png",
+            }
+          }
+          style={
+            Object {
+              "height": 30,
+              "tintColor": "#222",
+              "width": 30,
+            }
+          }
+        />
+      </View>
+      <View>
+        <Image
+          source={
+            Object {
+              "testUri": "../../react-native-ratings/dist/images/star.png",
+            }
+          }
+          style={
+            Object {
+              "height": 30,
+              "tintColor": "#222",
+              "width": 30,
+            }
+          }
+        />
+      </View>
+      <View>
+        <Image
+          source={
+            Object {
+              "testUri": "../../react-native-ratings/dist/images/star.png",
+            }
+          }
+          style={
+            Object {
+              "height": 30,
+              "tintColor": "#222",
+              "width": 30,
+            }
+          }
+        />
+      </View>
+    </View>
+  </View>
+  <Text
+    style={
+      Array [
+        Object {
+          "fontSize": 20,
+          "paddingTop": 12,
+        },
+      ]
+    }
+  >
+    4
+  </Text>
+  <Text
+    allowFontScaling={false}
+    style={
+      Array [
+        Object {
+          "color": "#F1C40F",
+          "fontSize": 20,
+        },
+        Array [
+          Object {
+            "paddingTop": 12,
+          },
+        ],
+        Object {
+          "fontFamily": "Feather",
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+        },
+        Object {},
+      ]
+    }
+  >
+    
+  </Text>
+  <Text
+    style={
+      Array [
+        Object {
+          "fontSize": 10,
+          "paddingTop": 12,
+        },
+      ]
+    }
+  >
+    (12)
+  </Text>
+</View>
+`;
+
+exports[`MultiListItem Test RatingComponent Test light 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignItems": "flex-end",
+        "display": "flex",
+        "flexDirection": "row",
+      },
+    ]
+  }
+>
+  <View
+    pointerEvents="auto"
+    style={
+      Array [
+        Object {
+          "paddingTop": 12,
+          "width": 200,
+        },
+      ]
+    }
+  >
+    <View
+      onMoveShouldSetResponder={[Function]}
+      onMoveShouldSetResponderCapture={[Function]}
+      onResponderEnd={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderReject={[Function]}
+      onResponderRelease={[Function]}
+      onResponderStart={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      onStartShouldSetResponderCapture={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "justifyContent": "center",
+        }
+      }
+    >
+      <View
+        onLayout={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "bottom": 0,
+            "flexDirection": "row",
+            "justifyContent": "center",
+            "left": 0,
+            "position": "absolute",
+            "right": 0,
+            "top": 0,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "backgroundColor": "#f1c40f",
+              "height": 30,
+              "width": 75,
+            }
+          }
+        />
+        <View
+          style={
+            Object {
+              "backgroundColor": "white",
+              "height": 30,
+              "width": 75,
+            }
+          }
+        />
+      </View>
+      <View>
+        <Image
+          source={
+            Object {
+              "testUri": "../../react-native-ratings/dist/images/star.png",
+            }
+          }
+          style={
+            Object {
+              "height": 30,
+              "tintColor": "#F3F3F3",
+              "width": 30,
+            }
+          }
+        />
+      </View>
+      <View>
+        <Image
+          source={
+            Object {
+              "testUri": "../../react-native-ratings/dist/images/star.png",
+            }
+          }
+          style={
+            Object {
+              "height": 30,
+              "tintColor": "#F3F3F3",
+              "width": 30,
+            }
+          }
+        />
+      </View>
+      <View>
+        <Image
+          source={
+            Object {
+              "testUri": "../../react-native-ratings/dist/images/star.png",
+            }
+          }
+          style={
+            Object {
+              "height": 30,
+              "tintColor": "#F3F3F3",
+              "width": 30,
+            }
+          }
+        />
+      </View>
+      <View>
+        <Image
+          source={
+            Object {
+              "testUri": "../../react-native-ratings/dist/images/star.png",
+            }
+          }
+          style={
+            Object {
+              "height": 30,
+              "tintColor": "#F3F3F3",
+              "width": 30,
+            }
+          }
+        />
+      </View>
+      <View>
+        <Image
+          source={
+            Object {
+              "testUri": "../../react-native-ratings/dist/images/star.png",
+            }
+          }
+          style={
+            Object {
+              "height": 30,
+              "tintColor": "#F3F3F3",
+              "width": 30,
+            }
+          }
+        />
+      </View>
+    </View>
+  </View>
+  <Text
+    style={
+      Array [
+        Object {
+          "fontSize": 20,
+          "paddingTop": 12,
+        },
+      ]
+    }
+  >
+    4
+  </Text>
+  <Text
+    allowFontScaling={false}
+    style={
+      Array [
+        Object {
+          "color": "#F1C40F",
+          "fontSize": 20,
+        },
+        Array [
+          Object {
+            "paddingTop": 12,
+          },
+        ],
+        Object {
+          "fontFamily": "Feather",
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+        },
+        Object {},
+      ]
+    }
+  >
+    
+  </Text>
+  <Text
+    style={
+      Array [
+        Object {
+          "fontSize": 10,
+          "paddingTop": 12,
+        },
+      ]
+    }
+  >
+    (
+    12
+    )
+  </Text>
+</View>
+`;
