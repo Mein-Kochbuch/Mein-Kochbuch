@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MyRecipeTest Test 1`] = `
+<RCTScrollView
+  style={
+    Object {
+      "height": "100%",
+    }
+  }
+>
+  <View>
+    <div
+      title="My Recipes"
+    />
+    <div
+      cookbooks={
+        Array [
+          Object {
+            "cookbook": "1",
+            "pk": "1",
+          },
+          Object {
+            "cookbook": "2",
+            "pk": "2",
+          },
+        ]
+      }
+    />
+  </View>
+</RCTScrollView>
+`;
