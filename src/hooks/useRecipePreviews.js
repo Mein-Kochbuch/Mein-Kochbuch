@@ -1,11 +1,13 @@
 import {useEffect, useState} from "react";
-import axios from "axios";
 import {applyFilter} from "../utils/urlService";
+import AxiosInstance from "../utils/AxiosInstance";
 
 export default function useRecipePreviews() {
     const [recipePreviews, setRecipePreviews] = useState([])
     const [filter, setFilter] = useState({})
     const [nextUrl, setNextUrl] = useState("")
+
+    const axios = AxiosInstance()
 
     useEffect(() => {
         axios.get(applyFilter(filter))

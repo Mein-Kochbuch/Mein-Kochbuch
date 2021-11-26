@@ -1,9 +1,11 @@
 import {useState} from "react";
-import axios from "axios";
+import AxiosInstance from "../utils/AxiosInstance";
 
 export default function useRecipeDetails() {
     const [recipeDetails, setRecipeDetails] = useState({})
-    const url = "https://mein-kochbuch.org/api/rezepte/"
+    const url = "rezepte/"
+
+    const axios = AxiosInstance()
 
     const getRecipeDetailsById = (id) => {
         if (!(id in recipeDetails)) {

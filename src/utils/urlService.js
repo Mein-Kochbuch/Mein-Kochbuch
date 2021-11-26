@@ -1,10 +1,10 @@
-const baseUrl = "https://mein-kochbuch.org/api/"
+
 
 const applyFilter = (filter) => {
-    let url = "https://mein-kochbuch.org/api/rezepte/"
+    let url = "rezepte/"
 
     if ("sammlungsID" in filter) {
-        url = baseUrl + "sammlungen/" + filter.sammlungsID
+        url = "sammlungen/" + filter.sammlungsID
     }
 
     if (filter.count) {

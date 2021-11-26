@@ -1,9 +1,11 @@
 import {useEffect, useState} from "react";
-import axios from "axios";
+import AxiosInstance from "../utils/AxiosInstance";
 
 export default function useCookbooks() {
     const [cookbooks, setCookbooks] = useState([])
-    const url = "https://mein-kochbuch.org/api/sammlungen/"
+    const url = "sammlungen/"
+
+    const axios = AxiosInstance()
 
     useEffect(() => {
         axios.get(url)
