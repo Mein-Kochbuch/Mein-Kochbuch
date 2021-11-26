@@ -85,14 +85,13 @@ it('RecipeDetailsPage Test', () => {
         {title: "recipe-title", owner: {name: "owner-name"}}
     )
     expect(component.toJSON().children[0].children[1].props).toStrictEqual({images: [{image: "url"}]})
-    expect(component.toJSON().children[0].children[2].props).toStrictEqual(
-        {
-            avgRating: 3.7,
-            ratingCount: 17,
-            ownRating: 2.5,
-            favorite: true
-        }
-    )
+    expect(typeof component.toJSON().children[0].children[2].props.handleFavorize).toBe("function")
+    expect(typeof component.toJSON().children[0].children[2].props.handleRating).toBe("function")
+    expect(component.toJSON().children[0].children[2].props.favorite).toBe(true)
+    expect(component.toJSON().children[0].children[2].props.avgRating).toBe(3.7)
+    expect(component.toJSON().children[0].children[2].props.ratingCount).toBe(17)
+    expect(component.toJSON().children[0].children[2].props.ownRating).toBe(2.5)
+
     expect(component.toJSON().children[0].children[3].children[0].props).toStrictEqual({
         content: "Duration: 25 min",
         style: [

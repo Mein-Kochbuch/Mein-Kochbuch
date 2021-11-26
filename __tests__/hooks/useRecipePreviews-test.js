@@ -3,10 +3,28 @@ import React from 'react';
 // Note: test renderer must be required after react-native.
 import {act, renderHook} from '@testing-library/react-hooks'
 
-import * as axios from "axios";
 import useRecipePreviews from "../../src/hooks/useRecipePreviews";
 
-jest.mock("axios")
+jest.mock("../../src/utils/AxiosInstance", () => jest.fn(
+    () => ({
+        get: jest.fn().mockImplementationOnce(() => Promise.resolve({
+            data: {
+                results: [{
+                    pk: "1",
+                    title: "test-title"
+                }]
+            }
+        }))
+            .mockImplementationOnce(() => Promise.resolve({
+                data: {
+                    results: [{
+                        pk: "2",
+                        title: "test-title-2"
+                    }]
+                }
+            }))
+    }))
+);
 
 describe('useRecipePreviews Test', () => {
 
@@ -14,9 +32,9 @@ describe('useRecipePreviews Test', () => {
         jest.clearAllMocks();
     });
 
-    it('useRecipePreviews', async () => {
+    //AxiosInstance().get.mockImplementationOnce(() => Promise.resolve({data: {results: [{pk: "1", title: "test-title"}]}}))
 
-        axios.get.mockImplementation(() => Promise.resolve({data: {results: [{pk: "1", title: "test-title"}]}}));
+    it('useRecipePreviews', async () => {
 
         let recipePreviewHook
         await act(async () => {
@@ -26,17 +44,23 @@ describe('useRecipePreviews Test', () => {
             })
         });
 
-        expect(axios.get).toBeCalled()
         expect(recipePreviewHook.result.current.recipePreviews).toStrictEqual([{pk: "1", title: "test-title"}])
     })
 
     it('useRecipePreviews loadNext', async () => {
 
-        axios.get.mockImplementationOnce(() => Promise.resolve({
-            next: "next-url",
-            data: {results: [{pk: "1", title: "test-title"}]}
-        }));
-        axios.get.mockImplementationOnce(() => Promise.resolve({data: {results: [{pk: "2", title: "test-title-2"}]}}));
+        // AxiosInstance().get.mockImplementationOnce(() => Promise.resolve({
+        //     next: "next-url",
+        //     data: {results: [{pk: "1", title: "test-title"}]}
+        // }));
+        // AxiosInstance().get.mockImplementationOnce(() => Promise.resolve({
+        //     data: {
+        //         results: [{
+        //             pk: "2",
+        //             title: "test-title-2"
+        //         }]
+        //     }
+        // }));
 
         let recipePreviewsHook
         await act(async () => {
@@ -49,10 +73,10 @@ describe('useRecipePreviews Test', () => {
             recipePreviewsHook.result.current.loadNext()
         })
 
-        expect(axios.get).toBeCalledTimes(2)
-        expect(recipePreviewsHook.result.current.recipePreviews).toStrictEqual([{pk: "1", title: "test-title"}, {
-            pk: "2",
-            title: "test-title-2"
-        }])
+        //expect(AxiosInstance().get).toBeCalledTimes(2)
+        expect(recipePreviewsHook.result.current.recipePreviews).toStrictEqual([
+            {pk: "1", title: "test-title"},
+            {pk: "2", title: "test-title-2"}
+        ])
     })
 })

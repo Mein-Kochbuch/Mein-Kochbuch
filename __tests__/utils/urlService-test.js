@@ -7,7 +7,7 @@ describe('urlService Test', () => {
 
         const url = applyFilter(filter)
 
-        expect(url).toBe("https://mein-kochbuch.org/api/rezepte/")
+        expect(url).toBe("rezepte/")
     })
 
     it('cookbook', () => {
@@ -16,7 +16,7 @@ describe('urlService Test', () => {
 
         const url = applyFilter(filter)
 
-        expect(url).toBe("https://mein-kochbuch.org/api/sammlungen/1")
+        expect(url).toBe("sammlungen/1")
     })
 
     it('page', () => {
@@ -25,7 +25,7 @@ describe('urlService Test', () => {
 
         const url = applyFilter(filter)
 
-        expect(url).toBe("https://mein-kochbuch.org/api/rezepte/?page=2")
+        expect(url).toBe("rezepte/?page=2")
     })
 
     it('owner', () => {
@@ -34,7 +34,7 @@ describe('urlService Test', () => {
 
         const url = applyFilter(filter)
 
-        expect(url).toBe("https://mein-kochbuch.org/api/rezepte/?user=me")
+        expect(url).toBe("rezepte/?user=me")
     })
 
     it('sortBy', () => {
@@ -43,7 +43,7 @@ describe('urlService Test', () => {
 
         const url = applyFilter(filter)
 
-        expect(url).toBe("https://mein-kochbuch.org/api/rezepte/?sort=-avg_rating")
+        expect(url).toBe("rezepte/?sort=-avg_rating")
     })
 
     it('favorite', () => {
@@ -52,7 +52,7 @@ describe('urlService Test', () => {
 
         const url = applyFilter(filter)
 
-        expect(url).toBe("https://mein-kochbuch.org/api/rezepte/?filteravorite=True")
+        expect(url).toBe("rezepte/?filteravorite=True")
     })
 
     it('duration', () => {
@@ -61,7 +61,7 @@ describe('urlService Test', () => {
 
         const url = applyFilter(filter)
 
-        expect(url).toBe("https://mein-kochbuch.org/api/rezepte/?time=10")
+        expect(url).toBe("rezepte/?time=10")
     })
 
     it('difficulty', () => {
@@ -70,7 +70,7 @@ describe('urlService Test', () => {
 
         const url = applyFilter(filter)
 
-        expect(url).toBe("https://mein-kochbuch.org/api/rezepte/?difficulty=Mittel")
+        expect(url).toBe("rezepte/?difficulty=Mittel")
     })
 
     it('ingredients', () => {
@@ -84,7 +84,7 @@ describe('urlService Test', () => {
 
         const url = applyFilter(filter)
 
-        expect(url).toBe("https://mein-kochbuch.org/api/rezepte/?ingredients=zutat1+zutat2")
+        expect(url).toBe("rezepte/?ingredients=zutat1+zutat2")
     })
 
     it('search', () => {
@@ -98,6 +98,6 @@ describe('urlService Test', () => {
 
         const url = applyFilter(filter)
 
-        expect(url).toBe("https://mein-kochbuch.org/api/rezepte/?search=searchWord1+searchWord2")
+        expect(url).toBe("rezepte/?search=searchWord1+searchWord2")
     })
 })

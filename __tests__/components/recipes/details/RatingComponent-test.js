@@ -45,7 +45,7 @@ describe("RatingComponent Test", () => {
         expect(testInstance.findAllByType(Rating)[0].props.type).toBe("custom")
         expect(testInstance.findAllByType(Rating)[0].props.fractions).toBe(1)
         expect(testInstance.findAllByType(Rating)[0].props.imageSize).toBe(30)
-        expect(testInstance.findAllByType(Rating)[0].props.defaultRating).toBe(ownRating)
+        expect(testInstance.findAllByType(Rating)[0].props.startingValue).toBe(ownRating)
         expect(testInstance.findAllByType(Rating)[0].props.tintColor).toBe(Colors.darker)
         expect(testInstance.findAllByType(Rating)[0].props.onFinishRating).toBe(handleRating)
 
@@ -81,7 +81,7 @@ describe("RatingComponent Test", () => {
         expect(testInstance.findAllByType(Rating)[0].props.type).toBe("custom")
         expect(testInstance.findAllByType(Rating)[0].props.fractions).toBe(1)
         expect(testInstance.findAllByType(Rating)[0].props.imageSize).toBe(30)
-        expect(testInstance.findAllByType(Rating)[0].props.defaultRating).toBe(ownRating)
+        expect(testInstance.findAllByType(Rating)[0].props.startingValue).toBe(ownRating)
         expect(testInstance.findAllByType(Rating)[0].props.tintColor).toBe(Colors.lighter)
         expect(testInstance.findAllByType(Rating)[0].props.onFinishRating).toBe(handleRating)
 
