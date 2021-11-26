@@ -14,7 +14,7 @@ export default function RatingCompontent({avgRating, ratingCount, ownRating, han
                 type={"custom"}
                 fractions={1}
                 imageSize={30}
-                defaultRating={ownRating}
+                startingValue={ownRating ? ownRating : 2.5}
                 tintColor={isDarkMode ? Colors.darker : Colors.lighter}
                 onFinishRating={handleRating}
             />

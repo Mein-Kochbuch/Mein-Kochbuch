@@ -1,6 +1,6 @@
 import React, {useContext} from "react";
 import {ScrollView} from "react-native";
-import {Redirect, useParams} from 'react-router-native'
+import {useHistory, useParams} from 'react-router-native'
 import RecipeDetailsHeader from "../recipes/details/RecipeDetailsHeader";
 import RecipeDetailsImageGallery from "../recipes/details/RecipeDetailsImageGallery";
 import RecipeDetailsActionBar from "../recipes/details/RecipeDetailsActionBar";
@@ -9,9 +9,10 @@ import RecipeDetailsItemComponent from "../recipes/details/RecipeDetailsItemComp
 import RecipeDetailsPortions from "../recipes/details/RecipeDetailsPortions";
 import {AuthContext} from "../../context/AuthProvider";
 
-export default function RecipeDetailsPage({recipeDetails, getRecipeDetailsById, favorizeRecipeById}) {
+export default function RecipeDetailsPage({recipeDetails, getRecipeDetailsById, favorizeRecipeById, rateRecipeById}) {
     const auth = useContext(AuthContext)
     const {id} = useParams()
+    const history = useHistory()
     const recipe = recipeDetails[id]
     const ingredients = recipe?.zutaten_set.reduce((previousValue, currentValue) => {
         return {zutat: previousValue.zutat.concat("\n").concat(currentValue?.zutat)}
@@ -20,11 +21,15 @@ export default function RecipeDetailsPage({recipeDetails, getRecipeDetailsById, 
     getRecipeDetailsById(id)
 
     const handleFavorize = () => {
-        console.log("fav")
         auth.user ?
             favorizeRecipeById(id)
-            : <Redirect to={"/login"}/>
+            : history.push("/login")
+    }
 
+    const handleRating = (rating) => {
+        auth.user ?
+            rateRecipeById(id, rating)
+            : history.push("/login")
     }
 
     return (
@@ -36,6 +41,7 @@ export default function RecipeDetailsPage({recipeDetails, getRecipeDetailsById, 
                 ratingCount={recipe?.rating_count}
                 ownRating={recipe?.rating}
                 favorite={recipe?.favorite}
+                handleRating={handleRating}
                 handleFavorize={handleFavorize}/>
             <RowWrapper>
                 <ItemStyled content={"Duration: " + recipe?.dauer + " min"}/>

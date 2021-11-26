@@ -34,5 +34,20 @@ export default function useRecipeDetails() {
             .catch(console.error)
     }
 
-    return {recipeDetails, getRecipeDetailsById, favorizeRecipeById}
+    const rateRecipeById = (id, rating) => {
+        return axios.post("rate/", {pk: id, rating: rating})
+            .then(response => response.data)
+            .then(data => {
+                console.log(data)
+                setRecipeDetails((currentState) => {
+                    return {
+                        ...currentState, [id]: {...currentState[id], rating: data.result.rating}
+                    }
+                })
+                return data
+            })
+            .catch(console.error)
+    }
+
+    return {recipeDetails, getRecipeDetailsById, favorizeRecipeById, rateRecipeById}
 }
