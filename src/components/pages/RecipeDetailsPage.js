@@ -1,14 +1,16 @@
-import React from "react";
+import React, {useContext} from "react";
 import {ScrollView} from "react-native";
-import {useParams} from 'react-router-native'
+import {Redirect, useParams} from 'react-router-native'
 import RecipeDetailsHeader from "../recipes/details/RecipeDetailsHeader";
 import RecipeDetailsImageGallery from "../recipes/details/RecipeDetailsImageGallery";
 import RecipeDetailsActionBar from "../recipes/details/RecipeDetailsActionBar";
 import styled from "styled-components/native";
 import RecipeDetailsItemComponent from "../recipes/details/RecipeDetailsItemComponent";
 import RecipeDetailsPortions from "../recipes/details/RecipeDetailsPortions";
+import {AuthContext} from "../../context/AuthProvider";
 
-export default function RecipeDetailsPage({recipeDetails, getRecipeDetailsById}) {
+export default function RecipeDetailsPage({recipeDetails, getRecipeDetailsById, favorizeRecipeById}) {
+    const auth = useContext(AuthContext)
     const {id} = useParams()
     const recipe = recipeDetails[id]
     const ingredients = recipe?.zutaten_set.reduce((previousValue, currentValue) => {
@@ -16,6 +18,14 @@ export default function RecipeDetailsPage({recipeDetails, getRecipeDetailsById})
     }).zutat
 
     getRecipeDetailsById(id)
+
+    const handleFavorize = () => {
+        console.log("fav")
+        auth.user ?
+            favorizeRecipeById(id)
+            : <Redirect to={"/login"}/>
+
+    }
 
     return (
         <ScrollView>
@@ -25,7 +35,8 @@ export default function RecipeDetailsPage({recipeDetails, getRecipeDetailsById})
                 avgRating={recipe?.avg_rating}
                 ratingCount={recipe?.rating_count}
                 ownRating={recipe?.rating}
-                favorite={recipe?.favorite}/>
+                favorite={recipe?.favorite}
+                handleFavorize={handleFavorize}/>
             <RowWrapper>
                 <ItemStyled content={"Duration: " + recipe?.dauer + " min"}/>
                 <ItemStyled content={"Difficulty: " + recipe?.difficulty.difficulty}/>

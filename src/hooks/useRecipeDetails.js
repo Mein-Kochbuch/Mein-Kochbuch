@@ -20,5 +20,19 @@ export default function useRecipeDetails() {
         }
     }
 
-    return {recipeDetails, getRecipeDetailsById}
+    const favorizeRecipeById = (id) => {
+        return axios.post("favorite/", {pk: id})
+            .then(response => response.data)
+            .then(data => {
+                setRecipeDetails((currentState) => {
+                    return {
+                        ...currentState, [id]: {...currentState[id], favorite: data.result}
+                    }
+                })
+                return data
+            })
+            .catch(console.error)
+    }
+
+    return {recipeDetails, getRecipeDetailsById, favorizeRecipeById}
 }
