@@ -4,17 +4,14 @@ import React from 'react';
 import useCookbooks from "../../src/hooks/useCookbooks";
 import {act, renderHook} from '@testing-library/react-hooks'
 
-jest.mock("../../src/utils/AxiosInstance", () => jest.fn(
-    () => ({
-        get: jest.fn().mockImplementationOnce(() => Promise.resolve({data: {results: [{recipe: "1"}, {recipe: "2"}]}})),
-    }))
-);
+import * as axios from "axios";
+
+jest.mock("axios")
+axios.create.mockImplementation(() => axios)
 
 it('useCookbooks Test', async () => {
 
-    afterEach(() => {
-        jest.clearAllMocks();
-    });
+    axios.get.mockImplementation(() => Promise.resolve({data: {results: [{recipe: "1"}, {recipe: "2"}]}}));
 
     let cookbooksHook
     await act(async () => {
@@ -24,5 +21,6 @@ it('useCookbooks Test', async () => {
         })
     });
 
+    expect(axios.get).toBeCalled()
     expect(cookbooksHook.result.current.cookbooks).toStrictEqual([{recipe: "1"}, {recipe: "2"}])
 })
