@@ -1,5 +1,5 @@
 import React from "react";
-import Header from "../../components/list/Header";
+import Header from "./Header";
 import styled from "styled-components/native";
 import RecipeList from "../../components/recipes/RecipeList";
 

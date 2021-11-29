@@ -1,6 +1,6 @@
 import React from "react";
 import MainMenu from "../mainmenu/MainMenu";
-import Header from "../list/Header";
+import Header from "./Header";
 import {StyleSheet, View} from "react-native";
 
 export default function MainMenuPage() {

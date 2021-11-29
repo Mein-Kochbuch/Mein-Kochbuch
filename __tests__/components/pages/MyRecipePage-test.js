@@ -5,7 +5,7 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import MyRecipesPage from "../../../src/components/pages/MyRecipesPage";
 import MyRecipesList from "../../../src/components/recipes/MyRecipesList";
-import Header from "../../../src/components/list/Header"
+import Header from "../../../src/components/pages/Header"
 
 const cookbooks = [{cookbook: "1", pk: "1"}, {cookbook: "2", pk: "2"}]
 

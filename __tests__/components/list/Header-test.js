@@ -1,6 +1,6 @@
 import 'react-native';
 import React from 'react';
-import Header from "../../../src/components/list/Header";
+import Header from "../../../src/components/pages/Header";
 
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer';
