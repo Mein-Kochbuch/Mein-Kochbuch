@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoginPage Test 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "display": "flex",
+        "flexDirection": "column",
+      },
+    ]
+  }
+>
+  <div
+    title="Login"
+  />
+  <div />
+  <div
+    onSubmit={[Function]}
+  />
+  <View>
+    <div />
+  </View>
+</View>
+`;
