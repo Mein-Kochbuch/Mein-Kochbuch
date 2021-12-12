@@ -13,7 +13,7 @@ jest.mock("../../../src/components/mainmenu/MainMenu", () => {
     }
 });
 
-jest.mock("../../../src/components/list/Header", () => {
+jest.mock("../../../src/components/pages/Header", () => {
     return (props) => {
         return <div {...props}/>
     }

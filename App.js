@@ -10,6 +10,7 @@ import styled from "styled-components/native";
 import useRecipePreviews from "./src/hooks/useRecipePreviews";
 import RecipeDetailsPage from "./src/components/pages/RecipeDetailsPage";
 import useRecipeDetails from "./src/hooks/useRecipeDetails";
+import LoginPage from "./src/components/pages/LoginPage";
 
 const App = () => {
     const {recipePreviews, setFilter, loadNext} = useRecipePreviews()
@@ -49,6 +50,9 @@ const App = () => {
                                        recipeDetails={recipeDetails}
                                        favorizeRecipeById={favorizeRecipeById}
                                        rateRecipeById={rateRecipeById}/>
+                </Route>
+                <Route path={"/login"}>
+                    <LoginPage/>
                 </Route>
             </Switch>
         </SafeAreaViewStyled>

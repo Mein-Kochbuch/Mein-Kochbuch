@@ -42,6 +42,6 @@ describe("MainMenu Test", () => {
         expect(testInstance.findAllByType(MenuButton)[3].props.path).toBe("addrecipe")
 
         expect(testInstance.findAllByType(MenuButton)[4].props.text).toBe("Settings")
-        expect(testInstance.findAllByType(MenuButton)[4].props.path).toBe("settings")
+        expect(testInstance.findAllByType(MenuButton)[4].props.path).toBe("login")
     })
 })

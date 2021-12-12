@@ -41,7 +41,7 @@ exports[`MainMenu Test MainMenu Test 1`] = `
     }
   >
     <div
-      path="settings"
+      path="login"
       text="Settings"
     />
   </View>

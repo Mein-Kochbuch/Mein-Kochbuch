@@ -21,7 +21,7 @@ jest.mock("../../../src/components/recipes/MyRecipesList", () => {
     }
 });
 
-jest.mock("../../../src/components/list/Header", () => {
+jest.mock("../../../src/components/pages/Header", () => {
     return (props) => {
         return <div {...props}/>
     }

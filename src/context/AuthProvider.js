@@ -10,7 +10,7 @@ export default function AuthProvider({children}) {
 
     const login = credentials => {
         return axios
-            .post(`${url}/api-token-auth/`, credentials)
+            .post(`${url}api-token-auth/`, credentials)
             .then(response => response.data)
             .then(data => {
                 setUser(data)
