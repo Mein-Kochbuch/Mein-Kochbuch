@@ -38,7 +38,6 @@ export default function useRecipeDetails() {
         return axios.post("rate/", {pk: id, rating: rating})
             .then(response => response.data)
             .then(data => {
-                console.log(data)
                 setRecipeDetails((currentState) => {
                     return {
                         ...currentState, [id]: {...currentState[id], rating: data.result.rating}

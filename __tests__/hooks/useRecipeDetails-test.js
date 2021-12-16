@@ -104,4 +104,80 @@ describe('useRecipeDetails Test', () => {
         expect(axios.get).toBeCalledTimes(1)
         expect(recipeDetailsHook.result.current.recipeDetails).toStrictEqual({"1": {pk: "1", title: "test-title"}})
     })
+
+    it('useRecipeDetails favorizeRecipeById Test', async () => {
+
+        axios.get.mockImplementationOnce(() => Promise.resolve({
+            data: {
+                pk: "1",
+                title: "test-title",
+                favorite: false
+            }
+        }));
+        axios.post.mockImplementationOnce(() => Promise.resolve({
+            data: {
+                result: true
+            }
+        }));
+
+        let recipeDetailsHook
+        await act(async () => {
+            recipeDetailsHook = renderHook(() => {
+                return useRecipeDetails()
+            })
+        });
+
+        await act(async () => {
+            recipeDetailsHook.result.current.getRecipeDetailsById("1")
+        })
+
+        await act(async () => {
+            recipeDetailsHook.result.current.favorizeRecipeById("1")
+        })
+
+        expect(axios.get).toBeCalledTimes(1)
+        expect(axios.post).toBeCalledTimes(1)
+        expect(recipeDetailsHook.result.current.recipeDetails).toStrictEqual({
+            "1": {pk: "1", title: "test-title", favorite: true},
+        })
+    })
+
+    it('useRecipeDetails rateRecipeById Test', async () => {
+
+        axios.get.mockImplementationOnce(() => Promise.resolve({
+            data: {
+                pk: "1",
+                title: "test-title",
+                rating: 1,
+            }
+        }));
+        axios.post.mockImplementationOnce(() => Promise.resolve({
+            data: {
+                result: {
+                    rating: 2.5
+                }
+            }
+        }));
+
+        let recipeDetailsHook
+        await act(async () => {
+            recipeDetailsHook = renderHook(() => {
+                return useRecipeDetails()
+            })
+        });
+
+        await act(async () => {
+            recipeDetailsHook.result.current.getRecipeDetailsById("1")
+        })
+
+        await act(async () => {
+            recipeDetailsHook.result.current.rateRecipeById("1")
+        })
+
+        expect(axios.get).toBeCalledTimes(1)
+        expect(axios.post).toBeCalledTimes(1)
+        expect(recipeDetailsHook.result.current.recipeDetails).toStrictEqual({
+            "1": {pk: "1", title: "test-title", rating: 2.5},
+        })
+    })
 })
