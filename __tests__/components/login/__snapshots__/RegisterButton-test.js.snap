@@ -1,0 +1,107 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RegisterButton Test RegisterButton darkmode Test 1`] = `
+<View
+  accessibilityState={
+    Object {
+      "disabled": true,
+    }
+  }
+  accessible={true}
+  collapsable={false}
+  focusable={false}
+  nativeID="animatedComponent"
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "borderColor": "#F3F3F3",
+      "borderRadius": 10,
+      "borderStyle": "solid",
+      "borderWidth": 2,
+      "display": "flex",
+      "flexDirection": "column",
+      "justifyContent": "space-between",
+      "marginBottom": 12,
+      "marginLeft": 12,
+      "marginRight": 12,
+      "marginTop": 12,
+      "minWidth": 300,
+      "opacity": 1,
+      "width": "80%",
+    }
+  }
+>
+  <Text
+    style={
+      Array [
+        Object {
+          "fontSize": 30,
+          "textAlign": "center",
+        },
+      ]
+    }
+  >
+    Register
+  </Text>
+</View>
+`;
+
+exports[`RegisterButton Test RegisterButton lightmode Test 1`] = `
+<View
+  accessibilityState={
+    Object {
+      "disabled": true,
+    }
+  }
+  accessible={true}
+  collapsable={false}
+  focusable={false}
+  nativeID="animatedComponent"
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "borderColor": "#222",
+      "borderRadius": 10,
+      "borderStyle": "solid",
+      "borderWidth": 2,
+      "display": "flex",
+      "flexDirection": "column",
+      "justifyContent": "space-between",
+      "marginBottom": 12,
+      "marginLeft": 12,
+      "marginRight": 12,
+      "marginTop": 12,
+      "minWidth": 300,
+      "opacity": 1,
+      "width": "80%",
+    }
+  }
+>
+  <Text
+    style={
+      Array [
+        Object {
+          "fontSize": 30,
+          "textAlign": "center",
+        },
+      ]
+    }
+  >
+    Register
+  </Text>
+</View>
+`;

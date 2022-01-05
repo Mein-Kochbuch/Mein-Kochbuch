@@ -9,9 +9,8 @@ export default function RegisterButton() {
 
     return (
         <StyledButton
-            isDarkMode={isDarkMode}
-            onPress={() => {
-            }}>
+            disabled={true}
+            isDarkMode={isDarkMode}>
             <StyledText>
                 Register
             </StyledText>
