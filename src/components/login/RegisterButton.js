@@ -2,15 +2,20 @@ import React from "react";
 import styled from "styled-components/native/dist/styled-components.native.esm";
 import {Colors} from "react-native/Libraries/NewAppScreen";
 import {useColorScheme} from "react-native-appearance";
+import { useHistory } from "react-router-native";
 
 export default function RegisterButton() {
-
+    const history = useHistory
     const isDarkMode = useColorScheme() === 'dark';
+
+    const onPress = () => {
+      history.push(`/register`)
+    }
 
     return (
         <StyledButton
-            disabled={true}
-            isDarkMode={isDarkMode}>
+            isDarkMode={isDarkMode}
+            onPress={onPress}>
             <StyledText>
                 Register
             </StyledText>

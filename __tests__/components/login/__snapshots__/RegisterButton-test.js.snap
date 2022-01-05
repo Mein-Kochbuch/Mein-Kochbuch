@@ -2,14 +2,9 @@
 
 exports[`RegisterButton Test RegisterButton darkmode Test 1`] = `
 <View
-  accessibilityState={
-    Object {
-      "disabled": true,
-    }
-  }
   accessible={true}
   collapsable={false}
-  focusable={false}
+  focusable={true}
   nativeID="animatedComponent"
   onClick={[Function]}
   onResponderGrant={[Function]}
@@ -55,14 +50,9 @@ exports[`RegisterButton Test RegisterButton darkmode Test 1`] = `
 
 exports[`RegisterButton Test RegisterButton lightmode Test 1`] = `
 <View
-  accessibilityState={
-    Object {
-      "disabled": true,
-    }
-  }
   accessible={true}
   collapsable={false}
-  focusable={false}
+  focusable={true}
   nativeID="animatedComponent"
   onClick={[Function]}
   onResponderGrant={[Function]}
