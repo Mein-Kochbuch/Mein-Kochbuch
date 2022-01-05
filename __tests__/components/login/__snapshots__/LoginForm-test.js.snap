@@ -178,3 +178,361 @@ exports[`LoginForm Test LoginForm Snapshot 1`] = `
   </View>
 </View>
 `;
+
+exports[`LoginForm Test LoginForm Snapshot dark 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "display": "flex",
+        "flexDirection": "column",
+      },
+    ]
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "marginBottom": 12,
+          "marginLeft": 12,
+          "marginRight": 12,
+          "marginTop": 12,
+        },
+      ]
+    }
+  >
+    <Text>
+      E-Mail
+    </Text>
+    <TextInput
+      isDarkMode={false}
+      keyboardType="email-address"
+      onChangeText={[Function]}
+      placeholder="E-Mail"
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "borderColor": "#222",
+            "borderRadius": 10,
+            "borderStyle": "solid",
+            "borderWidth": 2,
+            "display": "flex",
+            "flexDirection": "column",
+            "justifyContent": "space-between",
+            "minWidth": 300,
+            "width": "80%",
+          },
+        ]
+      }
+    />
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "marginBottom": 12,
+          "marginLeft": 12,
+          "marginRight": 12,
+          "marginTop": 12,
+        },
+      ]
+    }
+  >
+    <Text>
+      Password
+    </Text>
+    <TextInput
+      isDarkMode={false}
+      onChangeText={[Function]}
+      placeholder="Password"
+      secureTextEntry={true}
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "borderColor": "#222",
+            "borderRadius": 10,
+            "borderStyle": "solid",
+            "borderWidth": 2,
+            "display": "flex",
+            "flexDirection": "column",
+            "justifyContent": "space-between",
+            "minWidth": 300,
+            "width": "80%",
+          },
+        ]
+      }
+    />
+  </View>
+  <Text
+    style={
+      Array [
+        Object {
+          "marginBottom": 24,
+          "marginLeft": 24,
+          "marginRight": 24,
+          "marginTop": 24,
+          "textAlign": "center",
+        },
+      ]
+    }
+  >
+    Wenn du fortfährst, stimmst du den
+    <Text
+      onPress={[Function]}
+      style={
+        Array [
+          Object {
+            "color": "#0074D9",
+            "textDecorationLine": "underline",
+          },
+        ]
+      }
+    >
+       AGBs 
+    </Text>
+    zu. In unseren
+    <Text
+      onPress={[Function]}
+      style={
+        Array [
+          Object {
+            "color": "#0074D9",
+            "textDecorationLine": "underline",
+          },
+        ]
+      }
+    >
+       Privacy Policy 
+    </Text>
+    erfährst du, wie wir deine Daten erfassen, verwenden und teilen.
+  </Text>
+  <View
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    nativeID="animatedComponent"
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "borderColor": "#F3F3F3",
+        "borderRadius": 10,
+        "borderStyle": "solid",
+        "borderWidth": 2,
+        "display": "flex",
+        "flexDirection": "column",
+        "justifyContent": "space-between",
+        "marginBottom": 12,
+        "marginLeft": 12,
+        "marginRight": 12,
+        "marginTop": 12,
+        "minWidth": 300,
+        "opacity": 1,
+        "width": "80%",
+      }
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "fontSize": 30,
+            "textAlign": "center",
+          },
+        ]
+      }
+    >
+      Login
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`LoginForm Test LoginForm Snapshot light 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "display": "flex",
+        "flexDirection": "column",
+      },
+    ]
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "marginBottom": 12,
+          "marginLeft": 12,
+          "marginRight": 12,
+          "marginTop": 12,
+        },
+      ]
+    }
+  >
+    <Text>
+      E-Mail
+    </Text>
+    <TextInput
+      isDarkMode={false}
+      keyboardType="email-address"
+      onChangeText={[Function]}
+      placeholder="E-Mail"
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "borderColor": "#222",
+            "borderRadius": 10,
+            "borderStyle": "solid",
+            "borderWidth": 2,
+            "display": "flex",
+            "flexDirection": "column",
+            "justifyContent": "space-between",
+            "minWidth": 300,
+            "width": "80%",
+          },
+        ]
+      }
+    />
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "marginBottom": 12,
+          "marginLeft": 12,
+          "marginRight": 12,
+          "marginTop": 12,
+        },
+      ]
+    }
+  >
+    <Text>
+      Password
+    </Text>
+    <TextInput
+      isDarkMode={false}
+      onChangeText={[Function]}
+      placeholder="Password"
+      secureTextEntry={true}
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "borderColor": "#222",
+            "borderRadius": 10,
+            "borderStyle": "solid",
+            "borderWidth": 2,
+            "display": "flex",
+            "flexDirection": "column",
+            "justifyContent": "space-between",
+            "minWidth": 300,
+            "width": "80%",
+          },
+        ]
+      }
+    />
+  </View>
+  <Text
+    style={
+      Array [
+        Object {
+          "marginBottom": 24,
+          "marginLeft": 24,
+          "marginRight": 24,
+          "marginTop": 24,
+          "textAlign": "center",
+        },
+      ]
+    }
+  >
+    Wenn du fortfährst, stimmst du den
+    <Text
+      onPress={[Function]}
+      style={
+        Array [
+          Object {
+            "color": "#0074D9",
+            "textDecorationLine": "underline",
+          },
+        ]
+      }
+    >
+       AGBs 
+    </Text>
+    zu. In unseren
+    <Text
+      onPress={[Function]}
+      style={
+        Array [
+          Object {
+            "color": "#0074D9",
+            "textDecorationLine": "underline",
+          },
+        ]
+      }
+    >
+       Privacy Policy 
+    </Text>
+    erfährst du, wie wir deine Daten erfassen, verwenden und teilen.
+  </Text>
+  <View
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    nativeID="animatedComponent"
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "borderColor": "#222",
+        "borderRadius": 10,
+        "borderStyle": "solid",
+        "borderWidth": 2,
+        "display": "flex",
+        "flexDirection": "column",
+        "justifyContent": "space-between",
+        "marginBottom": 12,
+        "marginLeft": 12,
+        "marginRight": 12,
+        "marginTop": 12,
+        "minWidth": 300,
+        "opacity": 1,
+        "width": "80%",
+      }
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "fontSize": 30,
+            "textAlign": "center",
+          },
+        ]
+      }
+    >
+      Login
+    </Text>
+  </View>
+</View>
+`;

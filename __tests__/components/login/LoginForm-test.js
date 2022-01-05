@@ -22,8 +22,19 @@ describe('LoginForm Test', () => {
     });
 
 
-    it('LoginForm Snapshot', () => {
+    it('LoginForm Snapshot dark', () => {
         useColorScheme.mockReturnValueOnce('dark');
+        const onSubmit = jest.fn();
+
+        const component = renderer.create(
+            <LoginForm onSubmit={onSubmit}/>
+        );
+
+        expect(component.toJSON()).toMatchSnapshot()
+    })
+
+    it('LoginForm Snapshot light', () => {
+        useColorScheme.mockReturnValueOnce('light');
         const onSubmit = jest.fn();
 
         const component = renderer.create(
