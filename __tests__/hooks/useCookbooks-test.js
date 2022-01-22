@@ -7,6 +7,7 @@ import {act, renderHook} from '@testing-library/react-hooks'
 import * as axios from "axios";
 
 jest.mock("axios")
+axios.create.mockImplementation(() => axios)
 
 it('useCookbooks Test', async () => {
 

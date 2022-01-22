@@ -30,7 +30,7 @@ export default function MainMenu() {
                 />
             </View>
             <StyledBottomMenu>
-                <MenuButton key={"settings-button"} text={"Settings"} path={"settings"}/>
+                <MenuButton key={"settings-button"} text={"Settings"} path={"login"}/>
             </StyledBottomMenu>
         </StyledMenu>
     )

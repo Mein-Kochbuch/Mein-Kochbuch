@@ -7,6 +7,7 @@ import * as axios from "axios";
 import useRecipePreviews from "../../src/hooks/useRecipePreviews";
 
 jest.mock("axios")
+axios.create.mockImplementation(() => axios)
 
 describe('useRecipePreviews Test', () => {
 

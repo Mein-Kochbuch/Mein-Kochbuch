@@ -1,9 +1,11 @@
 import {useState} from "react";
-import axios from "axios";
+import AxiosInstance from "../utils/AxiosInstance";
 
 export default function useRecipeDetails() {
     const [recipeDetails, setRecipeDetails] = useState({})
-    const url = "https://mein-kochbuch.org/api/rezepte/"
+    const url = "rezepte/"
+
+    const axios = AxiosInstance()
 
     const getRecipeDetailsById = (id) => {
         if (!(id in recipeDetails)) {
@@ -18,5 +20,33 @@ export default function useRecipeDetails() {
         }
     }
 
-    return {recipeDetails, getRecipeDetailsById}
+    const favorizeRecipeById = (id) => {
+        return axios.post("favorite/", {pk: id})
+            .then(response => response.data)
+            .then(data => {
+                setRecipeDetails((currentState) => {
+                    return {
+                        ...currentState, [id]: {...currentState[id], favorite: data.result}
+                    }
+                })
+                return data
+            })
+            .catch(console.error)
+    }
+
+    const rateRecipeById = (id, rating) => {
+        return axios.post("rate/", {pk: id, rating: rating})
+            .then(response => response.data)
+            .then(data => {
+                setRecipeDetails((currentState) => {
+                    return {
+                        ...currentState, [id]: {...currentState[id], rating: data.result.rating}
+                    }
+                })
+                return data
+            })
+            .catch(console.error)
+    }
+
+    return {recipeDetails, getRecipeDetailsById, favorizeRecipeById, rateRecipeById}
 }

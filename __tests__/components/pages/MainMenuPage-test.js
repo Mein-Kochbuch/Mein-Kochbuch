@@ -3,7 +3,7 @@ import React from 'react';
 
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer';
-import Header from "../../../src/components/list/Header"
+import Header from "../../../src/components/pages/Header"
 import MainMenuPage from "../../../src/components/pages/MainMenuPage";
 import MainMenu from "../../../src/components/mainmenu/MainMenu";
 
@@ -13,7 +13,7 @@ jest.mock("../../../src/components/mainmenu/MainMenu", () => {
     }
 });
 
-jest.mock("../../../src/components/list/Header", () => {
+jest.mock("../../../src/components/pages/Header", () => {
     return (props) => {
         return <div {...props}/>
     }

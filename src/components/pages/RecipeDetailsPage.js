@@ -1,21 +1,36 @@
-import React from "react";
+import React, {useContext} from "react";
 import {ScrollView} from "react-native";
-import {useParams} from 'react-router-native'
+import {useHistory, useParams} from 'react-router-native'
 import RecipeDetailsHeader from "../recipes/details/RecipeDetailsHeader";
 import RecipeDetailsImageGallery from "../recipes/details/RecipeDetailsImageGallery";
 import RecipeDetailsActionBar from "../recipes/details/RecipeDetailsActionBar";
 import styled from "styled-components/native";
 import RecipeDetailsItemComponent from "../recipes/details/RecipeDetailsItemComponent";
 import RecipeDetailsPortions from "../recipes/details/RecipeDetailsPortions";
+import {AuthContext} from "../../context/AuthProvider";
 
-export default function RecipeDetailsPage({recipeDetails, getRecipeDetailsById}) {
+export default function RecipeDetailsPage({recipeDetails, getRecipeDetailsById, favorizeRecipeById, rateRecipeById}) {
+    const auth = useContext(AuthContext)
     const {id} = useParams()
+    const history = useHistory()
     const recipe = recipeDetails[id]
     const ingredients = recipe?.zutaten_set.reduce((previousValue, currentValue) => {
         return {zutat: previousValue.zutat.concat("\n").concat(currentValue?.zutat)}
     }).zutat
 
     getRecipeDetailsById(id)
+
+    const handleFavorize = () => {
+        auth.user ?
+            favorizeRecipeById(id)
+            : history.push("/login")
+    }
+
+    const handleRating = (rating) => {
+        auth.user ?
+            rateRecipeById(id, rating)
+            : history.push("/login")
+    }
 
     return (
         <ScrollView>
@@ -25,7 +40,9 @@ export default function RecipeDetailsPage({recipeDetails, getRecipeDetailsById})
                 avgRating={recipe?.avg_rating}
                 ratingCount={recipe?.rating_count}
                 ownRating={recipe?.rating}
-                favorite={recipe?.favorite}/>
+                favorite={recipe?.favorite}
+                handleRating={handleRating}
+                handleFavorize={handleFavorize}/>
             <RowWrapper>
                 <ItemStyled content={"Duration: " + recipe?.dauer + " min"}/>
                 <ItemStyled content={"Difficulty: " + recipe?.difficulty.difficulty}/>

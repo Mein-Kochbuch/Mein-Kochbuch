@@ -7,11 +7,14 @@ import {AppRegistry} from 'react-native';
 import App from './App';
 import {name as appName} from './app.json';
 import {NativeRouter} from "react-router-native";
+import AuthProvider from "./src/context/AuthProvider";
 
 const AppWrapper = () => {
     return (
         <NativeRouter>
-            <App/>
+            <AuthProvider>
+                <App/>
+            </AuthProvider>
         </NativeRouter>
     )
 }

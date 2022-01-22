@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`RecipeDetailsPage Test 1`] = `
+exports[`RecipeDetailsPage Test RecipeDetailsPage Snapshot Test 1`] = `
 <RCTScrollView>
   <View>
     <div
@@ -23,6 +23,8 @@ exports[`RecipeDetailsPage Test 1`] = `
     <div
       avgRating={3.7}
       favorite={true}
+      handleFavorize={[Function]}
+      handleRating={[Function]}
       ownRating={2.5}
       ratingCount={17}
     />
