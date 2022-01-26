@@ -12,7 +12,7 @@ import {Recipe} from "../../models/Recipe";
 
 
 interface RecipeDetailsPageProps {
-    recipeDetails: Recipe[]
+    recipeDetails: { [key: string]: Recipe }
     getRecipeDetailsById: (id: number) => void,
     favorizeRecipeById: (id: number) => void,
     rateRecipeById: (id: number, rating: number) => void
