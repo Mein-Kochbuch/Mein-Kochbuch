@@ -3,8 +3,13 @@ import {View} from "react-native";
 import MultiListItem from "../list/MultiListItem";
 import CookbookListItem from "../cookbooks/CookbookListItem";
 import styled from "styled-components/native";
+import {Cookbook} from "../../models/Cookbook";
 
-export default function MyRecipesList({cookbooks}) {
+interface MyRecipeListProps {
+    cookbooks: Cookbook[]
+}
+
+export default function MyRecipesList({cookbooks}: MyRecipeListProps) {
 
     return (
         <View>

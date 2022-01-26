@@ -1,15 +1,17 @@
 import {useState} from "react";
 import AxiosInstance from "../utils/AxiosInstance";
+import {Recipe} from "../models/Recipe";
+import {FavorizeResponse, RatingResponse} from "../models/Responses";
 
 export default function useRecipeDetails() {
-    const [recipeDetails, setRecipeDetails] = useState({})
+    const [recipeDetails, setRecipeDetails] = useState<{ [key: string]: Recipe }>({})
     const url = "rezepte/"
 
     const axios = AxiosInstance()
 
-    const getRecipeDetailsById = (id) => {
+    const getRecipeDetailsById = (id: number) => {
         if (!(id in recipeDetails)) {
-            axios.get(url + id)
+            axios.get<Recipe>(url + id)
                 .then((response) => response.data)
                 .then(data => {
                     setRecipeDetails((currentState) => {
@@ -20,8 +22,8 @@ export default function useRecipeDetails() {
         }
     }
 
-    const favorizeRecipeById = (id) => {
-        return axios.post("favorite/", {pk: id})
+    const favorizeRecipeById = (id: number) => {
+        return axios.post<FavorizeResponse>("favorite/", {pk: id})
             .then(response => response.data)
             .then(data => {
                 setRecipeDetails((currentState) => {
@@ -34,8 +36,8 @@ export default function useRecipeDetails() {
             .catch(console.error)
     }
 
-    const rateRecipeById = (id, rating) => {
-        return axios.post("rate/", {pk: id, rating: rating})
+    const rateRecipeById = (id: number, rating: number) => {
+        return axios.post<RatingResponse>("rate/", {pk: id, rating: rating})
             .then(response => response.data)
             .then(data => {
                 setRecipeDetails((currentState) => {

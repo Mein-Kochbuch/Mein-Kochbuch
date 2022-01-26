@@ -1,6 +1,7 @@
+import {RecipeListFilter} from "../models/RecipeListFilter";
 
 
-const applyFilter = (filter) => {
+const applyFilter = (filter: RecipeListFilter) => {
     let url = "rezepte/"
 
     if ("sammlungsID" in filter) {
@@ -46,7 +47,7 @@ const applyFilter = (filter) => {
     return url;
 }
 
-const addParameter = (url, parameter) => {
+const addParameter = (url: string, parameter: string) => {
     return url.charAt(url.length - 1) === '/' ? url + "?" + parameter : url + "&" + parameter
 }
 

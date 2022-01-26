@@ -48,6 +48,7 @@ exports[`LoginForm Test LoginForm Snapshot dark 1`] = `
           },
         ]
       }
+      value=""
     />
   </View>
   <View
@@ -86,6 +87,7 @@ exports[`LoginForm Test LoginForm Snapshot dark 1`] = `
           },
         ]
       }
+      value=""
     />
   </View>
   <Text
@@ -227,6 +229,7 @@ exports[`LoginForm Test LoginForm Snapshot light 1`] = `
           },
         ]
       }
+      value=""
     />
   </View>
   <View
@@ -265,6 +268,7 @@ exports[`LoginForm Test LoginForm Snapshot light 1`] = `
           },
         ]
       }
+      value=""
     />
   </View>
   <Text

@@ -1,11 +1,19 @@
 import React from "react";
 import Icon from "react-native-vector-icons/Feather";
+// @ts-ignore
 import Colors from "react-native/Libraries/NewAppScreen/components/Colors";
 import styled from "styled-components/native";
 import {Rating} from "react-native-ratings";
 import {useColorScheme} from "react-native-appearance";
 
-export default function RatingCompontent({avgRating, ratingCount, ownRating, handleRating}) {
+interface RatingComponentProps {
+    avgRating: number,
+    ratingCount: number,
+    ownRating?: number,
+    handleRating: (id: number, rating: number) => void
+}
+
+export default function RatingCompontent({avgRating, ratingCount, ownRating, handleRating}: RatingComponentProps) {
     const isDarkMode = useColorScheme() === 'dark';
 
     return (

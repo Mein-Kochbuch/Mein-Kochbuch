@@ -2,8 +2,13 @@ import React from "react";
 import styled from "styled-components/native";
 import {Colors} from "react-native/Libraries/NewAppScreen";
 import {useColorScheme} from "react-native-appearance";
+import {Cookbook} from "../../models/Cookbook";
 
-export default function CookbookListItem({cookbook}) {
+interface CookbookListItemProps {
+    cookbook: Cookbook
+}
+
+export default function CookbookListItem({cookbook}: CookbookListItemProps) {
 
     const isDarkMode = useColorScheme() === 'dark';
     const imageSource = cookbook.thumbnail ? {uri: cookbook.thumbnail} : require("../../../resources/platzhalter.png")
@@ -36,7 +41,11 @@ const StyledText = styled.Text`
   font-size: 30px;
 `
 
-const StyledTouchableOpacity = styled.TouchableOpacity`
+interface StyledTouchableOpacityProps {
+    isDarkMode: boolean
+}
+
+const StyledTouchableOpacity = styled.TouchableOpacity<StyledTouchableOpacityProps>`
   padding: 12px;
   margin: 12px;
   height: 120px;

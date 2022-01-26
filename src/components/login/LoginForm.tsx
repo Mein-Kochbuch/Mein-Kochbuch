@@ -1,22 +1,26 @@
 import React, {useState} from "react";
 import {Linking} from "react-native";
 import InputField from "./InputField";
-import styled from "styled-components/native/dist/styled-components.native.esm";
+import styled from "styled-components/native";
 import {Colors} from "react-native/Libraries/NewAppScreen";
 import {useColorScheme} from "react-native-appearance";
 
-export default function LoginForm({onSubmit}) {
-    const [credentials, setCredentials] = useState({})
+interface LoginFormProps {
+    onSubmit: (credentials: { username: string, password: string }) => void
+}
+
+export default function LoginForm({onSubmit}: LoginFormProps) {
+    const [credentials, setCredentials] = useState<{ username: string, password: string }>({username: "", password: ""})
 
     const isDarkMode = useColorScheme() === 'dark';
 
-    const onEmailChange = (value) => {
+    const onEmailChange = (value: string) => {
         setCredentials((oldCredentials) => {
             return {...oldCredentials, "username": value}
         })
     }
 
-    const onPasswordChange = (value) => {
+    const onPasswordChange = (value: string) => {
         setCredentials((oldCredentials) => {
             return {...oldCredentials, "password": value}
         })
@@ -55,6 +59,10 @@ export default function LoginForm({onSubmit}) {
     )
 }
 
+interface StyledTouchableOpacityProps {
+    isDarkMode: boolean
+}
+
 const StyledView = styled.View`
   display: flex;
   align-items: center;
@@ -76,7 +84,7 @@ const StyledText = styled.Text`
   font-size: 30px;
 `
 
-const StyledTouchableOpacity = styled.TouchableOpacity`
+const StyledTouchableOpacity = styled.TouchableOpacity<StyledTouchableOpacityProps>`
   margin: 12px;
   display: flex;
   flex-direction: column;

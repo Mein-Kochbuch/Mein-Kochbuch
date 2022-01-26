@@ -2,7 +2,12 @@ import React from "react";
 import styled from "styled-components/native";
 import {View} from "react-native";
 
-export default function RecipeDetailsItemComponent({content, style}) {
+interface RecipeDetailsItemComponentProps {
+    content: string,
+    style?: {}
+}
+
+export default function RecipeDetailsItemComponent({content, style}: RecipeDetailsItemComponentProps) {
     return (
         <View style={style}>
             <TextStyled>

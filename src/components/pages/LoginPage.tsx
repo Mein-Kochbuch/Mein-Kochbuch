@@ -9,12 +9,12 @@ import RegisterButton from "../login/RegisterButton";
 
 export default function LoginPage() {
 
-    const [loginError, setLoginError] = useState()
+    const [loginError, setLoginError] = useState<string>()
     const {login} = useContext(AuthContext)
 
-    const onSubmit = (credentials) => {
+    const onSubmit = (credentials: { username: string, password: string }) => {
         login(credentials)
-            .catch((error) => {
+            .catch((error: { toString: () => string }) => {
                 console.log(error)
                 setLoginError(error.toString())
             })

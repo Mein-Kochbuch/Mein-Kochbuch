@@ -41,7 +41,6 @@ const App = () => {
                 </Route>
                 <Route path="/recipes" exact>
                     <RecipesPage recipes={recipePreviews}
-                                 setFilter={setFilter}
                                  loadNext={loadNext}
                                  title={"All Recipes"}/>
                 </Route>
@@ -61,7 +60,11 @@ const App = () => {
 
 export default App;
 
-const SafeAreaViewStyled = styled.SafeAreaView`
+interface SafeAreaViewStyledProps {
+    isDarkMode: boolean
+}
+
+const SafeAreaViewStyled = styled.SafeAreaView<SafeAreaViewStyledProps>`
   background-color: ${props => props.isDarkMode ? Colors.darker : Colors.lighter};
   height: 100%;
 `

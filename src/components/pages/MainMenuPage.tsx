@@ -4,8 +4,6 @@ import Header from "./Header";
 import {StyleSheet, View} from "react-native";
 
 export default function MainMenuPage() {
-
-
     return (
         <View style={styles.container}>
             <Header title={"My-Cookbook"}/>

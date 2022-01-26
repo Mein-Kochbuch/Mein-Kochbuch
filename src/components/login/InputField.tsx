@@ -1,10 +1,20 @@
 import React from "react";
 import styled from "styled-components/native";
-import {Text} from "react-native";
-import Colors from "react-native/Libraries/NewAppScreen/components/Colors";
+import {KeyboardTypeOptions, Text} from "react-native";
+// @ts-ignore
+import Colors from "react-native/Libraries/NewAppScreen/components/Colors"
 import {useColorScheme} from "react-native-appearance";
 
-export default function InputField({title, ...props}) {
+interface InputFieldProps {
+    title: string,
+    onChangeText: (value: string) => void,
+    placeholder: string,
+    value: string,
+    keyboardType?: KeyboardTypeOptions
+    secureTextEntry?: boolean
+}
+
+export default function InputField({title, ...props}: InputFieldProps) {
 
     const isDarkMode = useColorScheme() === 'dark';
 
@@ -24,7 +34,16 @@ const StyledView = styled.View`
   margin: 12px;
 `
 
-const StyledTextInput = styled.TextInput`
+interface StyledTextInputProps {
+    isDarkMode: boolean,
+    onChangeText: (value: string) => void,
+    placeholder: string,
+    value: string,
+    keyboardType?: string
+    secureTextEntry?: boolean
+}
+
+const StyledTextInput = styled.TextInput<StyledTextInputProps>`
   display: flex;
   flex-direction: column;
   justify-content: space-between;

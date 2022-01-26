@@ -1,16 +1,22 @@
-import React, {createContext, useState} from "react";
+import React, {createContext, ReactElement, useState} from "react";
 import axios from "axios";
+import {LoginResponse} from "../models/Responses";
 
-export const AuthContext = createContext({})
+interface AuthContextType {
+    user?: {},
+    login: (credentials: { username: string, password: string }) => Promise<void>
+}
 
-export default function AuthProvider({children}) {
+export const AuthContext = createContext<AuthContextType>({login: () => Promise.resolve()})
 
-    const [user, setUser] = useState()
+export default function AuthProvider({children}: { children: ReactElement }) {
+
+    const [user, setUser] = useState<{}>()
     const url = `https://mein-kochbuch.org/api/`
 
-    const login = credentials => {
+    const login = (credentials: { username: string, password: string }) => {
         return axios
-            .post(`${url}api-token-auth/`, credentials)
+            .post<LoginResponse>(`${url}api-token-auth/`, credentials)
             .then(response => response.data)
             .then(data => {
                 setUser(data)

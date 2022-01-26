@@ -2,7 +2,12 @@ import React from "react";
 import {View} from "react-native";
 import styled from "styled-components/native";
 
-export default function RecipeDetailsHeader({title, owner}) {
+interface RecipeDetailsHeaderProps {
+    title: string,
+    owner?: { username: string }
+}
+
+export default function RecipeDetailsHeader({title, owner}: RecipeDetailsHeaderProps) {
     return (
         <View>
             <TitleStyled>

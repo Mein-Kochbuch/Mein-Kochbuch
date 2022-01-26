@@ -4,11 +4,16 @@ import styled from "styled-components/native";
 import {useColorScheme} from "react-native-appearance";
 import {Colors} from "react-native/Libraries/NewAppScreen";
 
-export default function MenuButton({text, path}) {
+interface MenuButtonProps {
+    text: string,
+    path: string
+}
+
+export default function MenuButton({text, path}: MenuButtonProps) {
     const history = useHistory()
     const isDarkMode = useColorScheme() === 'dark';
 
-    const onPress = (to) => {
+    const onPress = (to: string) => {
         history.push(`/${to}`)
     }
 
@@ -26,7 +31,11 @@ const StyledText = styled.Text`
   font-size: 30px;
 `
 
-const StyledTouchableOpacity = styled.TouchableOpacity`
+interface StyledTouchableOpacityProps {
+    isDarkMode: boolean
+}
+
+const StyledTouchableOpacity = styled.TouchableOpacity<StyledTouchableOpacityProps>`
   margin: 12px;
   display: flex;
   flex-direction: column;

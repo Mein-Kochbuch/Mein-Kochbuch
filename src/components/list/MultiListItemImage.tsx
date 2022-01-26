@@ -2,7 +2,11 @@ import Icon from "react-native-vector-icons/Feather";
 import React from "react";
 import styled from "styled-components/native";
 
-export default function MultiListItemImage({icon}) {
+interface MultiListItemImageProps {
+    icon: string
+}
+
+export default function MultiListItemImage({icon}: MultiListItemImageProps) {
 
     return (
         icon === "heart" ? <Icon name={"heart"} size={100} color={"#FF0000"}/> :

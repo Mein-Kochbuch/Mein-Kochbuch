@@ -1,10 +1,15 @@
 import React from "react";
-import styled from "styled-components/native/dist/styled-components.native.esm";
+import styled from "styled-components/native";
 import {Colors} from "react-native/Libraries/NewAppScreen";
 import {useColorScheme} from "react-native-appearance";
 import MultiListItemImage from "./MultiListItemImage";
 
-export default function MultiListItem({title, icon}) {
+interface MultiListItemProps {
+    title: string,
+    icon: string
+}
+
+export default function MultiListItem({title, icon}: MultiListItemProps) {
     const isDarkMode = useColorScheme() === 'dark';
 
     return (
@@ -23,7 +28,11 @@ const StyledTest = styled.Text`
   margin-left: 12px;
 `
 
-const StyledTouchableOpacity = styled.TouchableOpacity`
+interface StyledTouchableopacityProps {
+    isDarkMode: boolean
+}
+
+const StyledTouchableOpacity = styled.TouchableOpacity<StyledTouchableopacityProps>`
   padding: 10px;
   margin: 12px;
   display: flex;

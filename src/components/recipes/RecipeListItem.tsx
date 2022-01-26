@@ -3,8 +3,15 @@ import styled from "styled-components/native";
 import {Colors} from "react-native/Libraries/NewAppScreen";
 import {useColorScheme} from "react-native-appearance";
 import {useHistory} from "react-router-native";
+import {RecipePreview} from "../../models/RecipePreview";
 
-export default function RecipeListItem({item}) {
+interface RecipeListItemProps {
+    item: {
+        item: RecipePreview
+    }
+}
+
+export default function RecipeListItem({item}: RecipeListItemProps) {
     const history = useHistory()
     const isDarkMode = useColorScheme() === 'dark';
 
@@ -43,7 +50,11 @@ const StyledTest = styled.Text`
   max-width: 70%;
 `
 
-const StyledTouchableOpacity = styled.TouchableOpacity`
+interface StyledTouchableOpacityProps {
+    isDarkMode: boolean
+}
+
+const StyledTouchableOpacity = styled.TouchableOpacity<StyledTouchableOpacityProps>`
   padding: 12px;
   margin: 12px;
   height: 120px;

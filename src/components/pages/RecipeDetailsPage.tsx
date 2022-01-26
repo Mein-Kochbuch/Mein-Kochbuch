@@ -8,27 +8,41 @@ import styled from "styled-components/native";
 import RecipeDetailsItemComponent from "../recipes/details/RecipeDetailsItemComponent";
 import RecipeDetailsPortions from "../recipes/details/RecipeDetailsPortions";
 import {AuthContext} from "../../context/AuthProvider";
+import {Recipe} from "../../models/Recipe";
 
-export default function RecipeDetailsPage({recipeDetails, getRecipeDetailsById, favorizeRecipeById, rateRecipeById}) {
+
+interface RecipeDetailsPageProps {
+    recipeDetails: Recipe[]
+    getRecipeDetailsById: (id: number) => void,
+    favorizeRecipeById: (id: number) => void,
+    rateRecipeById: (id: number, rating: number) => void
+}
+
+export default function RecipeDetailsPage({
+                                              recipeDetails,
+                                              getRecipeDetailsById,
+                                              favorizeRecipeById,
+                                              rateRecipeById
+                                          }: RecipeDetailsPageProps) {
     const auth = useContext(AuthContext)
-    const {id} = useParams()
+    const {id}: { id: string } = useParams()
     const history = useHistory()
-    const recipe = recipeDetails[id]
+    const recipe = recipeDetails[parseInt(id)]
     const ingredients = recipe?.zutaten_set.reduce((previousValue, currentValue) => {
         return {zutat: previousValue.zutat.concat("\n").concat(currentValue?.zutat)}
     }).zutat
 
-    getRecipeDetailsById(id)
+    getRecipeDetailsById(parseInt(id))
 
     const handleFavorize = () => {
         auth.user ?
-            favorizeRecipeById(id)
+            favorizeRecipeById(parseInt(id))
             : history.push("/login")
     }
 
-    const handleRating = (rating) => {
+    const handleRating = (rating: number) => {
         auth.user ?
-            rateRecipeById(id, rating)
+            rateRecipeById(parseInt(id), rating)
             : history.push("/login")
     }
 

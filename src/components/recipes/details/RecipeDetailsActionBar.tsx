@@ -3,7 +3,17 @@ import styled from "styled-components/native";
 import RatingCompontent from "./RatingCompontent";
 import Icon from "react-native-vector-icons/Feather";
 import {useColorScheme} from "react-native-appearance";
+// @ts-ignore
 import Colors from "react-native/Libraries/NewAppScreen/components/Colors";
+
+interface RecipeDetailsActionBarProps {
+    avgRating: number,
+    ratingCount: number,
+    ownRating?: number,
+    favorite: boolean
+    handleRating: (rating: number) => void,
+    handleFavorize: () => void
+}
 
 export default function RecipeDetailsActionBar({
                                                    avgRating,
@@ -12,7 +22,7 @@ export default function RecipeDetailsActionBar({
                                                    handleRating,
                                                    favorite,
                                                    handleFavorize
-                                               }) {
+                                               }: RecipeDetailsActionBarProps) {
     const isDarkMode = useColorScheme() === 'dark';
     const dislikeColor = isDarkMode ? Colors.lighter : Colors.darker
 

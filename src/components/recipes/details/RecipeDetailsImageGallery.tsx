@@ -1,8 +1,12 @@
 import React from "react";
 import styled from "styled-components/native";
 
-export default function RecipeDetailsImageGallery({images}) {
-    const imageSource = images?.length > 0 ? {uri: images[0].image} : require("../../../../resources/platzhalter.png")
+interface RecipeDetailsImageGalleryProps {
+    images?: { image: string }[]
+}
+
+export default function RecipeDetailsImageGallery({images}: RecipeDetailsImageGalleryProps) {
+    const imageSource = (images && images.length > 0) ? {uri: images[0].image} : require("../../../../resources/platzhalter.png")
 
     return (
         <ImageGallery>

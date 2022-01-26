@@ -1,7 +1,12 @@
 import React from "react";
-import styled from "styled-components/native/dist/styled-components.native.esm";
+import styled from "styled-components/native";
 
-export default function RecipeDetailsPortions({content, style}) {
+interface RecipeDetailsPortionsProps {
+    content: string,
+    style?: {}
+}
+
+export default function RecipeDetailsPortions({content, style}: RecipeDetailsPortionsProps) {
     return (
         <ViewStyled style={style}>
             <TextStyled>

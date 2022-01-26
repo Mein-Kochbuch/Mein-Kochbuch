@@ -81,6 +81,6 @@ describe("RecipeDetailsPage Test", () => {
         );
 
         expect(component.toJSON()).toMatchSnapshot()
-        expect(getRecipeDetailsById).toBeCalledWith("3")
+        expect(getRecipeDetailsById).toBeCalledWith(3)
     })
 })

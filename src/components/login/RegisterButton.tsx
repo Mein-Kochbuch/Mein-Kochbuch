@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components/native/dist/styled-components.native.esm";
+import styled from "styled-components/native";
 import {Colors} from "react-native/Libraries/NewAppScreen";
 import {useColorScheme} from "react-native-appearance";
 import {useHistory} from "react-router-native";
@@ -28,7 +28,11 @@ const StyledText = styled.Text`
   font-size: 30px;
 `
 
-const StyledButton = styled.TouchableOpacity`
+interface StyledButtonProps {
+    isDarkMode: boolean
+}
+
+const StyledButton = styled.TouchableOpacity<StyledButtonProps>`
   margin: 12px;
   display: flex;
   flex-direction: column;

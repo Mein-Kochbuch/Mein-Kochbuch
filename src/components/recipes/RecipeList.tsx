@@ -2,16 +2,21 @@ import React from "react";
 import {FlatList} from "react-native";
 import RecipeListItem from "./RecipeListItem";
 import styled from "styled-components/native";
+import {RecipePreview} from "../../models/RecipePreview";
 
-export default function RecipeList({recipes, loadMoreRecipes}) {
+interface RecipeListProps {
+    recipes: RecipePreview[],
+    loadMoreRecipes: () => void
+}
+
+export default function RecipeList({recipes, loadMoreRecipes}: RecipeListProps) {
 
     return (
         <ViewStyled>
             <FlatList
-                content
                 data={recipes}
                 renderItem={(item) => <RecipeListItem item={item}/>}
-                keyExtractor={item => item.pk}
+                keyExtractor={item => item.pk.toString()}
                 onEndReached={loadMoreRecipes}
             />
         </ViewStyled>
