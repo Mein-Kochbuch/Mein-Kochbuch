@@ -16,7 +16,6 @@ export default function useRecipePreviews() {
         axios.get<RecipeListResponse>(applyFilter(filter))
             .then((response) => response.data)
             .then((data) => {
-                console.log(data)
                 setNextUrl(data.next)
                 setRecipePreviews((existingRecipes) => existingRecipes.concat(data.results.filter(newRecipe => !existingRecipes.some((i) => i.pk === newRecipe.pk))))
             })
