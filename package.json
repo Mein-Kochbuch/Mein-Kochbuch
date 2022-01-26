@@ -45,6 +45,8 @@
   },
   "jest": {
     "preset": "react-native",
+    "collectCoverage": true,
+    "coverageDirectory": "./coverage",
     "testResultsProcessor": "jest-sonar-reporter",
     "transformIgnorePatterns": [
       "node_modules/(?!@ngrx|(?!deck.gl)|ng-dynamic)"
