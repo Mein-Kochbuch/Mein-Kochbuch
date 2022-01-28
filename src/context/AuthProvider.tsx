@@ -3,7 +3,7 @@ import axios from "axios";
 import {LoginResponse} from "../models/Responses";
 
 interface AuthContextType {
-    user?: {},
+    token?: {},
     login: (credentials: { username: string, password: string }) => Promise<void>
 }
 
@@ -11,7 +11,7 @@ export const AuthContext = createContext<AuthContextType>({login: () => Promise.
 
 export default function AuthProvider({children}: { children: ReactElement }) {
 
-    const [user, setUser] = useState<{}>()
+    const [token, setToken] = useState<{}>()
     const url = `https://mein-kochbuch.org/api/`
 
     const login = (credentials: { username: string, password: string }) => {
@@ -19,12 +19,12 @@ export default function AuthProvider({children}: { children: ReactElement }) {
             .post<LoginResponse>(`${url}api-token-auth/`, credentials)
             .then(response => response.data)
             .then(data => {
-                setUser(data)
+                setToken(data)
             })
     }
 
     return (
-        <AuthContext.Provider value={{user, login}}>
+        <AuthContext.Provider value={{token: token, login}}>
             {children}
         </AuthContext.Provider>
     )

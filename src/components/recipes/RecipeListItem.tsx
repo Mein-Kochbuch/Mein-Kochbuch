@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components/native";
 import {Colors} from "react-native/Libraries/NewAppScreen";
 import {useColorScheme} from "react-native-appearance";
-import {useHistory} from "react-router-native";
+import {useNavigate} from "react-router-native";
 import {RecipePreview} from "../../models/RecipePreview";
 
 interface RecipeListItemProps {
@@ -12,14 +12,14 @@ interface RecipeListItemProps {
 }
 
 export default function RecipeListItem({item}: RecipeListItemProps) {
-    const history = useHistory()
+    const navigate = useNavigate()
     const isDarkMode = useColorScheme() === 'dark';
 
     const recipe = item.item
     const imageSource = recipe.thumbnail_url ? {uri: recipe.thumbnail_url} : require("../../../resources/platzhalter.png")
 
     const handleOnPress = () => {
-        history.push("/recipes/" + recipe.pk)
+        navigate("/recipes/" + recipe.pk)
     }
 
     return (

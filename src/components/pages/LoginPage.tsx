@@ -24,7 +24,7 @@ export default function LoginPage() {
     return (
         <StyledView>
             <Header title={"Login"}/>
-            <ErrorText text={loginError}/>
+            {loginError && <ErrorText text={loginError}/>}
             <LoginForm onSubmit={onSubmit}/>
             <View>
                 <RegisterButton/>

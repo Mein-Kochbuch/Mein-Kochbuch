@@ -1,6 +1,6 @@
 import React, {useContext} from "react";
 import {ScrollView} from "react-native";
-import {useHistory, useParams} from 'react-router-native'
+import {Params, useNavigate, useParams} from 'react-router-native'
 import RecipeDetailsHeader from "../recipes/details/RecipeDetailsHeader";
 import RecipeDetailsImageGallery from "../recipes/details/RecipeDetailsImageGallery";
 import RecipeDetailsActionBar from "../recipes/details/RecipeDetailsActionBar";
@@ -25,8 +25,14 @@ export default function RecipeDetailsPage({
                                               rateRecipeById
                                           }: RecipeDetailsPageProps) {
     const auth = useContext(AuthContext)
-    const {id}: { id: string } = useParams()
-    const history = useHistory()
+    const {id}: Readonly<Params> = useParams()
+    const navigate = useNavigate()
+
+    if (!id) {
+        navigate("/")
+        return (<></>)
+    }
+
     const recipe = recipeDetails[parseInt(id)]
     const ingredients = recipe?.zutaten_set.reduce((previousValue, currentValue) => {
         return {zutat: previousValue.zutat.concat("\n").concat(currentValue?.zutat)}
@@ -35,15 +41,15 @@ export default function RecipeDetailsPage({
     getRecipeDetailsById(parseInt(id))
 
     const handleFavorize = () => {
-        auth.user ?
+        auth.token ?
             favorizeRecipeById(parseInt(id))
-            : history.push("/login")
+            : navigate("/login")
     }
 
     const handleRating = (rating: number) => {
-        auth.user ?
+        auth.token ?
             rateRecipeById(parseInt(id), rating)
-            : history.push("/login")
+            : navigate("/login")
     }
 
     return (
