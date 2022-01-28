@@ -34,10 +34,17 @@ describe('useRecipePreviews Test', () => {
     it('useRecipePreviews loadNext', async () => {
 
         axios.get.mockImplementationOnce(() => Promise.resolve({
-            next: "next-url",
-            data: {results: [{pk: "1", title: "test-title"}]}
+            data: {
+                next: "next-url",
+                results: [{pk: "1", title: "test-title"}]
+            }
         }));
-        axios.get.mockImplementationOnce(() => Promise.resolve({data: {results: [{pk: "2", title: "test-title-2"}]}}));
+        axios.get.mockImplementationOnce(() => Promise.resolve({
+            data: {
+                next: "next-test-url",
+                results: [{pk: "2", title: "test-title-2"}]
+            }
+        }));
 
         let recipePreviewsHook
         await act(async () => {

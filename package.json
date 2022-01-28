@@ -12,6 +12,10 @@
   },
   "dependencies": {
     "@testing-library/react-native": "^8.0.0",
+    "@types/react-native-vector-icons": "^6.4.10",
+    "@types/react-router-native": "^5.1.3",
+    "@types/styled-components": "^5.1.21",
+    "@types/styled-components-react-native": "^5.1.3",
     "axios": "^0.23.0",
     "react": "17.0.2",
     "react-native": "0.66.1",
@@ -26,16 +30,23 @@
     "@babel/runtime": "7.15.4",
     "@react-native-community/eslint-config": "2.0.0",
     "@testing-library/react-hooks": "^7.0.2",
+    "@types/jest": "^27.4.0",
+    "@types/react": "^17.0.38",
+    "@types/react-native": "^0.66.15",
+    "@types/react-test-renderer": "^17.0.1",
     "babel-jest": "26.6.3",
     "eslint": "7.14.0",
     "eslint-plugin-react-hooks": "^4.2.0",
     "jest": "26.6.3",
     "jest-sonar-reporter": "^2.0.0",
     "metro-react-native-babel-preset": "0.66.2",
-    "react-test-renderer": "17.0.2"
+    "react-test-renderer": "17.0.2",
+    "typescript": "^4.5.5"
   },
   "jest": {
     "preset": "react-native",
+    "collectCoverage": true,
+    "coverageDirectory": "./coverage",
     "testResultsProcessor": "jest-sonar-reporter",
     "transformIgnorePatterns": [
       "node_modules/(?!@ngrx|(?!deck.gl)|ng-dynamic)"

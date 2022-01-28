@@ -11,7 +11,6 @@ exports[`RecipeList Test 1`] = `
   }
 >
   <RCTScrollView
-    content={true}
     data={
       Array [
         Object {
