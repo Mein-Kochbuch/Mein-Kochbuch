@@ -22,7 +22,7 @@
     "react-native-appearance": "^0.3.4",
     "react-native-ratings": "^8.1.0",
     "react-native-vector-icons": "^9.0.0",
-    "react-router-native": "^5.2.1",
+    "react-router-native": "^6.2.1",
     "styled-components": "^5.3.3"
   },
   "devDependencies": {

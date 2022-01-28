@@ -2,14 +2,14 @@ import React from "react";
 import styled from "styled-components/native";
 import {Colors} from "react-native/Libraries/NewAppScreen";
 import {useColorScheme} from "react-native-appearance";
-import {useHistory} from "react-router-native";
+import {useNavigate} from "react-router-native";
 
 export default function RegisterButton() {
-    const history = useHistory()
+    const navigate = useNavigate()
     const isDarkMode = useColorScheme() === 'dark';
 
     const onPress = () => {
-      history.push(`/register`)
+        navigate(`/register`)
     }
 
     return (

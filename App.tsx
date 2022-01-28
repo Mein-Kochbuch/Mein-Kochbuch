@@ -2,7 +2,7 @@ import React from 'react';
 import {BackHandler, useColorScheme} from 'react-native';
 
 import {Colors,} from 'react-native/Libraries/NewAppScreen';
-import {Route, Switch, useHistory} from "react-router-native";
+import {Route, Routes, useNavigate} from "react-router-native";
 import MainMenuPage from "./src/components/pages/MainMenuPage";
 import MyRecipesPage from "./src/components/pages/MyRecipesPage";
 import RecipesPage from "./src/components/pages/RecipesPage";
@@ -16,10 +16,10 @@ const App = () => {
     const {recipePreviews, setFilter, loadNext} = useRecipePreviews()
     const {recipeDetails, getRecipeDetailsById, favorizeRecipeById, rateRecipeById} = useRecipeDetails()
     const isDarkMode = useColorScheme() === 'dark';
-    const history = useHistory();
+    const navigate = useNavigate();
 
     const backAction = () => {
-        history.goBack()
+        navigate(-1)
     };
 
     BackHandler.addEventListener(
@@ -32,28 +32,24 @@ const App = () => {
 
     return (
         <SafeAreaViewStyled isDarkMode={isDarkMode}>
-            <Switch>
-                <Route path="/" exact>
-                    <MainMenuPage/>
-                </Route>
-                <Route path="/myrecipes" exact>
-                    <MyRecipesPage/>
-                </Route>
-                <Route path="/recipes" exact>
+            <Routes>
+                <Route path="/" element={<MainMenuPage/>}/>
+                <Route path="/myrecipes" element={<MyRecipesPage/>}/>
+                <Route path="/recipes" element={
                     <RecipesPage recipes={recipePreviews}
                                  loadNext={loadNext}
-                                 title={"All Recipes"}/>
-                </Route>
-                <Route path={"/recipes/:id"}>
+                                 title={"All Recipes"}/>}
+                />
+
+                <Route path={"/recipes/:id"} element={
                     <RecipeDetailsPage getRecipeDetailsById={getRecipeDetailsById}
                                        recipeDetails={recipeDetails}
                                        favorizeRecipeById={favorizeRecipeById}
                                        rateRecipeById={rateRecipeById}/>
-                </Route>
-                <Route path={"/login"}>
-                    <LoginPage/>
-                </Route>
-            </Switch>
+                }/>
+
+                <Route path={"/login"} element={<LoginPage/>}/>
+            </Routes>
         </SafeAreaViewStyled>
     );
 };

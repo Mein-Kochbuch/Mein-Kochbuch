@@ -1,5 +1,5 @@
 import React from "react";
-import {useHistory} from "react-router-native";
+import {useNavigate} from "react-router-native";
 import styled from "styled-components/native";
 import {useColorScheme} from "react-native-appearance";
 import {Colors} from "react-native/Libraries/NewAppScreen";
@@ -10,11 +10,11 @@ interface MenuButtonProps {
 }
 
 export default function MenuButton({text, path}: MenuButtonProps) {
-    const history = useHistory()
+    const navigate = useNavigate()
     const isDarkMode = useColorScheme() === 'dark';
 
     const onPress = (to: string) => {
-        history.push(`/${to}`)
+        navigate(`/${to}`)
     }
 
     return (
