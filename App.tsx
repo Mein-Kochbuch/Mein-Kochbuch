@@ -11,6 +11,7 @@ import useRecipePreviews from "./src/hooks/useRecipePreviews";
 import RecipeDetailsPage from "./src/components/pages/RecipeDetailsPage";
 import useRecipeDetails from "./src/hooks/useRecipeDetails";
 import LoginPage from "./src/components/pages/LoginPage";
+import RegisterPage from "./src/components/pages/RegisterPage";
 
 const App = () => {
     const {recipePreviews, setFilter, loadNext} = useRecipePreviews()
@@ -52,6 +53,9 @@ const App = () => {
                 </Route>
                 <Route path={"/login"}>
                     <LoginPage/>
+                </Route>
+                <Route path={"/register"}>
+                    <RegisterPage/>
                 </Route>
             </Switch>
         </SafeAreaViewStyled>

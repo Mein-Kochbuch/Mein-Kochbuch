@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`LoginForm Test LoginForm Snapshot dark 1`] = `
+exports[`RegisterForm Test Snapshot dark Test 1`] = `
 <View
   style={
     Array [
@@ -34,6 +34,87 @@ exports[`LoginForm Test LoginForm Snapshot dark 1`] = `
       keyboardType="email-address"
       onChangeText={[Function]}
       placeholder="E-Mail"
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "borderColor": "#222",
+            "borderRadius": 10,
+            "borderStyle": "solid",
+            "borderWidth": 2,
+            "display": "flex",
+            "flexDirection": "column",
+            "justifyContent": "space-between",
+            "minWidth": 300,
+            "width": "80%",
+          },
+        ]
+      }
+      value=""
+    />
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "marginBottom": 12,
+          "marginLeft": 12,
+          "marginRight": 12,
+          "marginTop": 12,
+        },
+      ]
+    }
+  >
+    <Text
+      style={Object {}}
+    >
+      Name
+    </Text>
+    <TextInput
+      isDarkMode={false}
+      onChangeText={[Function]}
+      placeholder="Name"
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "borderColor": "#222",
+            "borderRadius": 10,
+            "borderStyle": "solid",
+            "borderWidth": 2,
+            "display": "flex",
+            "flexDirection": "column",
+            "justifyContent": "space-between",
+            "minWidth": 300,
+            "width": "80%",
+          },
+        ]
+      }
+      value=""
+    />
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "marginBottom": 12,
+          "marginLeft": 12,
+          "marginRight": 12,
+          "marginTop": 12,
+        },
+      ]
+    }
+  >
+    <Text
+      style={Object {}}
+    >
+      Password
+    </Text>
+    <TextInput
+      isDarkMode={false}
+      onChangeText={[Function]}
+      placeholder="Password"
+      secureTextEntry={true}
       style={
         Array [
           Object {
@@ -179,13 +260,13 @@ exports[`LoginForm Test LoginForm Snapshot dark 1`] = `
         ]
       }
     >
-      Login
+      Register
     </Text>
   </View>
 </View>
 `;
 
-exports[`LoginForm Test LoginForm Snapshot light 1`] = `
+exports[`RegisterForm Test Snapshot light Test 1`] = `
 <View
   style={
     Array [
@@ -219,6 +300,87 @@ exports[`LoginForm Test LoginForm Snapshot light 1`] = `
       keyboardType="email-address"
       onChangeText={[Function]}
       placeholder="E-Mail"
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "borderColor": "#222",
+            "borderRadius": 10,
+            "borderStyle": "solid",
+            "borderWidth": 2,
+            "display": "flex",
+            "flexDirection": "column",
+            "justifyContent": "space-between",
+            "minWidth": 300,
+            "width": "80%",
+          },
+        ]
+      }
+      value=""
+    />
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "marginBottom": 12,
+          "marginLeft": 12,
+          "marginRight": 12,
+          "marginTop": 12,
+        },
+      ]
+    }
+  >
+    <Text
+      style={Object {}}
+    >
+      Name
+    </Text>
+    <TextInput
+      isDarkMode={false}
+      onChangeText={[Function]}
+      placeholder="Name"
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "borderColor": "#222",
+            "borderRadius": 10,
+            "borderStyle": "solid",
+            "borderWidth": 2,
+            "display": "flex",
+            "flexDirection": "column",
+            "justifyContent": "space-between",
+            "minWidth": 300,
+            "width": "80%",
+          },
+        ]
+      }
+      value=""
+    />
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "marginBottom": 12,
+          "marginLeft": 12,
+          "marginRight": 12,
+          "marginTop": 12,
+        },
+      ]
+    }
+  >
+    <Text
+      style={Object {}}
+    >
+      Password
+    </Text>
+    <TextInput
+      isDarkMode={false}
+      onChangeText={[Function]}
+      placeholder="Password"
+      secureTextEntry={true}
       style={
         Array [
           Object {
@@ -364,7 +526,7 @@ exports[`LoginForm Test LoginForm Snapshot light 1`] = `
         ]
       }
     >
-      Login
+      Register
     </Text>
   </View>
 </View>

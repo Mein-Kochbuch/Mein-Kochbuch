@@ -7,6 +7,7 @@ import {useColorScheme} from "react-native-appearance";
 
 interface InputFieldProps {
     title: string,
+    errorText?: string,
     onChangeText: (value: string) => void,
     placeholder: string,
     value: string,
@@ -14,14 +15,14 @@ interface InputFieldProps {
     secureTextEntry?: boolean
 }
 
-export default function InputField({title, ...props}: InputFieldProps) {
+export default function InputField({title, errorText, ...props}: InputFieldProps) {
 
     const isDarkMode = useColorScheme() === 'dark';
 
     return (
         <StyledView>
-            <Text>
-                {title}
+            <Text style={errorText ? {color: "#ff0000"} : {}}>
+                {errorText ? errorText : title}
             </Text>
             <StyledTextInput
                 isDarkMode={isDarkMode}
