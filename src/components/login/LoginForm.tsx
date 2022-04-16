@@ -3,7 +3,7 @@ import {Linking} from 'react-native';
 import InputField from './InputField';
 import styled from 'styled-components/native';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
-import {useColorScheme} from 'react-native-appearance';
+import {Appearance} from 'react-native';
 
 interface LoginFormProps {
   onSubmit: (credentials: {username: string; password: string}) => void;
@@ -15,7 +15,7 @@ export default function LoginForm({onSubmit}: LoginFormProps) {
     password: string;
   }>({username: '', password: ''});
 
-  const isDarkMode = useColorScheme() === 'dark';
+  const isDarkMode = Appearance.getColorScheme() === 'dark';
 
   const onEmailChange = (value: string) => {
     setCredentials(oldCredentials => {
@@ -111,4 +111,3 @@ const StyledTouchableOpacity = styled.TouchableOpacity<StyledTouchableOpacityPro
   border-radius: 10px;
   border-width: 2px;
 `;
-

@@ -3,7 +3,7 @@ import styled from 'styled-components/native';
 import {KeyboardTypeOptions, Text} from 'react-native';
 // @ts-ignore
 import Colors from 'react-native/Libraries/NewAppScreen/components/Colors';
-import {useColorScheme} from 'react-native-appearance';
+import {Appearance} from 'react-native';
 
 interface InputFieldProps {
   title: string;
@@ -20,7 +20,7 @@ export default function InputField({
   errorText,
   ...props
 }: InputFieldProps) {
-  const isDarkMode = useColorScheme() === 'dark';
+  const isDarkMode = Appearance.getColorScheme() === 'dark';
 
   return (
     <StyledView>

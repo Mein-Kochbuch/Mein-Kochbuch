@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components/native';
 import RatingCompontent from './RatingCompontent';
 import Icon from 'react-native-vector-icons/Feather';
-import {useColorScheme} from 'react-native-appearance';
+import {Appearance} from 'react-native';
 // @ts-ignore
 import Colors from 'react-native/Libraries/NewAppScreen/components/Colors';
 
@@ -23,7 +23,7 @@ export default function RecipeDetailsActionBar({
   favorite,
   handleFavorize,
 }: RecipeDetailsActionBarProps) {
-  const isDarkMode = useColorScheme() === 'dark';
+  const isDarkMode = Appearance.getColorScheme() === 'dark';
   const dislikeColor = isDarkMode ? Colors.lighter : Colors.darker;
 
   return (

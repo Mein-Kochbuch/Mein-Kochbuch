@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/native';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
-import {useColorScheme} from 'react-native-appearance';
+import {Appearance} from 'react-native';
 import MultiListItemImage from './MultiListItemImage';
 
 interface MultiListItemProps {
@@ -10,7 +10,7 @@ interface MultiListItemProps {
 }
 
 export default function MultiListItem({title, icon}: MultiListItemProps) {
-  const isDarkMode = useColorScheme() === 'dark';
+  const isDarkMode = Appearance.getColorScheme() === 'dark';
 
   return (
     <StyledTouchableOpacity isDarkMode={isDarkMode}>

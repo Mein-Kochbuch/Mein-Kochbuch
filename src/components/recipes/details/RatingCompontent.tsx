@@ -4,7 +4,7 @@ import Icon from 'react-native-vector-icons/Feather';
 import Colors from 'react-native/Libraries/NewAppScreen/components/Colors';
 import styled from 'styled-components/native';
 import {Rating} from 'react-native-ratings';
-import {useColorScheme} from 'react-native-appearance';
+import {Appearance} from 'react-native';
 
 interface RatingComponentProps {
   avgRating: number;
@@ -19,7 +19,7 @@ export default function RatingCompontent({
   ownRating,
   handleRating,
 }: RatingComponentProps) {
-  const isDarkMode = useColorScheme() === 'dark';
+  const isDarkMode = Appearance.getColorScheme() === 'dark';
 
   return (
     <ViewStyled>
@@ -62,4 +62,3 @@ const RatingStyled = styled(Rating)`
   padding-top: 12px;
   width: 200px;
 `;
-

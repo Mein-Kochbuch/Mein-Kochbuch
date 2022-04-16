@@ -3,7 +3,7 @@ import {Linking} from 'react-native';
 import InputField from './InputField';
 import styled from 'styled-components/native';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
-import {useColorScheme} from 'react-native-appearance';
+import {Appearance} from 'react-native';
 import Validator from '../../utils/Validator';
 
 interface RegisterFormProps {
@@ -19,7 +19,7 @@ export default function RegisterForm({handleRegister}: RegisterFormProps) {
   const [passwordError, setPasswordError] = useState<string | undefined>();
   const [emailError, setEmailError] = useState<string | undefined>();
 
-  const isDarkMode = useColorScheme() === 'dark';
+  const isDarkMode = Appearance.getColorScheme() === 'dark';
   const {validatePassword, validateEmail} = Validator();
 
   const handleSubmit = () => {
@@ -138,4 +138,3 @@ const StyledTouchableOpacity = styled.TouchableOpacity<StyledTouchableOpacityPro
   border-radius: 10px;
   border-width: 2px;
 `;
-

@@ -1,7 +1,7 @@
 import React from 'react';
 import {useHistory} from 'react-router-native';
 import styled from 'styled-components/native';
-import {useColorScheme} from 'react-native-appearance';
+import {Appearance} from 'react-native';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 
 interface MenuButtonProps {
@@ -11,7 +11,7 @@ interface MenuButtonProps {
 
 export default function MenuButton({text, path}: MenuButtonProps) {
   const history = useHistory();
-  const isDarkMode = useColorScheme() === 'dark';
+  const isDarkMode = Appearance.getColorScheme() === 'dark';
 
   const onPress = (to: string) => {
     history.push(`/${to}`);

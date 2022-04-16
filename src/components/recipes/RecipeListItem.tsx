@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/native';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
-import {useColorScheme} from 'react-native-appearance';
+import {Appearance} from 'react-native';
 import {useHistory} from 'react-router-native';
 import {RecipePreview} from '../../models/RecipePreview';
 
@@ -13,7 +13,7 @@ interface RecipeListItemProps {
 
 export default function RecipeListItem({item}: RecipeListItemProps) {
   const history = useHistory();
-  const isDarkMode = useColorScheme() === 'dark';
+  const isDarkMode = Appearance.getColorScheme() === 'dark';
 
   const recipe = item.item;
   const imageSource = recipe.thumbnail_url

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/native';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
-import {useColorScheme} from 'react-native-appearance';
+import {Appearance} from 'react-native';
 import {Cookbook} from '../../models/Cookbook';
 
 interface CookbookListItemProps {
@@ -9,7 +9,7 @@ interface CookbookListItemProps {
 }
 
 export default function CookbookListItem({cookbook}: CookbookListItemProps) {
-  const isDarkMode = useColorScheme() === 'dark';
+  const isDarkMode = Appearance.getColorScheme() === 'dark';
   const imageSource = cookbook.thumbnail
     ? {uri: cookbook.thumbnail}
     : require('../../../resources/platzhalter.png');
