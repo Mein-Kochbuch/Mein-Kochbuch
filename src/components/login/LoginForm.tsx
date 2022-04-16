@@ -1,9 +1,8 @@
 import React, {useState} from 'react';
-import {Linking} from 'react-native';
+import {Appearance, Linking} from 'react-native';
 import InputField from './InputField';
 import styled from 'styled-components/native';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
-import {Appearance} from 'react-native';
 
 interface LoginFormProps {
   onSubmit: (credentials: {username: string; password: string}) => void;

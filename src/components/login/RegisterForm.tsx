@@ -1,9 +1,8 @@
 import React, {useState} from 'react';
-import {Linking} from 'react-native';
+import {Appearance, Linking} from 'react-native';
 import InputField from './InputField';
 import styled from 'styled-components/native';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
-import {Appearance} from 'react-native';
 import Validator from '../../utils/Validator';
 
 interface RegisterFormProps {

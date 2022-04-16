@@ -16,16 +16,7 @@ export default function useRecipePreviews() {
     axios
       .get<RecipeListResponse>(applyFilter(filter))
       .then(response => response.data)
-      .then(data => {
-        setNextUrl(data.next);
-        setRecipePreviews(existingRecipes =>
-          existingRecipes.concat(
-            data.results.filter(
-              newRecipe => !existingRecipes.some(i => i.pk === newRecipe.pk),
-            ),
-          ),
-        );
-      })
+      .then(addRecipes)
       .catch(console.error);
   }, [filter]);
 
@@ -34,18 +25,20 @@ export default function useRecipePreviews() {
       axios
         .get<RecipeListResponse>(nextUrl)
         .then(response => response.data)
-        .then(data => {
-          setNextUrl(data.next);
-          setRecipePreviews(existingRecipes =>
-            existingRecipes.concat(
-              data.results.filter(
-                newRecipe => !existingRecipes.some(i => i.pk === newRecipe.pk),
-              ),
-            ),
-          );
-        })
+        .then(addRecipes)
         .catch(console.error);
     }
+  };
+
+  const addRecipes = (data: any) => {
+    setNextUrl(data.next);
+    setRecipePreviews(existingRecipes =>
+      existingRecipes.concat(
+        data.results.filter(
+          (newRecipe: any) => !existingRecipes.some(i => i.pk === newRecipe.pk),
+        ),
+      ),
+    );
   };
   return {recipePreviews, setFilter, loadNext};
 }

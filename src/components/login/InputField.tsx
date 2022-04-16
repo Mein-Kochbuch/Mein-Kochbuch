@@ -1,9 +1,8 @@
 import React from 'react';
 import styled from 'styled-components/native';
-import {KeyboardTypeOptions, Text} from 'react-native';
+import {Appearance, KeyboardTypeOptions, Text} from 'react-native';
 // @ts-ignore
 import Colors from 'react-native/Libraries/NewAppScreen/components/Colors';
-import {Appearance} from 'react-native';
 
 interface InputFieldProps {
   title: string;
