@@ -1,103 +1,87 @@
-import {applyFilter} from "../../src/utils/urlService";
+import {applyFilter} from '../../src/utils/urlService';
 
 describe('urlService Test', () => {
-    it('default', () => {
+  it('default', () => {
+    const filter = {};
 
-        const filter = {}
+    const url = applyFilter(filter);
 
-        const url = applyFilter(filter)
+    expect(url).toBe('rezepte/');
+  });
 
-        expect(url).toBe("rezepte/")
-    })
+  it('cookbook', () => {
+    const filter = {sammlungsID: '1'};
 
-    it('cookbook', () => {
+    const url = applyFilter(filter);
 
-        const filter = {sammlungsID: "1"}
+    expect(url).toBe('sammlungen/1');
+  });
 
-        const url = applyFilter(filter)
+  it('page', () => {
+    const filter = {count: 10};
 
-        expect(url).toBe("sammlungen/1")
-    })
+    const url = applyFilter(filter);
 
-    it('page', () => {
+    expect(url).toBe('rezepte/?page=2');
+  });
 
-        const filter = {count: 10}
+  it('owner', () => {
+    const filter = {owner: 'me'};
 
-        const url = applyFilter(filter)
+    const url = applyFilter(filter);
 
-        expect(url).toBe("rezepte/?page=2")
-    })
+    expect(url).toBe('rezepte/?user=me');
+  });
 
-    it('owner', () => {
+  it('sortBy', () => {
+    const filter = {sortBy: '-avg_rating'};
 
-        const filter = {owner: "me"}
+    const url = applyFilter(filter);
 
-        const url = applyFilter(filter)
+    expect(url).toBe('rezepte/?sort=-avg_rating');
+  });
 
-        expect(url).toBe("rezepte/?user=me")
-    })
+  it('favorite', () => {
+    const filter = {favorite: 'True'};
 
-    it('sortBy', () => {
+    const url = applyFilter(filter);
 
-        const filter = {sortBy: "-avg_rating"}
+    expect(url).toBe('rezepte/?filteravorite=True');
+  });
 
-        const url = applyFilter(filter)
+  it('duration', () => {
+    const filter = {maxDauer: 10};
 
-        expect(url).toBe("rezepte/?sort=-avg_rating")
-    })
+    const url = applyFilter(filter);
 
-    it('favorite', () => {
+    expect(url).toBe('rezepte/?time=10');
+  });
 
-        const filter = {favorite: "True"}
+  it('difficulty', () => {
+    const filter = {difficulty: 'Mittel'};
 
-        const url = applyFilter(filter)
+    const url = applyFilter(filter);
 
-        expect(url).toBe("rezepte/?filteravorite=True")
-    })
+    expect(url).toBe('rezepte/?difficulty=Mittel');
+  });
 
-    it('duration', () => {
+  it('ingredients', () => {
+    const filter = {
+      zutaten: ['zutat1', 'zutat2'],
+    };
 
-        const filter = {maxDauer: 10}
+    const url = applyFilter(filter);
 
-        const url = applyFilter(filter)
+    expect(url).toBe('rezepte/?ingredients=zutat1+zutat2');
+  });
 
-        expect(url).toBe("rezepte/?time=10")
-    })
+  it('search', () => {
+    const filter = {
+      searchWords: ['searchWord1', 'searchWord2'],
+    };
 
-    it('difficulty', () => {
+    const url = applyFilter(filter);
 
-        const filter = {difficulty: "Mittel"}
-
-        const url = applyFilter(filter)
-
-        expect(url).toBe("rezepte/?difficulty=Mittel")
-    })
-
-    it('ingredients', () => {
-
-        const filter = {
-            zutaten: [
-                "zutat1",
-                "zutat2"
-            ]
-        }
-
-        const url = applyFilter(filter)
-
-        expect(url).toBe("rezepte/?ingredients=zutat1+zutat2")
-    })
-
-    it('search', () => {
-
-        const filter = {
-            searchWords: [
-                "searchWord1",
-                "searchWord2"
-            ]
-        }
-
-        const url = applyFilter(filter)
-
-        expect(url).toBe("rezepte/?search=searchWord1+searchWord2")
-    })
-})
+    expect(url).toBe('rezepte/?search=searchWord1+searchWord2');
+  });
+});

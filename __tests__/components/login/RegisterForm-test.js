@@ -3,116 +3,99 @@ import React from 'react';
 
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer';
-import RegisterForm from "../../../src/components/login/RegisterForm";
-import {useColorScheme} from "react-native-appearance";
-import {fireEvent, render} from "@testing-library/react-native";
-import {Linking} from "react-native";
+import RegisterForm from '../../../src/components/login/RegisterForm';
 
-jest.mock("react-native-appearance", () => ({
-    useColorScheme: jest.fn(),
-}))
+import {fireEvent, render} from '@testing-library/react-native';
+import {Linking} from 'react-native';
 
 describe('RegisterForm Test', () => {
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
 
-    afterEach(() => {
-        jest.clearAllMocks();
-    });
+  it('Snapshot light Test', () => {
+    const handleRegister = jest.fn();
 
+    const component = renderer.create(
+      <RegisterForm handleRegister={handleRegister} />,
+    );
 
-    it('Snapshot light Test', () => {
-        useColorScheme.mockReturnValueOnce('light');
-        const handleRegister = jest.fn()
+    expect(component.toJSON()).toMatchSnapshot();
+  });
 
-        const component = renderer.create(
-            <RegisterForm handleRegister={handleRegister}/>
-        );
+  it('Privacy Link press', () => {
+    const handleRegister = jest.fn();
 
-        expect(component.toJSON()).toMatchSnapshot()
-    })
+    const {getByText} = render(
+      <RegisterForm handleRegister={handleRegister} />,
+    );
 
-    it('Snapshot dark Test', () => {
-        useColorScheme.mockReturnValueOnce('dark');
-        const handleRegister = jest.fn()
+    fireEvent(getByText(' Privacy Policy '), 'onPress');
+    expect(Linking.openURL).toBeCalledWith(
+      'https://mein-kochbuch.org/privacypolicy/',
+    );
+  });
 
-        const component = renderer.create(
-            <RegisterForm handleRegister={handleRegister}/>
-        );
+  it('AGB Link press', () => {
+    const handleRegister = jest.fn();
 
-        expect(component.toJSON()).toMatchSnapshot()
-    })
+    const {getByText} = render(
+      <RegisterForm handleRegister={handleRegister} />,
+    );
 
-    it('Privacy Link press', () => {
-        useColorScheme.mockReturnValueOnce('dark');
-        const handleRegister = jest.fn()
+    fireEvent(getByText(' AGBs '), 'onPress');
+    expect(Linking.openURL).toBeCalledWith('https://mein-kochbuch.org/agb/');
+  });
 
-        const {getByText} = render(
-            <RegisterForm handleRegister={handleRegister}/>
-        );
+  it('Register Button valid press', () => {
+    const handleRegister = jest.fn();
 
-        fireEvent(getByText(' Privacy Policy '), 'onPress');
-        expect(Linking.openURL).toBeCalledWith("https://mein-kochbuch.org/privacypolicy/")
-    })
+    const {getByText, getAllByText} = render(
+      <RegisterForm handleRegister={handleRegister} />,
+    );
 
-    it('AGB Link press', () => {
-        useColorScheme.mockReturnValueOnce('dark');
-        const handleRegister = jest.fn()
+    fireEvent(getByText('E-Mail'), 'onChangeText', 'test@mein-kochbuch.org');
+    fireEvent(getByText('Name'), 'onChangeText', 'testName');
+    fireEvent(getAllByText('Password')[0], 'onChangeText', 'Test123!');
+    fireEvent(getAllByText('Password')[1], 'onChangeText', 'Test123!');
 
-        const {getByText} = render(
-            <RegisterForm handleRegister={handleRegister}/>
-        );
+    fireEvent(getByText('Register'), 'onPress');
+    expect(handleRegister).toBeCalledWith(
+      'test@mein-kochbuch.org',
+      'testName',
+      'Test123!',
+    );
+  });
 
-        fireEvent(getByText(' AGBs '), 'onPress');
-        expect(Linking.openURL).toBeCalledWith("https://mein-kochbuch.org/agb/")
-    })
+  it('Register Button press, no valid email', () => {
+    const handleRegister = jest.fn();
 
-    it('Register Button valid press', () => {
-        useColorScheme.mockReturnValueOnce('dark');
-        const handleRegister = jest.fn()
+    const {getByText, getAllByText} = render(
+      <RegisterForm handleRegister={handleRegister} />,
+    );
 
-        const {getByText, getAllByText} = render(
-            <RegisterForm handleRegister={handleRegister}/>
-        );
+    fireEvent(getByText('E-Mail'), 'onChangeText', 'test-email');
+    fireEvent(getByText('Name'), 'onChangeText', 'testName');
+    fireEvent(getAllByText('Password')[0], 'onChangeText', 'Test123!');
+    fireEvent(getAllByText('Password')[1], 'onChangeText', 'Test123!');
 
-        fireEvent(getByText('E-Mail'), 'onChangeText', "test@mein-kochbuch.org");
-        fireEvent(getByText('Name'), 'onChangeText', "testName");
-        fireEvent(getAllByText('Password')[0], 'onChangeText', "Test123!");
-        fireEvent(getAllByText('Password')[1], 'onChangeText', "Test123!");
+    fireEvent(getByText('Register'), 'onPress');
+    expect(handleRegister).toBeCalledTimes(0);
+  });
 
-        fireEvent(getByText('Register'), 'onPress');
-        expect(handleRegister).toBeCalledWith("test@mein-kochbuch.org", "testName", "Test123!")
-    })
+  it('Register Button press, no valid password', () => {
+    const handleRegister = jest.fn();
 
-    it('Register Button press, no valid email', () => {
-        useColorScheme.mockReturnValueOnce('dark');
-        const handleRegister = jest.fn()
+    const {getByText, getAllByText} = render(
+      <RegisterForm handleRegister={handleRegister} />,
+    );
 
-        const {getByText, getAllByText} = render(
-            <RegisterForm handleRegister={handleRegister}/>
-        );
+    fireEvent(getByText('E-Mail'), 'onChangeText', 'test-email');
+    fireEvent(getByText('Name'), 'onChangeText', 'testName');
+    fireEvent(getAllByText('Password')[0], 'onChangeText', 'Test123');
+    fireEvent(getAllByText('Password')[1], 'onChangeText', 'Test123');
 
-        fireEvent(getByText('E-Mail'), 'onChangeText', "test-email");
-        fireEvent(getByText('Name'), 'onChangeText', "testName");
-        fireEvent(getAllByText('Password')[0], 'onChangeText', "Test123!");
-        fireEvent(getAllByText('Password')[1], 'onChangeText', "Test123!");
-
-        fireEvent(getByText('Register'), 'onPress');
-        expect(handleRegister).toBeCalledTimes(0)
-    })
-
-    it('Register Button press, no valid password', () => {
-        useColorScheme.mockReturnValueOnce('dark');
-        const handleRegister = jest.fn()
-
-        const {getByText, getAllByText} = render(
-            <RegisterForm handleRegister={handleRegister}/>
-        );
-
-        fireEvent(getByText('E-Mail'), 'onChangeText', "test-email");
-        fireEvent(getByText('Name'), 'onChangeText', "testName");
-        fireEvent(getAllByText('Password')[0], 'onChangeText', "Test123");
-        fireEvent(getAllByText('Password')[1], 'onChangeText', "Test123");
-
-        fireEvent(getByText('Register'), 'onPress');
-        expect(handleRegister).toBeCalledTimes(0)
-    })
-})
+    fireEvent(getByText('Register'), 'onPress');
+    expect(handleRegister).toBeCalledTimes(0);
+  });
+});

@@ -3,87 +3,89 @@ import React from 'react';
 
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer';
-import {useColorScheme} from "react-native-appearance";
-import InputField from "../../../src/components/login/InputField";
 
-jest.mock("react-native-appearance", () => ({
-    useColorScheme: jest.fn(),
-}))
+import InputField from '../../../src/components/login/InputField';
 
 describe('InputField Test', () => {
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
 
-    afterEach(() => {
-        jest.clearAllMocks();
-    });
+  it('Snapshot light Test', () => {
+    const onChangeText = jest.fn();
 
+    const component = renderer.create(
+      <InputField
+        onChangeText={onChangeText}
+        placeholder={'test-palceholder'}
+        title={'test-title'}
+        value={''}
+      />,
+    );
 
-    it('Snapshot light Test', () => {
-        useColorScheme.mockReturnValueOnce('light');
-        const onChangeText = jest.fn()
+    expect(component.toJSON()).toMatchSnapshot();
+  });
 
-        const component = renderer.create(
-            <InputField onChangeText={onChangeText} placeholder={"test-palceholder"} title={"test-title"} value={""}/>
-        );
+  it('Snapshot with value', () => {
+    const onChangeText = jest.fn();
 
-        expect(component.toJSON()).toMatchSnapshot()
-    })
+    const component = renderer.create(
+      <InputField
+        onChangeText={onChangeText}
+        placeholder={'test-palceholder'}
+        title={'test-title'}
+        value={'test-value'}
+      />,
+    );
 
-    it('Snapshot dark Test', () => {
-        useColorScheme.mockReturnValueOnce('dark');
-        const onChangeText = jest.fn()
+    expect(component.toJSON()).toMatchSnapshot();
+  });
 
-        const component = renderer.create(
-            <InputField onChangeText={onChangeText} placeholder={"test-palceholder"} title={"test-title"} value={""}/>
-        );
+  it('Snapshot with value, keyboard type email', () => {
+    const onChangeText = jest.fn();
 
-        expect(component.toJSON()).toMatchSnapshot()
-    })
+    const component = renderer.create(
+      <InputField
+        onChangeText={onChangeText}
+        placeholder={'test-palceholder'}
+        title={'test-title'}
+        value={'test-value'}
+        keyboardType={'email-address'}
+      />,
+    );
 
-    it('Snapshot with value', () => {
-        useColorScheme.mockReturnValueOnce('dark');
-        const onChangeText = jest.fn()
+    expect(component.toJSON()).toMatchSnapshot();
+  });
 
-        const component = renderer.create(
-            <InputField onChangeText={onChangeText} placeholder={"test-palceholder"} title={"test-title"}
-                        value={"test-value"}/>
-        );
+  it('Snapshot with value, secureTextEntry', () => {
+    const onChangeText = jest.fn();
 
-        expect(component.toJSON()).toMatchSnapshot()
-    })
+    const component = renderer.create(
+      <InputField
+        onChangeText={onChangeText}
+        placeholder={'test-palceholder'}
+        title={'test-title'}
+        value={'test-value'}
+        secureTextEntry={true}
+      />,
+    );
 
-    it('Snapshot with value, keyboard type email', () => {
-        useColorScheme.mockReturnValueOnce('dark');
-        const onChangeText = jest.fn()
+    expect(component.toJSON()).toMatchSnapshot();
+  });
 
-        const component = renderer.create(
-            <InputField onChangeText={onChangeText} placeholder={"test-palceholder"} title={"test-title"}
-                        value={"test-value"} keyboardType={"email-address"}/>
-        );
+  it('Snapshot with value, ErrorTest', () => {
+    const onChangeText = jest.fn();
 
-        expect(component.toJSON()).toMatchSnapshot()
-    })
+    const component = renderer.create(
+      <InputField
+        onChangeText={onChangeText}
+        placeholder={'test-palceholder'}
+        title={'test-title'}
+        value={'test-value'}
+        errorText={'test-Error'}
+      />,
+    );
 
-    it('Snapshot with value, secureTextEntry', () => {
-        useColorScheme.mockReturnValueOnce('dark');
-        const onChangeText = jest.fn()
-
-        const component = renderer.create(
-            <InputField onChangeText={onChangeText} placeholder={"test-palceholder"} title={"test-title"}
-                        value={"test-value"} secureTextEntry={true}/>
-        );
-
-        expect(component.toJSON()).toMatchSnapshot()
-    })
-
-    it('Snapshot with value, ErrorTest', () => {
-        useColorScheme.mockReturnValueOnce('dark');
-        const onChangeText = jest.fn()
-
-        const component = renderer.create(
-            <InputField onChangeText={onChangeText} placeholder={"test-palceholder"} title={"test-title"}
-                        value={"test-value"} errorText={"test-Error"}/>
-        );
-
-        expect(component.toJSON()).toMatchSnapshot()
-    })
-})
+    expect(component.toJSON()).toMatchSnapshot();
+  });
+});

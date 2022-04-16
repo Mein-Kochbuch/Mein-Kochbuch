@@ -1,11 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CookbookListItem Test dark 1`] = `
+exports[`CookbookListItem Test light 1`] = `
 <View
   accessible={true}
   collapsable={false}
   focusable={false}
-  nativeID="animatedComponent"
   onClick={[Function]}
   onResponderGrant={[Function]}
   onResponderMove={[Function]}
@@ -16,7 +15,7 @@ exports[`CookbookListItem Test dark 1`] = `
   style={
     Object {
       "alignItems": "center",
-      "borderColor": "#F3F3F3",
+      "borderColor": "#222",
       "borderRadius": 10,
       "borderStyle": "solid",
       "borderWidth": 2,
@@ -75,12 +74,11 @@ exports[`CookbookListItem Test dark 1`] = `
 </View>
 `;
 
-exports[`CookbookListItem Test light 1`] = `
+exports[`CookbookListItem Test light 2`] = `
 <View
   accessible={true}
   collapsable={false}
   focusable={false}
-  nativeID="animatedComponent"
   onClick={[Function]}
   onResponderGrant={[Function]}
   onResponderMove={[Function]}

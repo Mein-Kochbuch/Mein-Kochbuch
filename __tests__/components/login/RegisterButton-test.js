@@ -4,54 +4,41 @@ import React from 'react';
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer';
 import {fireEvent, render} from '@testing-library/react-native';
-import {Router} from "react-router-native";
-import {useColorScheme} from "react-native-appearance";
-import RegisterButton from "../../../src/components/login/RegisterButton";
+import {Router} from 'react-router-native';
 
-jest.mock("react-native-appearance", () => ({
-    useColorScheme: jest.fn(),
-}));
+import RegisterButton from '../../../src/components/login/RegisterButton';
 
+describe('RegisterButton Test', () => {
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
 
-describe("RegisterButton Test", () => {
-    afterEach(() => {
-        jest.clearAllMocks();
-    });
+  it('RegisterButton Button Press', () => {
+    const history = {
+      push: jest.fn(),
+      listen: jest.fn(),
+      location: {pathname: '/'},
+    };
 
-    it('RegisterButton Button Press', () => {
-        const history = {
-            push: jest.fn(),
-            listen: jest.fn(),
-            location: {pathname: "/"}
-        }
+    const {getByText} = render(
+      <Router history={history}>
+        <RegisterButton />
+      </Router>,
+    );
 
-        const {getByText} = render(
-            <Router history={history}>
-                <RegisterButton/>
-            </Router>
-        );
+    fireEvent(getByText('Register'), 'onPress');
+    expect(history.push).toBeCalledWith('/register');
+  });
 
-        fireEvent(getByText('Register'), 'onPress');
-        expect(history.push).toBeCalledWith("/register")
-    })
+  it('RegisterButton lightmode Test', () => {
+    const component = renderer.create(<RegisterButton />).toJSON();
 
-    it('RegisterButton darkmode Test', () => {
-        useColorScheme.mockReturnValueOnce('dark');
+    expect(component).toMatchSnapshot();
+  });
 
-        const component = renderer.create(
-            <RegisterButton/>
-        ).toJSON();
+  it('RegisterButton lightmode Test', () => {
+    const component = renderer.create(<RegisterButton />).toJSON();
 
-        expect(component).toMatchSnapshot()
-    })
-
-    it('RegisterButton lightmode Test', () => {
-        useColorScheme.mockReturnValueOnce('light');
-
-        const component = renderer.create(
-            <RegisterButton/>
-        ).toJSON();
-
-        expect(component).toMatchSnapshot()
-    })
-})
+    expect(component).toMatchSnapshot();
+  });
+});

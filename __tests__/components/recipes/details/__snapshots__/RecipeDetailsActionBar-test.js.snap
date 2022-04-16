@@ -33,7 +33,7 @@ exports[`RatingComponent Test Favorite True 1`] = `
 </View>
 `;
 
-exports[`RatingComponent Test Favorite false dark theme 1`] = `
+exports[`RatingComponent Test Favorite false light theme 1`] = `
 <View
   style={
     Array [
