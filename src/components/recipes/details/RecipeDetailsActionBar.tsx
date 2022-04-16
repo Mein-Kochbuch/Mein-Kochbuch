@@ -1,41 +1,47 @@
-import React from "react";
-import styled from "styled-components/native";
-import RatingCompontent from "./RatingCompontent";
-import Icon from "react-native-vector-icons/Feather";
-import {useColorScheme} from "react-native-appearance";
+import React from 'react';
+import styled from 'styled-components/native';
+import RatingCompontent from './RatingCompontent';
+import Icon from 'react-native-vector-icons/Feather';
+import {useColorScheme} from 'react-native-appearance';
 // @ts-ignore
-import Colors from "react-native/Libraries/NewAppScreen/components/Colors";
+import Colors from 'react-native/Libraries/NewAppScreen/components/Colors';
 
 interface RecipeDetailsActionBarProps {
-    avgRating: number,
-    ratingCount: number,
-    ownRating?: number,
-    favorite: boolean
-    handleRating: (rating: number) => void,
-    handleFavorize: () => void
+  avgRating: number;
+  ratingCount: number;
+  ownRating?: number;
+  favorite: boolean;
+  handleRating: (rating: number) => void;
+  handleFavorize: () => void;
 }
 
 export default function RecipeDetailsActionBar({
-                                                   avgRating,
-                                                   ratingCount,
-                                                   ownRating,
-                                                   handleRating,
-                                                   favorite,
-                                                   handleFavorize
-                                               }: RecipeDetailsActionBarProps) {
-    const isDarkMode = useColorScheme() === 'dark';
-    const dislikeColor = isDarkMode ? Colors.lighter : Colors.darker
+  avgRating,
+  ratingCount,
+  ownRating,
+  handleRating,
+  favorite,
+  handleFavorize,
+}: RecipeDetailsActionBarProps) {
+  const isDarkMode = useColorScheme() === 'dark';
+  const dislikeColor = isDarkMode ? Colors.lighter : Colors.darker;
 
-    return (
-        <ActionBar>
-            <RatingCompontent
-                ownRating={ownRating}
-                avgRating={avgRating}
-                ratingCount={ratingCount}
-                handleRating={handleRating}/>
-            <Icon name={"heart"} size={35} color={favorite ? "#F10F0F" : dislikeColor} onPress={handleFavorize}/>
-        </ActionBar>
-    )
+  return (
+    <ActionBar>
+      <RatingCompontent
+        ownRating={ownRating}
+        avgRating={avgRating}
+        ratingCount={ratingCount}
+        handleRating={handleRating}
+      />
+      <Icon
+        name={'heart'}
+        size={35}
+        color={favorite ? '#F10F0F' : dislikeColor}
+        onPress={handleFavorize}
+      />
+    </ActionBar>
+  );
 }
 
 const ActionBar = styled.View`
@@ -43,4 +49,4 @@ const ActionBar = styled.View`
   flex-direction: row;
   align-items: flex-end;
   margin: 12px;
-`
+`;

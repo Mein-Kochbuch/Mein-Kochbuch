@@ -14,44 +14,44 @@ jest.mock("react-native-appearance", () => ({
 
 
 describe("RegisterButton Test", () => {
-  afterEach(() => {
-    jest.clearAllMocks();
-  });
+    afterEach(() => {
+        jest.clearAllMocks();
+    });
 
-  it('RegisterButton Button Press', () => {
-    const history = {
-      push: jest.fn(),
-      listen: jest.fn(),
-      location: {pathname: "/"}
-    }
+    it('RegisterButton Button Press', () => {
+        const history = {
+            push: jest.fn(),
+            listen: jest.fn(),
+            location: {pathname: "/"}
+        }
 
-    const {getByText} = render(
-      <Router history={history}>
-        <RegisterButton/>
-      </Router>
-    );
+        const {getByText} = render(
+            <Router history={history}>
+                <RegisterButton/>
+            </Router>
+        );
 
-    fireEvent(getByText('Register'), 'onPress');
-    expect(history.push).toBeCalledWith("/register")
-  })
+        fireEvent(getByText('Register'), 'onPress');
+        expect(history.push).toBeCalledWith("/register")
+    })
 
-  it('RegisterButton darkmode Test', () => {
-    useColorScheme.mockReturnValueOnce('dark');
+    it('RegisterButton darkmode Test', () => {
+        useColorScheme.mockReturnValueOnce('dark');
 
-    const component = renderer.create(
-      <RegisterButton/>
-    ).toJSON();
+        const component = renderer.create(
+            <RegisterButton/>
+        ).toJSON();
 
-    expect(component).toMatchSnapshot()
-  })
+        expect(component).toMatchSnapshot()
+    })
 
-  it('RegisterButton lightmode Test', () => {
-    useColorScheme.mockReturnValueOnce('light');
+    it('RegisterButton lightmode Test', () => {
+        useColorScheme.mockReturnValueOnce('light');
 
-    const component = renderer.create(
-      <RegisterButton/>
-    ).toJSON();
+        const component = renderer.create(
+            <RegisterButton/>
+        ).toJSON();
 
-    expect(component).toMatchSnapshot()
-  })
+        expect(component).toMatchSnapshot()
+    })
 })

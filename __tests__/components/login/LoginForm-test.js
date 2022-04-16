@@ -3,7 +3,7 @@ import renderer from "react-test-renderer";
 import LoginForm from "../../../src/components/login/LoginForm";
 import {useColorScheme} from "react-native-appearance";
 import {fireEvent, render} from "@testing-library/react-native";
-import { Linking } from "react-native";
+import {Linking} from "react-native";
 
 jest.mock("../../../src/components/recipes/RecipeListItem", () => {
     return (props) => {
@@ -68,7 +68,7 @@ describe('LoginForm Test', () => {
         useColorScheme.mockReturnValueOnce('dark');
 
         const {getByText} = render(
-          <LoginForm/>
+            <LoginForm/>
         );
 
         fireEvent(getByText(' Privacy Policy '), 'onPress');
@@ -78,8 +78,8 @@ describe('LoginForm Test', () => {
     it('LoginForm AGB Link press', () => {
         useColorScheme.mockReturnValueOnce('dark');
 
-        const {getByText, ... component} = render(
-          <LoginForm/>
+        const {getByText, ...component} = render(
+            <LoginForm/>
         );
 
         fireEvent(getByText(' AGBs '), 'onPress');

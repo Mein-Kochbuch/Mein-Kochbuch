@@ -1,24 +1,29 @@
-import React from "react";
-import styled from "styled-components/native";
+import React from 'react';
+import styled from 'styled-components/native';
 
 interface RecipeDetailsImageGalleryProps {
-    images?: { image: string }[]
+  images?: {image: string}[];
 }
 
-export default function RecipeDetailsImageGallery({images}: RecipeDetailsImageGalleryProps) {
-    const imageSource = (images && images.length > 0) ? {uri: images[0].image} : require("../../../../resources/platzhalter.png")
+export default function RecipeDetailsImageGallery({
+  images,
+}: RecipeDetailsImageGalleryProps) {
+  const imageSource =
+    images && images.length > 0
+      ? {uri: images[0].image}
+      : require('../../../../resources/platzhalter.png');
 
-    return (
-        <ImageGallery>
-            <ImageStyled source={imageSource}/>
-        </ImageGallery>
-    )
+  return (
+    <ImageGallery>
+      <ImageStyled source={imageSource} />
+    </ImageGallery>
+  );
 }
 
 const ImageGallery = styled.View`
   margin: 12px;
   height: 300px;
-`
+`;
 
 const ImageStyled = styled.Image`
   width: 100%;
@@ -29,4 +34,4 @@ const ImageStyled = styled.Image`
   border-radius: 10px;
   border-width: 1px;
   border-color: #fff;
-`
+`;
