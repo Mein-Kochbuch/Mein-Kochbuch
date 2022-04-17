@@ -1,26 +1,27 @@
-import React from "react";
-import styled from "styled-components/native";
-import {Colors} from "react-native/Libraries/NewAppScreen";
-import {useColorScheme} from "react-native-appearance";
-import {Cookbook} from "../../models/Cookbook";
+import React from 'react';
+import styled from 'styled-components/native';
+import {Colors} from 'react-native/Libraries/NewAppScreen';
+import {Appearance} from 'react-native';
+import {Cookbook} from '../../models/Cookbook';
 
 interface CookbookListItemProps {
-    cookbook: Cookbook
+  cookbook: Cookbook;
 }
 
 export default function CookbookListItem({cookbook}: CookbookListItemProps) {
+  const isDarkMode = Appearance.getColorScheme() === 'dark';
+  const imageSource = cookbook.thumbnail
+    ? {uri: cookbook.thumbnail}
+    : require('../../../resources/platzhalter.png');
 
-    const isDarkMode = useColorScheme() === 'dark';
-    const imageSource = cookbook.thumbnail ? {uri: cookbook.thumbnail} : require("../../../resources/platzhalter.png")
-
-    return (
-        <StyledTouchableOpacity isDarkMode={isDarkMode}>
-            <StyledImage source={imageSource}/>
-            <StyledText numberOfLines={2} ellipsizeMode={"middle"}>
-                {cookbook.name}
-            </StyledText>
-        </StyledTouchableOpacity>
-    )
+  return (
+    <StyledTouchableOpacity isDarkMode={isDarkMode}>
+      <StyledImage source={imageSource} />
+      <StyledText numberOfLines={2} ellipsizeMode={'middle'}>
+        {cookbook.name}
+      </StyledText>
+    </StyledTouchableOpacity>
+  );
 }
 
 const StyledImage = styled.Image`
@@ -32,17 +33,17 @@ const StyledImage = styled.Image`
   border-radius: 10px;
   border-width: 1px;
   border-color: #fff;
-`
+`;
 
 const StyledText = styled.Text`
   max-width: 70%;
   margin-left: 12px;
   text-align: center;
   font-size: 30px;
-`
+`;
 
 interface StyledTouchableOpacityProps {
-    isDarkMode: boolean
+  isDarkMode: boolean;
 }
 
 const StyledTouchableOpacity = styled.TouchableOpacity<StyledTouchableOpacityProps>`
@@ -53,7 +54,7 @@ const StyledTouchableOpacity = styled.TouchableOpacity<StyledTouchableOpacityPro
   align-items: center;
   flex-direction: row;
   border-style: solid;
-  border-color: ${props => props.isDarkMode ? Colors.lighter : Colors.darker};
+  border-color: ${props => (props.isDarkMode ? Colors.lighter : Colors.darker)};
   border-radius: 10px;
   border-width: 2px;
-`
+`;

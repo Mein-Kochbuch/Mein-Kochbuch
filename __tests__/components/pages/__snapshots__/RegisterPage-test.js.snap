@@ -234,13 +234,15 @@ exports[`RegisterPage Test 1`] = `
         style={
           Array [
             Object {
-              "color": "#0074D9",
+              "color": "#0074d9",
               "textDecorationLine": "underline",
             },
           ]
         }
       >
-         AGBs 
+         
+        AGBs
+         
       </Text>
       zu. In unseren
       <Text
@@ -248,13 +250,15 @@ exports[`RegisterPage Test 1`] = `
         style={
           Array [
             Object {
-              "color": "#0074D9",
+              "color": "#0074d9",
               "textDecorationLine": "underline",
             },
           ]
         }
       >
-         Privacy Policy 
+         
+        Privacy Policy
+         
       </Text>
       erfährst du, wie wir deine Daten erfassen, verwenden und teilen.
     </Text>
@@ -262,7 +266,6 @@ exports[`RegisterPage Test 1`] = `
       accessible={true}
       collapsable={false}
       focusable={true}
-      nativeID="animatedComponent"
       onClick={[Function]}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}

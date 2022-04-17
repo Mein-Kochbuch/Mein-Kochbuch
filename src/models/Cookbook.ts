@@ -1,5 +1,5 @@
 export interface Cookbook {
-    pk: number
-    name: string
-    thumbnail?: string
+  pk: number;
+  name: string;
+  thumbnail?: string;
 }

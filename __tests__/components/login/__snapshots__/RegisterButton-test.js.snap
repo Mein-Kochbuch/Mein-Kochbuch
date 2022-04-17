@@ -1,11 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`RegisterButton Test RegisterButton darkmode Test 1`] = `
+exports[`RegisterButton Test RegisterButton lightmode Test 1`] = `
 <View
   accessible={true}
   collapsable={false}
   focusable={true}
-  nativeID="animatedComponent"
   onClick={[Function]}
   onResponderGrant={[Function]}
   onResponderMove={[Function]}
@@ -16,7 +15,7 @@ exports[`RegisterButton Test RegisterButton darkmode Test 1`] = `
   style={
     Object {
       "alignItems": "center",
-      "borderColor": "#F3F3F3",
+      "borderColor": "#222",
       "borderRadius": 10,
       "borderStyle": "solid",
       "borderWidth": 2,
@@ -48,12 +47,11 @@ exports[`RegisterButton Test RegisterButton darkmode Test 1`] = `
 </View>
 `;
 
-exports[`RegisterButton Test RegisterButton lightmode Test 1`] = `
+exports[`RegisterButton Test RegisterButton lightmode Test 2`] = `
 <View
   accessible={true}
   collapsable={false}
   focusable={true}
-  nativeID="animatedComponent"
   onClick={[Function]}
   onResponderGrant={[Function]}
   onResponderMove={[Function]}

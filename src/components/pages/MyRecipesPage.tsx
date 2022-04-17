@@ -1,22 +1,22 @@
-import React from "react";
-import Header from "./Header";
-import {ScrollView, StyleSheet} from "react-native";
-import MyRecipesList from "../recipes/MyRecipesList";
-import useCookbooks from "../../hooks/useCookbooks";
+import React from 'react';
+import Header from './Header';
+import {ScrollView, StyleSheet} from 'react-native';
+import MyRecipesList from '../recipes/MyRecipesList';
+import useCookbooks from '../../hooks/useCookbooks';
 
 export default function MyRecipesPage() {
-    const {cookbooks} = useCookbooks()
+  const {cookbooks} = useCookbooks();
 
-    return (
-        <ScrollView style={styles.container}>
-            <Header title={"My Recipes"}/>
-            <MyRecipesList cookbooks={cookbooks}/>
-        </ScrollView>
-    );
+  return (
+    <ScrollView style={styles.container}>
+      <Header title={'My Recipes'} />
+      <MyRecipesList cookbooks={cookbooks} />
+    </ScrollView>
+  );
 }
 
 const styles = StyleSheet.create({
-    container: {
-        height: "100%",
-    },
-})
+  container: {
+    height: '100%',
+  },
+});
