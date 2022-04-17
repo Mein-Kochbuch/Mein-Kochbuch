@@ -1,24 +1,32 @@
+import {Image} from './Image';
+import {ChefUser} from './ChefUser';
+
 export interface Recipe {
-  pk: number;
+  id: string;
   title: string;
-  owner: {
-    pk: number;
-    username: string;
-  };
+  owner: ChefUser;
   privacy: boolean;
-  anleitung: string;
-  dauer: number;
-  difficulty: {
-    pk: number;
-    difficulty: string;
-  };
-  portionen: number;
-  similiars: [];
-  thumbnail: string;
-  image_set: {image: string}[];
-  zutaten_set: {zutat: string}[];
-  avg_rating: number;
-  rating_count: number;
-  rating?: number;
-  favorite: boolean;
+  instruction: string;
+  duration: number;
+  difficulty: Difficulty;
+  portions: number;
+  thumbnail: Image;
+  images: Image[];
+  ingredients: Ingredient[];
+  averageRating: number;
+  ratingCount: number;
+}
+
+export type Ingredient = {
+  id: string;
+  amount: number;
+  text: string;
+};
+
+export enum Difficulty {
+  VERY_EASY = 0,
+  EASY = 1,
+  MEDIUM = 2,
+  HARD = 3,
+  EXPERT = 4,
 }

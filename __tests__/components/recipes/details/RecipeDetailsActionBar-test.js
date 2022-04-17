@@ -7,11 +7,11 @@ import {render} from '@testing-library/react-native';
 import Icon from 'react-native-vector-icons/Feather';
 
 import Colors from 'react-native/Libraries/NewAppScreen/components/Colors';
-import RatingCompontent from '../../../../src/components/recipes/details/RatingCompontent';
+import RatingComponent from '../../../../src/components/recipes/details/RatingComponent';
 
-jest.mock('../../../../src/components/recipes/details/RatingCompontent', () => {
+jest.mock('../../../../src/components/recipes/details/RatingComponent', () => {
   return props => {
-    return <div {...props} testID="RatingCompontent" />;
+    return <div {...props} testID="RatingComponent" />;
   };
 });
 
@@ -32,7 +32,7 @@ describe('RatingComponent Test', () => {
 
     const component = render(
       <RecipeDetailsActionBar
-        avgRating={3}
+        averageRating={3}
         ratingCount={17}
         ownRating={5}
         favorite={true}
@@ -44,18 +44,16 @@ describe('RatingComponent Test', () => {
     expect(component.toJSON()).toMatchSnapshot();
     expect(component.toJSON().children.length).toBe(2);
 
-    expect(component.getByTestId('RatingCompontent').props.ownRating).toEqual(
-      5,
-    );
-    expect(component.getByTestId('RatingCompontent').props.avgRating).toEqual(
-      3,
-    );
-    expect(component.getByTestId('RatingCompontent').props.ratingCount).toEqual(
+    expect(component.getByTestId('RatingComponent').props.ownRating).toEqual(5);
+    expect(
+      component.getByTestId('RatingComponent').props.averageRating,
+    ).toEqual(3);
+    expect(component.getByTestId('RatingComponent').props.ratingCount).toEqual(
       17,
     );
-    expect(
-      component.getByTestId('RatingCompontent').props.handleRating,
-    ).toEqual(handleRating);
+    expect(component.getByTestId('RatingComponent').props.handleRating).toEqual(
+      handleRating,
+    );
 
     expect(component.getByTestId('Icon').props.name).toEqual('heart');
     expect(component.getByTestId('Icon').props.size).toEqual(35);
@@ -69,7 +67,7 @@ describe('RatingComponent Test', () => {
 
     const component = render(
       <RecipeDetailsActionBar
-        avgRating={3}
+        averageRating={3}
         ratingCount={17}
         ownRating={5}
         favorite={false}
@@ -81,18 +79,16 @@ describe('RatingComponent Test', () => {
     expect(component.toJSON()).toMatchSnapshot();
     expect(component.toJSON().children.length).toBe(2);
 
-    expect(component.getByTestId('RatingCompontent').props.ownRating).toEqual(
-      5,
-    );
-    expect(component.getByTestId('RatingCompontent').props.avgRating).toEqual(
-      3,
-    );
-    expect(component.getByTestId('RatingCompontent').props.ratingCount).toEqual(
+    expect(component.getByTestId('RatingComponent').props.ownRating).toEqual(5);
+    expect(
+      component.getByTestId('RatingComponent').props.averageRating,
+    ).toEqual(3);
+    expect(component.getByTestId('RatingComponent').props.ratingCount).toEqual(
       17,
     );
-    expect(
-      component.getByTestId('RatingCompontent').props.handleRating,
-    ).toEqual(handleRating);
+    expect(component.getByTestId('RatingComponent').props.handleRating).toEqual(
+      handleRating,
+    );
 
     expect(component.getByTestId('Icon').props.name).toEqual('heart');
     expect(component.getByTestId('Icon').props.size).toEqual(35);

@@ -14,11 +14,11 @@ exports[`RecipeList Test 1`] = `
     data={
       Array [
         Object {
-          "pk": "1",
+          "id": "1",
           "title": "test-title-1",
         },
         Object {
-          "pk": "2",
+          "id": "2",
           "title": "test-title-2",
         },
       ]
@@ -49,7 +49,7 @@ exports[`RecipeList Test 1`] = `
             Object {
               "index": 0,
               "item": Object {
-                "pk": "1",
+                "id": "1",
                 "title": "test-title-1",
               },
               "separators": Object {
@@ -70,7 +70,7 @@ exports[`RecipeList Test 1`] = `
             Object {
               "index": 1,
               "item": Object {
-                "pk": "2",
+                "id": "2",
                 "title": "test-title-2",
               },
               "separators": Object {

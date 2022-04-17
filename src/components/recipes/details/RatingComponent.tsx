@@ -7,14 +7,14 @@ import {Rating} from 'react-native-ratings';
 import {Appearance} from 'react-native';
 
 interface RatingComponentProps {
-  avgRating: number;
+  averageRating: number;
   ratingCount: number;
   ownRating?: number;
   handleRating: (id: number, rating: number) => void;
 }
 
-export default function RatingCompontent({
-  avgRating,
+export default function RatingComponent({
+  averageRating,
   ratingCount,
   ownRating,
   handleRating,
@@ -31,7 +31,7 @@ export default function RatingCompontent({
         tintColor={isDarkMode ? Colors.darker : Colors.lighter}
         onFinishRating={handleRating}
       />
-      <AvgTextStyled>{avgRating}</AvgTextStyled>
+      <AvgTextStyled>{averageRating}</AvgTextStyled>
       <StarIconStyled name={'star'} size={20} color={'#F1C40F'} />
       <RatingCountTextStyled>{`(${ratingCount})`}</RatingCountTextStyled>
     </ViewStyled>

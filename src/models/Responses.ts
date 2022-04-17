@@ -2,7 +2,7 @@ import {RecipePreview} from './RecipePreview';
 import {Cookbook} from './Cookbook';
 
 export interface RecipeListResponse {
-  cout: number;
+  count: number;
   next?: string;
   previous?: string;
   results: RecipePreview[];
@@ -18,7 +18,9 @@ export interface RatingResponse {
   };
 }
 
-export interface LoginResponse {}
+export interface LoginResponse {
+  token: string;
+}
 
 export interface CookbookResponse {
   results: Cookbook[];

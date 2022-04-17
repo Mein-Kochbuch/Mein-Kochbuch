@@ -32,15 +32,6 @@ exports[`RegisterPage Test 1`] = `
       Register
     </Text>
   </View>
-  <Text
-    style={
-      Array [
-        Object {
-          "color": "red",
-        },
-      ]
-    }
-  />
   <View
     style={
       Array [

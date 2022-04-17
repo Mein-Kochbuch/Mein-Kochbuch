@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from 'styled-components/native';
+import {Image} from '../../../models/Image';
 
 interface RecipeDetailsImageGalleryProps {
-  images?: {image: string}[];
+  images?: Image[];
 }
 
 export default function RecipeDetailsImageGallery({
@@ -10,7 +11,7 @@ export default function RecipeDetailsImageGallery({
 }: RecipeDetailsImageGalleryProps) {
   const imageSource =
     images && images.length > 0
-      ? {uri: images[0].image}
+      ? {uri: images[0].url}
       : require('../../../../resources/platzhalter.png');
 
   return (

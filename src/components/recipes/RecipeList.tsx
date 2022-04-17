@@ -18,7 +18,7 @@ export default function RecipeList({
       <FlatList
         data={recipes}
         renderItem={item => <RecipeListItem item={item} />}
-        keyExtractor={item => item.pk.toString()}
+        keyExtractor={item => item.id}
         onEndReached={loadMoreRecipes}
       />
     </ViewStyled>

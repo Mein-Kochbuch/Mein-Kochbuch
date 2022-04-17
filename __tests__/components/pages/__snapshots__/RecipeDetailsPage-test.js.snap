@@ -21,11 +21,11 @@ exports[`RecipeDetailsPage Test RecipeDetailsPage Snapshot Test 1`] = `
       }
     />
     <div
-      avgRating={3.7}
-      favorite={true}
+      averageRating={3.7}
+      favorite={false}
       handleFavorize={[Function]}
       handleRating={[Function]}
-      ownRating={2.5}
+      ownRating={0}
       ratingCount={17}
     />
     <View
@@ -60,7 +60,7 @@ exports[`RecipeDetailsPage Test RecipeDetailsPage Snapshot Test 1`] = `
         }
       />
       <div
-        content="Difficulty: Mittel"
+        content="Difficulty: 2"
         style={
           Array [
             Object {

@@ -1,13 +1,13 @@
 import React from 'react';
 import styled from 'styled-components/native';
-import RatingCompontent from './RatingCompontent';
+import RatingComponent from './RatingComponent';
 import Icon from 'react-native-vector-icons/Feather';
 import {Appearance} from 'react-native';
 // @ts-ignore
 import Colors from 'react-native/Libraries/NewAppScreen/components/Colors';
 
 interface RecipeDetailsActionBarProps {
-  avgRating: number;
+  averageRating: number;
   ratingCount: number;
   ownRating?: number;
   favorite: boolean;
@@ -16,7 +16,7 @@ interface RecipeDetailsActionBarProps {
 }
 
 export default function RecipeDetailsActionBar({
-  avgRating,
+  averageRating,
   ratingCount,
   ownRating,
   handleRating,
@@ -28,9 +28,9 @@ export default function RecipeDetailsActionBar({
 
   return (
     <ActionBar>
-      <RatingCompontent
+      <RatingComponent
         ownRating={ownRating}
-        avgRating={avgRating}
+        averageRating={averageRating}
         ratingCount={ratingCount}
         handleRating={handleRating}
       />

@@ -31,7 +31,7 @@ export default function RegisterPage() {
   return (
     <StyledView>
       <Header title={'Register'} />
-      <ErrorText text={registerError} />
+      {registerError && <ErrorText text={registerError} />}
       <RegisterForm handleRegister={onSubmit} />
     </StyledView>
   );

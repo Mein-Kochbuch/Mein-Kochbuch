@@ -6,15 +6,15 @@ describe('urlService Test', () => {
 
     const url = applyFilter(filter);
 
-    expect(url).toBe('rezepte/');
+    expect(url).toBe('recipes/');
   });
 
   it('cookbook', () => {
-    const filter = {sammlungsID: '1'};
+    const filter = {cookbookId: '1'};
 
     const url = applyFilter(filter);
 
-    expect(url).toBe('sammlungen/1');
+    expect(url).toBe('cookbooks/1');
   });
 
   it('page', () => {
@@ -22,23 +22,23 @@ describe('urlService Test', () => {
 
     const url = applyFilter(filter);
 
-    expect(url).toBe('rezepte/?page=2');
+    expect(url).toBe('recipes/?page=2');
   });
 
   it('owner', () => {
-    const filter = {owner: 'me'};
+    const filter = {ownerId: 'me'};
 
     const url = applyFilter(filter);
 
-    expect(url).toBe('rezepte/?user=me');
+    expect(url).toBe('recipes/?user=me');
   });
 
   it('sortBy', () => {
-    const filter = {sortBy: '-avg_rating'};
+    const filter = {sortBy: 'rating'};
 
     const url = applyFilter(filter);
 
-    expect(url).toBe('rezepte/?sort=-avg_rating');
+    expect(url).toBe('recipes/?sort=rating');
   });
 
   it('favorite', () => {
@@ -46,15 +46,15 @@ describe('urlService Test', () => {
 
     const url = applyFilter(filter);
 
-    expect(url).toBe('rezepte/?filteravorite=True');
+    expect(url).toBe('recipes/?favorite=True');
   });
 
   it('duration', () => {
-    const filter = {maxDauer: 10};
+    const filter = {maxDuration: 10};
 
     const url = applyFilter(filter);
 
-    expect(url).toBe('rezepte/?time=10');
+    expect(url).toBe('recipes/?duration=10');
   });
 
   it('difficulty', () => {
@@ -62,26 +62,26 @@ describe('urlService Test', () => {
 
     const url = applyFilter(filter);
 
-    expect(url).toBe('rezepte/?difficulty=Mittel');
+    expect(url).toBe('recipes/?difficulty=Mittel');
   });
 
   it('ingredients', () => {
     const filter = {
-      zutaten: ['zutat1', 'zutat2'],
+      ingredients: ['zutat1', 'zutat2'],
     };
 
     const url = applyFilter(filter);
 
-    expect(url).toBe('rezepte/?ingredients=zutat1+zutat2');
+    expect(url).toBe('recipes/?ingredients=zutat1+zutat2');
   });
 
   it('search', () => {
     const filter = {
-      searchWords: ['searchWord1', 'searchWord2'],
+      search: ['searchWord1', 'searchWord2'],
     };
 
     const url = applyFilter(filter);
 
-    expect(url).toBe('rezepte/?search=searchWord1+searchWord2');
+    expect(url).toBe('recipes/?search=searchWord1+searchWord2');
   });
 });

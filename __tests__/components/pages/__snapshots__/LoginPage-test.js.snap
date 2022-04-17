@@ -15,7 +15,6 @@ exports[`LoginPage Test 1`] = `
   <div
     title="Login"
   />
-  <div />
   <div
     onSubmit={[Function]}
   />

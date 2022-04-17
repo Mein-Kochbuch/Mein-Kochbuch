@@ -17,11 +17,11 @@ exports[`MyRecipeTest Test 1`] = `
         Array [
           Object {
             "cookbook": "1",
-            "pk": "1",
+            "id": "1",
           },
           Object {
             "cookbook": "2",
-            "pk": "2",
+            "id": "2",
           },
         ]
       }

@@ -8,10 +8,7 @@ import RecipeDetailsHeader from '../../../../src/components/recipes/details/Reci
 it('RecipeDetails Header Test', () => {
   const component = renderer
     .create(
-      <RecipeDetailsHeader
-        title={'Test-Title'}
-        owner={{username: 'owner-name'}}
-      />,
+      <RecipeDetailsHeader title={'Test-Title'} owner={{name: 'owner-name'}} />,
     )
     .toJSON();
 

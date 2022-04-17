@@ -35,7 +35,7 @@ it('LoginPage Test', () => {
   const component = renderer.create(<LoginPage />);
 
   expect(component.toJSON()).toMatchSnapshot();
-  expect(component.toJSON().children.length).toBe(4);
+  expect(component.toJSON().children.length).toBe(3);
   const testInstance = component.root;
   expect(testInstance.findByType(Header).props.title).toBe('Login');
   expect(typeof testInstance.findByType(LoginForm).props.onSubmit).toBe(

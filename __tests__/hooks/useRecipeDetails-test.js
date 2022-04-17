@@ -18,7 +18,7 @@ describe('useRecipeDetails Test', () => {
     axios.get.mockImplementation(() =>
       Promise.resolve({
         data: {
-          pk: '1',
+          id: '1',
           title: 'test-title',
         },
       }),
@@ -37,7 +37,7 @@ describe('useRecipeDetails Test', () => {
 
     expect(axios.get).toBeCalled();
     expect(recipeDetailsHook.result.current.recipeDetails).toStrictEqual({
-      1: {pk: '1', title: 'test-title'},
+      1: {id: '1', title: 'test-title'},
     });
   });
 
@@ -45,7 +45,7 @@ describe('useRecipeDetails Test', () => {
     axios.get.mockImplementationOnce(() =>
       Promise.resolve({
         data: {
-          pk: '1',
+          id: '1',
           title: 'test-title',
         },
       }),
@@ -53,7 +53,7 @@ describe('useRecipeDetails Test', () => {
     axios.get.mockImplementationOnce(() =>
       Promise.resolve({
         data: {
-          pk: '2',
+          id: '2',
           title: 'test-title',
         },
       }),
@@ -76,8 +76,8 @@ describe('useRecipeDetails Test', () => {
 
     expect(axios.get).toBeCalledTimes(2);
     expect(recipeDetailsHook.result.current.recipeDetails).toStrictEqual({
-      1: {pk: '1', title: 'test-title'},
-      2: {pk: '2', title: 'test-title'},
+      1: {id: '1', title: 'test-title'},
+      2: {id: '2', title: 'test-title'},
     });
   });
 
@@ -85,7 +85,7 @@ describe('useRecipeDetails Test', () => {
     axios.get.mockImplementation(() =>
       Promise.resolve({
         data: {
-          pk: '1',
+          id: '1',
           title: 'test-title',
         },
       }),
@@ -108,7 +108,7 @@ describe('useRecipeDetails Test', () => {
 
     expect(axios.get).toBeCalledTimes(1);
     expect(recipeDetailsHook.result.current.recipeDetails).toStrictEqual({
-      1: {pk: '1', title: 'test-title'},
+      1: {id: '1', title: 'test-title'},
     });
   });
 
@@ -116,7 +116,7 @@ describe('useRecipeDetails Test', () => {
     axios.get.mockImplementationOnce(() =>
       Promise.resolve({
         data: {
-          pk: '1',
+          id: '1',
           title: 'test-title',
           favorite: false,
         },
@@ -148,7 +148,7 @@ describe('useRecipeDetails Test', () => {
     expect(axios.get).toBeCalledTimes(1);
     expect(axios.post).toBeCalledTimes(1);
     expect(recipeDetailsHook.result.current.recipeDetails).toStrictEqual({
-      1: {pk: '1', title: 'test-title', favorite: true},
+      1: {id: '1', title: 'test-title', favorite: true},
     });
   });
 
@@ -156,7 +156,7 @@ describe('useRecipeDetails Test', () => {
     axios.get.mockImplementationOnce(() =>
       Promise.resolve({
         data: {
-          pk: '1',
+          id: '1',
           title: 'test-title',
           rating: 1,
         },
@@ -190,7 +190,7 @@ describe('useRecipeDetails Test', () => {
     expect(axios.get).toBeCalledTimes(1);
     expect(axios.post).toBeCalledTimes(1);
     expect(recipeDetailsHook.result.current.recipeDetails).toStrictEqual({
-      1: {pk: '1', title: 'test-title', rating: 2.5},
+      1: {id: '1', title: 'test-title', rating: 2.5},
     });
   });
 });

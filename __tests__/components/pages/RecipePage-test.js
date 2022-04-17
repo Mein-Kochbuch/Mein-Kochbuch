@@ -8,8 +8,8 @@ import RecipesPage from '../../../src/components/pages/RecipesPage';
 import RecipeList from '../../../src/components/recipes/RecipeList';
 
 const recipes = [
-  {pk: '1', title: 'test-title-1'},
-  {pk: '2', title: 'test-title-2'},
+  {id: '1', title: 'test-title-1'},
+  {id: '2', title: 'test-title-2'},
 ];
 
 jest.mock('../../../src/hooks/useRecipePreviews', () => {

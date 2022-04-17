@@ -8,8 +8,8 @@ import MyRecipesList from '../../../src/components/recipes/MyRecipesList';
 import Header from '../../../src/components/pages/Header';
 
 const cookbooks = [
-  {cookbook: '1', pk: '1'},
-  {cookbook: '2', pk: '2'},
+  {cookbook: '1', id: '1'},
+  {cookbook: '2', id: '2'},
 ];
 
 jest.mock('../../../src/hooks/useCookbooks', () => {

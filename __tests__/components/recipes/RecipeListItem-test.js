@@ -45,7 +45,7 @@ describe('RecipeListItem Test', () => {
 
     const item = {
       item: {
-        pk: '3',
+        id: '3',
         title: 'test-title',
       },
     };

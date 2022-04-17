@@ -16,7 +16,7 @@ describe('useRecipePreviews Test', () => {
 
   it('useRecipePreviews', async () => {
     axios.get.mockImplementation(() =>
-      Promise.resolve({data: {results: [{pk: '1', title: 'test-title'}]}}),
+      Promise.resolve({data: {results: [{id: '1', title: 'test-title'}]}}),
     );
 
     let recipePreviewHook;
@@ -28,7 +28,7 @@ describe('useRecipePreviews Test', () => {
 
     expect(axios.get).toBeCalled();
     expect(recipePreviewHook.result.current.recipePreviews).toStrictEqual([
-      {pk: '1', title: 'test-title'},
+      {id: '1', title: 'test-title'},
     ]);
   });
 
@@ -37,7 +37,7 @@ describe('useRecipePreviews Test', () => {
       Promise.resolve({
         data: {
           next: 'next-url',
-          results: [{pk: '1', title: 'test-title'}],
+          results: [{id: '1', title: 'test-title'}],
         },
       }),
     );
@@ -45,7 +45,7 @@ describe('useRecipePreviews Test', () => {
       Promise.resolve({
         data: {
           next: 'next-test-url',
-          results: [{pk: '2', title: 'test-title-2'}],
+          results: [{id: '2', title: 'test-title-2'}],
         },
       }),
     );
@@ -63,9 +63,9 @@ describe('useRecipePreviews Test', () => {
 
     expect(axios.get).toBeCalledTimes(2);
     expect(recipePreviewsHook.result.current.recipePreviews).toStrictEqual([
-      {pk: '1', title: 'test-title'},
+      {id: '1', title: 'test-title'},
       {
-        pk: '2',
+        id: '2',
         title: 'test-title-2',
       },
     ]);

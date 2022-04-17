@@ -30,12 +30,12 @@ export default function useRecipePreviews() {
     }
   };
 
-  const addRecipes = (data: any) => {
+  const addRecipes = (data: RecipeListResponse) => {
     setNextUrl(data.next);
     setRecipePreviews(existingRecipes =>
       existingRecipes.concat(
         data.results.filter(
-          (newRecipe: any) => !existingRecipes.some(i => i.pk === newRecipe.pk),
+          (newRecipe: any) => !existingRecipes.some(i => i.id === newRecipe.id),
         ),
       ),
     );

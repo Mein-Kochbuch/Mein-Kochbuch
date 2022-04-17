@@ -8,7 +8,7 @@ import RecipeDetailsImageGallery from '../../../../src/components/recipes/detail
 describe('RecipeDetailsImageGallery', () => {
   it('With Image', () => {
     const component = render(
-      <RecipeDetailsImageGallery images={[{image: 'test-uri'}]} />,
+      <RecipeDetailsImageGallery images={[{url: 'test-uri'}]} />,
     );
 
     expect(component.toJSON()).toMatchSnapshot();

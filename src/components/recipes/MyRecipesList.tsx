@@ -16,7 +16,7 @@ export default function MyRecipesList({cookbooks}: MyRecipeListProps) {
       <MultiListItem title={'Favorites'} icon="heart" />
       <Spacer />
       {cookbooks.map(cookbook => (
-        <CookbookListItem key={cookbook.pk} cookbook={cookbook} />
+        <CookbookListItem key={cookbook.id} cookbook={cookbook} />
       ))}
     </View>
   );

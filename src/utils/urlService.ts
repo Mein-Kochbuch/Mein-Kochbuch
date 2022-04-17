@@ -1,45 +1,45 @@
 import {RecipeListFilter} from '../models/RecipeListFilter';
 
 const applyFilter = (filter: RecipeListFilter) => {
-  let url = 'rezepte/';
+  let url = 'recipes/';
 
-  if ('sammlungsID' in filter) {
-    url = 'sammlungen/' + filter.sammlungsID;
+  if ('cookbookId' in filter) {
+    url = 'cookbooks/' + filter.cookbookId;
   }
 
   if (filter.count) {
     url = addParameter(url, 'page=' + (filter.count / 10 + 1));
   }
 
-  if (filter.owner) {
-    url = addParameter(url, 'user=' + filter.owner);
+  if (filter.ownerId) {
+    url = addParameter(url, 'user=' + filter.ownerId);
   }
 
   if (filter.sortBy) {
     url = addParameter(url, 'sort=' + filter.sortBy);
   }
   if (filter.favorite) {
-    url = addParameter(url, 'filteravorite=True');
+    url = addParameter(url, 'favorite=True');
   }
-  if (filter.maxDauer) {
-    url = addParameter(url, 'time=' + filter.maxDauer);
+  if (filter.maxDuration) {
+    url = addParameter(url, 'duration=' + filter.maxDuration);
   }
   if (filter.difficulty) {
     url = addParameter(url, 'difficulty=' + filter.difficulty);
   }
-  if (filter.zutaten) {
-    let ingredients = filter.zutaten[0];
+  if (filter.ingredients) {
+    let ingredients = filter.ingredients[0];
 
-    for (let i = 1; i < filter.zutaten.length; i++) {
-      ingredients = ingredients.concat('+').concat(filter.zutaten[i]);
+    for (let i = 1; i < filter.ingredients.length; i++) {
+      ingredients = ingredients.concat('+').concat(filter.ingredients[i]);
     }
     url = addParameter(url, 'ingredients=' + ingredients);
   }
 
-  if (filter.searchWords) {
-    let search = filter.searchWords[0];
-    for (let i = 1; i < filter.searchWords.length; i++) {
-      search = search.concat('+').concat(filter.searchWords[i]);
+  if (filter.search) {
+    let search = filter.search[0];
+    for (let i = 1; i < filter.search.length; i++) {
+      search = search.concat('+').concat(filter.search[i]);
     }
     url = addParameter(url, 'search=' + search);
   }
@@ -52,4 +52,4 @@ const addParameter = (url: string, parameter: string) => {
     : url + '&' + parameter;
 };
 
-export {applyFilter}
+export {applyFilter};

@@ -12,9 +12,9 @@ import {Recipe} from '../../models/Recipe';
 
 interface RecipeDetailsPageProps {
   recipeDetails: {[key: string]: Recipe};
-  getRecipeDetailsById: (id: number) => void;
-  favorizeRecipeById: (id: number) => void;
-  rateRecipeById: (id: number, rating: number) => void;
+  getRecipeDetailsById: (id: string) => void;
+  favorizeRecipeById: (id: string) => void;
+  rateRecipeById: (id: string, rating: number) => void;
 }
 
 export default function RecipeDetailsPage({
@@ -26,44 +26,47 @@ export default function RecipeDetailsPage({
   const auth = useContext(AuthContext);
   const {id}: {id: string} = useParams();
   const history = useHistory();
-  const recipe = recipeDetails[parseInt(id)];
-  const ingredients = recipe?.zutaten_set.reduce(
-    (previousValue, currentValue) => {
-      return {
-        zutat: previousValue.zutat.concat('\n').concat(currentValue?.zutat),
-      };
-    },
-  ).zutat;
+  const recipe = recipeDetails[id];
+  if (!recipe) {
+    return <></>;
+  }
 
-  getRecipeDetailsById(parseInt(id));
+  const ingredients: string = recipe.ingredients
+    .map(ingredient => ingredient.text)
+    .reduce((previousValue, currentValue) => {
+      return previousValue.concat('\n').concat(currentValue);
+    });
+
+  getRecipeDetailsById(id);
 
   const handleFavorize = () => {
-    auth.user ? favorizeRecipeById(parseInt(id)) : history.push('/login');
+    auth.user ? favorizeRecipeById(id) : history.push('/login');
   };
 
   const handleRating = (rating: number) => {
-    auth.user ? rateRecipeById(parseInt(id), rating) : history.push('/login');
+    auth.user ? rateRecipeById(id, rating) : history.push('/login');
   };
 
   return (
     <ScrollView>
       <RecipeDetailsHeader title={recipe?.title} owner={recipe?.owner} />
-      <RecipeDetailsImageGallery images={recipe?.image_set} />
+      <RecipeDetailsImageGallery images={recipe?.images} />
       <RecipeDetailsActionBar
-        avgRating={recipe?.avg_rating}
-        ratingCount={recipe?.rating_count}
-        ownRating={recipe?.rating}
-        favorite={recipe?.favorite}
+        averageRating={recipe?.averageRating}
+        ratingCount={recipe?.ratingCount}
+        //TODO Add OwnRating/isFavorite Request and processing
+        ownRating={0}
+        favorite={false}
         handleRating={handleRating}
         handleFavorize={handleFavorize}
       />
       <RowWrapper>
-        <ItemStyled content={'Duration: ' + recipe?.dauer + ' min'} />
-        <ItemStyled content={'Difficulty: ' + recipe?.difficulty.difficulty} />
-        <PortionsStyled content={'Portions: ' + recipe?.portionen} />
+        <ItemStyled content={'Duration: ' + recipe?.duration + ' min'} />
+        <ItemStyled content={'Difficulty: ' + recipe?.difficulty} />
+        <PortionsStyled content={'Portions: ' + recipe?.portions} />
       </RowWrapper>
       <ItemWrapper content={'Ingredients:\n' + ingredients} />
-      <ItemWrapper content={'Instructions: \n' + recipe?.anleitung} />
+      <ItemWrapper content={'Instructions: \n' + recipe?.instruction} />
     </ScrollView>
   );
 }

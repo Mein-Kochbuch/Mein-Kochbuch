@@ -13,8 +13,8 @@ jest.mock('../../../src/components/recipes/RecipeListItem', () => {
 });
 
 const recipes = [
-  {pk: '1', title: 'test-title-1'},
-  {pk: '2', title: 'test-title-2'},
+  {id: '1', title: 'test-title-1'},
+  {id: '2', title: 'test-title-2'},
 ];
 
 it('RecipeList Test', () => {
@@ -29,13 +29,13 @@ it('RecipeList Test', () => {
     testInstance.findAllByType(RecipeListItem)[0].props.item.item,
   ).toStrictEqual({
     title: 'test-title-1',
-    pk: '1',
+    id: '1',
   });
 
   expect(
     testInstance.findAllByType(RecipeListItem)[1].props.item.item,
   ).toStrictEqual({
     title: 'test-title-2',
-    pk: '2',
+    id: '2',
   });
 });

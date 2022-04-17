@@ -16,12 +16,12 @@ export default function RecipeListItem({item}: RecipeListItemProps) {
   const isDarkMode = Appearance.getColorScheme() === 'dark';
 
   const recipe = item.item;
-  const imageSource = recipe.thumbnail_url
-    ? {uri: recipe.thumbnail_url}
+  const imageSource = recipe.thumbnail?.url
+    ? {uri: recipe.thumbnail.url}
     : require('../../../resources/platzhalter.png');
 
   const handleOnPress = () => {
-    history.push('/recipes/' + recipe.pk);
+    history.push('/recipes/' + recipe.id);
   };
 
   return (

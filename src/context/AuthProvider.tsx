@@ -2,8 +2,12 @@ import React, {createContext, ReactElement, useState} from 'react';
 import axios from 'axios';
 import {LoginResponse} from '../models/Responses';
 
+type User = {
+  token: string;
+};
+
 interface AuthContextType {
-  user?: {};
+  user?: User;
   login: (credentials: {username: string; password: string}) => Promise<void>;
 }
 
@@ -12,7 +16,7 @@ export const AuthContext = createContext<AuthContextType>({
 });
 
 export default function AuthProvider({children}: {children: ReactElement}) {
-  const [user, setUser] = useState<{}>();
+  const [user, setUser] = useState<User>();
   const url = `https://mein-kochbuch.org/api/`;
 
   const login = (credentials: {username: string; password: string}) => {

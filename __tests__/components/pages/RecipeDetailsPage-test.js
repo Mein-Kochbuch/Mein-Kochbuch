@@ -5,6 +5,7 @@ import React from 'react';
 import RecipeDetailsPage from '../../../src/components/pages/RecipeDetailsPage';
 import {render} from '@testing-library/react-native';
 import {Router} from 'react-router-native';
+import {Difficulty} from '../../../src/models/Recipe';
 
 jest.mock('../../../src/components/recipes/details/RecipeDetailsHeader', () => {
   return props => {
@@ -62,30 +63,37 @@ describe('RecipeDetailsPage Test', () => {
       3: {
         title: 'recipe-title',
         owner: {name: 'owner-name'},
-        image_set: [{image: 'url'}],
-        avg_rating: 3.7,
-        rating_count: 17,
+        images: [{image: 'url'}],
+        averageRating: 3.7,
+        ratingCount: 17,
         rating: 2.5,
         favorite: true,
-        dauer: 25,
-        difficulty: {difficulty: 'Mittel'},
-        portionen: 4,
-        zutaten_set: [{zutat: 'mehl'}, {zutat: 'zucker'}],
-        anleitung: 'test Anleitung',
+        duration: 25,
+        difficulty: Difficulty.MEDIUM,
+        portions: 4,
+        ingredients: [
+          {id: '1', amount: 300, text: 'mehl'},
+          {id: '2', amount: 200, text: 'zucker'},
+        ],
+        instruction: 'test Anleitung',
       },
     };
     const getRecipeDetailsById = jest.fn();
+    const favorizeRecipeById = jest.fn();
+    const rateRecipeById = jest.fn();
 
     const component = render(
       <Router history={history}>
         <RecipeDetailsPage
           recipeDetails={recipeDetails}
           getRecipeDetailsById={getRecipeDetailsById}
+          favorizeRecipeById={favorizeRecipeById}
+          rateRecipeById={rateRecipeById}
         />
       </Router>,
     );
 
     expect(component.toJSON()).toMatchSnapshot();
-    expect(getRecipeDetailsById).toBeCalledWith(3);
+    expect(getRecipeDetailsById).toBeCalledWith('3');
   });
 });

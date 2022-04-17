@@ -1,10 +1,11 @@
 import React from 'react';
 import {View} from 'react-native';
 import styled from 'styled-components/native';
+import {ChefUser} from '../../../models/ChefUser';
 
 interface RecipeDetailsHeaderProps {
   title: string;
-  owner?: {username: string};
+  owner?: ChefUser;
 }
 
 export default function RecipeDetailsHeader({
@@ -14,7 +15,7 @@ export default function RecipeDetailsHeader({
   return (
     <View>
       <TitleStyled>{title}</TitleStyled>
-      <OwnerStyled>{owner?.username}</OwnerStyled>
+      <OwnerStyled>{owner?.name}</OwnerStyled>
     </View>
   );
 }

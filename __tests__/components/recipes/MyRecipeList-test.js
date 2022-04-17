@@ -20,8 +20,8 @@ jest.mock('../../../src/components/cookbooks/CookbookListItem', () => {
 });
 
 const cookbooks = [
-  {cookbook: '1', pk: '1'},
-  {cookbook: '2', pk: '2'},
+  {cookbook: '1', id: '1'},
+  {cookbook: '2', id: '2'},
 ];
 
 it('MyRecipesList Test', () => {
@@ -42,9 +42,9 @@ it('MyRecipesList Test', () => {
 
   expect(
     testInstance.findAllByType(CookbookListItem)[0].props.cookbook,
-  ).toStrictEqual({cookbook: '1', pk: '1'});
+  ).toStrictEqual({cookbook: '1', id: '1'});
 
   expect(
     testInstance.findAllByType(CookbookListItem)[1].props.cookbook,
-  ).toStrictEqual({cookbook: '2', pk: '2'});
+  ).toStrictEqual({cookbook: '2', id: '2'});
 });
