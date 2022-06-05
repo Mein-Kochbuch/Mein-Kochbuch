@@ -17,7 +17,7 @@ export const AuthContext = createContext<AuthContextType>({
 
 export default function AuthProvider({children}: {children: ReactElement}) {
   const [user, setUser] = useState<User>();
-  const url = `https://mein-kochbuch.org/api/`;
+  const url = 'https://mein-kochbuch.org/api/';
 
   const login = (credentials: {username: string; password: string}) => {
     return axios
