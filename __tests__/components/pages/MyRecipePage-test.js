@@ -5,7 +5,14 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import MyRecipesPage from '../../../src/components/pages/MyRecipesPage';
 
+import * as axios from 'axios';
+
+jest.mock('axios');
+axios.create.mockImplementation(() => axios);
+
 it('MyRecipeTest Test', () => {
+  axios.get.mockImplementation(() => Promise.resolve({data: {results: []}}));
+
   const component = renderer.create(<MyRecipesPage />);
 
   expect(component.toJSON()).toMatchSnapshot();

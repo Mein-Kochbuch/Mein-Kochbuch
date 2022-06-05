@@ -4,7 +4,6 @@ const applyFilter = (filter: RecipeListFilter) => {
   let url = '/recipes/';
 
   if ('cookbookId' in filter) {
-    console.log('HIER');
     url = '/cookbooks/' + filter.cookbookId;
   }
 
