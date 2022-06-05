@@ -23,5 +23,5 @@ export type LoginResponse = {
 };
 
 export type CookbookResponse = {
-  results: Cookbook[]
+  results: Cookbook[];
 };
