@@ -16,7 +16,7 @@ describe('RecipeListItem Test', () => {
   it('light', () => {
     const item = {
       item: {
-        title: 'test-title',
+        name: 'test-title',
       },
     };
 
@@ -30,7 +30,7 @@ describe('RecipeListItem Test', () => {
 
     expect(
       testInstance.findAllByType(RecipeListItem)[0].props.item.item,
-    ).toStrictEqual({title: 'test-title'});
+    ).toStrictEqual({name: 'test-title'});
     expect(testInstance.findAllByType(Image)[0].props.source).toStrictEqual({
       testUri: '../../../resources/platzhalter.png',
     });
@@ -46,7 +46,7 @@ describe('RecipeListItem Test', () => {
     const item = {
       item: {
         id: '3',
-        title: 'test-title',
+        name: 'test-title',
       },
     };
 

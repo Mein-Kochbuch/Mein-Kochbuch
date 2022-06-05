@@ -22,4 +22,6 @@ export type LoginResponse = {
   token: string;
 };
 
-export type CookbookResponse = Cookbook[];
+export type CookbookResponse = {
+  results: Cookbook[]
+};

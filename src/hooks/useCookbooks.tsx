@@ -13,6 +13,7 @@ export default function useCookbooks() {
     axios
       .get<CookbookResponse>(url)
       .then(response => response.data)
+      .then(data => data.results)
       .then(setCookbooks)
       .catch(console.error);
   }, []);
