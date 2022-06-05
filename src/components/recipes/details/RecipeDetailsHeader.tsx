@@ -1,11 +1,11 @@
 import React from 'react';
 import {View} from 'react-native';
 import styled from 'styled-components/native';
-import {ChefUser} from '../../../models/ChefUser';
+import {ChefUserPreview} from '../../../models/ChefUserPreview';
 
 interface RecipeDetailsHeaderProps {
   title: string;
-  owner?: ChefUser;
+  owner?: ChefUserPreview;
 }
 
 export default function RecipeDetailsHeader({

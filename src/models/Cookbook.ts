@@ -1,11 +1,11 @@
 import {Image} from './Image';
 import {Recipe} from './Recipe';
-import {ChefUser} from './ChefUser';
+import {ChefUserPreview} from './ChefUserPreview';
 
 export interface Cookbook {
   id: string;
   name: string;
-  owner: ChefUser;
+  owner: ChefUserPreview;
   privacy: boolean;
   recipes: Recipe[];
   thumbnail?: Image;

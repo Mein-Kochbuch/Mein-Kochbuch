@@ -28,7 +28,7 @@ export default function RecipeListItem({item}: RecipeListItemProps) {
     <StyledTouchableOpacity isDarkMode={isDarkMode} onPress={handleOnPress}>
       <ImageStyled source={imageSource} />
       <StyledTest numberOfLines={2} ellipsizeMode={'middle'}>
-        {recipe.title}
+        {recipe.name}
       </StyledTest>
     </StyledTouchableOpacity>
   );

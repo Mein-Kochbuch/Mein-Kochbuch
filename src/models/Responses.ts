@@ -1,27 +1,25 @@
 import {RecipePreview} from './RecipePreview';
 import {Cookbook} from './Cookbook';
 
-export interface RecipeListResponse {
+export type RecipeListResponse = {
   count: number;
   next?: string;
   previous?: string;
   results: RecipePreview[];
-}
+};
 
-export interface FavorizeResponse {
+export type FavorizeResponse = {
   result: boolean;
-}
+};
 
-export interface RatingResponse {
+export type RatingResponse = {
   result: {
     rating: number;
   };
-}
+};
 
-export interface LoginResponse {
+export type LoginResponse = {
   token: string;
-}
+};
 
-export interface CookbookResponse {
-  results: Cookbook[];
-}
+export type CookbookResponse = Cookbook[];

@@ -1,11 +1,11 @@
 import {Image} from './Image';
-import {ChefUser} from './ChefUser';
+import {ChefUserPreview} from './ChefUserPreview';
 
 export interface RecipePreview {
   id: string;
-  title: string;
+  name: string;
   averageRating: number;
   thumbnail?: Image;
   ratingCount: number;
-  owner: ChefUser;
+  owner: ChefUserPreview;
 }

@@ -4,9 +4,9 @@ import {AuthContext} from '../context/AuthProvider';
 
 export default function AxiosInstance() {
   const {user} = useContext(AuthContext);
-  const options: AxiosRequestConfig = {
-    baseURL: 'https://mein-kochbuch.org/api/',
-  };
+  const options: AxiosRequestConfig = __DEV__
+    ? {baseURL: 'http://192.168.178.82:8080/api/'}
+    : {baseURL: 'https://mein-kochbuch.org/api/'};
 
   if (user) {
     options.headers = {Authorization: `Token ${user.token}`};

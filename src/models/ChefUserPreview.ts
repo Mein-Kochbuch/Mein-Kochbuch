@@ -1,4 +1,4 @@
-export type ChefUser = {
+export type ChefUserPreview = {
   id: string;
   name: string;
 };
