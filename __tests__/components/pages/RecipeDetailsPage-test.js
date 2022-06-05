@@ -7,39 +7,6 @@ import {render} from '@testing-library/react-native';
 import {Router} from 'react-router-native';
 import {Difficulty} from '../../../src/models/Recipe';
 
-jest.mock('../../../src/components/recipes/details/RecipeDetailsHeader', () => {
-  return props => {
-    return <div {...props} />;
-  };
-});
-
-jest.mock(
-  '../../../src/components/recipes/details/RecipeDetailsImageGallery',
-  () => {
-    return props => {
-      return <div {...props} />;
-    };
-  },
-);
-
-jest.mock(
-  '../../../src/components/recipes/details/RecipeDetailsActionBar',
-  () => {
-    return props => {
-      return <div {...props} />;
-    };
-  },
-);
-
-jest.mock(
-  '../../../src/components/recipes/details/RecipeDetailsItemComponent',
-  () => {
-    return props => {
-      return <div {...props} />;
-    };
-  },
-);
-
 jest.mock('react-router-native', () => ({
   ...jest.requireActual('react-router-native'), // use actual for all non-hook parts
   useParams: () => ({

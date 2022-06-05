@@ -8,9 +8,270 @@ exports[`MainMenuPage Test 1`] = `
     }
   }
 >
-  <div
-    title="My-Cookbook"
-  />
-  <div />
+  <View
+    style={
+      Object {
+        "display": "flex",
+        "justifyContent": "center",
+        "marginVertical": 12,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "fontSize": 50,
+          "textAlign": "center",
+        }
+      }
+    >
+      My-Cookbook
+    </Text>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "display": "flex",
+          "flexDirection": "column",
+          "height": "80%",
+        },
+      ]
+    }
+  >
+    <View>
+      <View
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "borderColor": "#222",
+            "borderRadius": 10,
+            "borderStyle": "solid",
+            "borderWidth": 2,
+            "display": "flex",
+            "flexDirection": "column",
+            "justifyContent": "space-between",
+            "marginBottom": 12,
+            "marginLeft": 12,
+            "marginRight": 12,
+            "marginTop": 12,
+            "minWidth": 300,
+            "opacity": 1,
+            "width": "80%",
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "fontSize": 30,
+                "textAlign": "center",
+              },
+            ]
+          }
+        >
+          My Recipes
+        </Text>
+      </View>
+      <View
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "borderColor": "#222",
+            "borderRadius": 10,
+            "borderStyle": "solid",
+            "borderWidth": 2,
+            "display": "flex",
+            "flexDirection": "column",
+            "justifyContent": "space-between",
+            "marginBottom": 12,
+            "marginLeft": 12,
+            "marginRight": 12,
+            "marginTop": 12,
+            "minWidth": 300,
+            "opacity": 1,
+            "width": "80%",
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "fontSize": 30,
+                "textAlign": "center",
+              },
+            ]
+          }
+        >
+          All Recipes
+        </Text>
+      </View>
+      <View
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "borderColor": "#222",
+            "borderRadius": 10,
+            "borderStyle": "solid",
+            "borderWidth": 2,
+            "display": "flex",
+            "flexDirection": "column",
+            "justifyContent": "space-between",
+            "marginBottom": 12,
+            "marginLeft": 12,
+            "marginRight": 12,
+            "marginTop": 12,
+            "minWidth": 300,
+            "opacity": 1,
+            "width": "80%",
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "fontSize": 30,
+                "textAlign": "center",
+              },
+            ]
+          }
+        >
+          Cookbooks
+        </Text>
+      </View>
+      <View
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "borderColor": "#222",
+            "borderRadius": 10,
+            "borderStyle": "solid",
+            "borderWidth": 2,
+            "display": "flex",
+            "flexDirection": "column",
+            "justifyContent": "space-between",
+            "marginBottom": 12,
+            "marginLeft": 12,
+            "marginRight": 12,
+            "marginTop": 12,
+            "minWidth": 300,
+            "opacity": 1,
+            "width": "80%",
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "fontSize": 30,
+                "textAlign": "center",
+              },
+            ]
+          }
+        >
+          Ad Recipe
+        </Text>
+      </View>
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "marginTop": "auto",
+          },
+        ]
+      }
+    >
+      <View
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "borderColor": "#222",
+            "borderRadius": 10,
+            "borderStyle": "solid",
+            "borderWidth": 2,
+            "display": "flex",
+            "flexDirection": "column",
+            "justifyContent": "space-between",
+            "marginBottom": 12,
+            "marginLeft": 12,
+            "marginRight": 12,
+            "marginTop": 12,
+            "minWidth": 300,
+            "opacity": 1,
+            "width": "80%",
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "fontSize": 30,
+                "textAlign": "center",
+              },
+            ]
+          }
+        >
+          Settings
+        </Text>
+      </View>
+    </View>
+  </View>
 </View>
 `;
