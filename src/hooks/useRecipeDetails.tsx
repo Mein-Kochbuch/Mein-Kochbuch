@@ -7,7 +7,7 @@ export default function useRecipeDetails() {
   const [recipeDetails, setRecipeDetails] = useState<{[key: string]: Recipe}>(
     {},
   );
-  const url = 'recipes/';
+  const url = '/recipes/';
 
   const axios = AxiosInstance();
 

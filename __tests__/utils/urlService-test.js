@@ -6,7 +6,7 @@ describe('urlService Test', () => {
 
     const url = applyFilter(filter);
 
-    expect(url).toBe('recipes/');
+    expect(url).toBe('/recipes/');
   });
 
   it('cookbook', () => {
@@ -14,7 +14,7 @@ describe('urlService Test', () => {
 
     const url = applyFilter(filter);
 
-    expect(url).toBe('cookbooks/1');
+    expect(url).toBe('/cookbooks/1');
   });
 
   it('page', () => {
@@ -22,7 +22,7 @@ describe('urlService Test', () => {
 
     const url = applyFilter(filter);
 
-    expect(url).toBe('recipes/?page=2');
+    expect(url).toBe('/recipes/?page=2');
   });
 
   it('owner', () => {
@@ -30,7 +30,7 @@ describe('urlService Test', () => {
 
     const url = applyFilter(filter);
 
-    expect(url).toBe('recipes/?user=me');
+    expect(url).toBe('/recipes/?user=me');
   });
 
   it('sortBy', () => {
@@ -38,7 +38,7 @@ describe('urlService Test', () => {
 
     const url = applyFilter(filter);
 
-    expect(url).toBe('recipes/?sort=rating');
+    expect(url).toBe('/recipes/?sort=rating');
   });
 
   it('favorite', () => {
@@ -46,7 +46,7 @@ describe('urlService Test', () => {
 
     const url = applyFilter(filter);
 
-    expect(url).toBe('recipes/?favorite=True');
+    expect(url).toBe('/recipes/?favorite=True');
   });
 
   it('duration', () => {
@@ -54,7 +54,7 @@ describe('urlService Test', () => {
 
     const url = applyFilter(filter);
 
-    expect(url).toBe('recipes/?duration=10');
+    expect(url).toBe('/recipes/?duration=10');
   });
 
   it('difficulty', () => {
@@ -62,7 +62,7 @@ describe('urlService Test', () => {
 
     const url = applyFilter(filter);
 
-    expect(url).toBe('recipes/?difficulty=Mittel');
+    expect(url).toBe('/recipes/?difficulty=Mittel');
   });
 
   it('ingredients', () => {
@@ -72,7 +72,7 @@ describe('urlService Test', () => {
 
     const url = applyFilter(filter);
 
-    expect(url).toBe('recipes/?ingredients=zutat1+zutat2');
+    expect(url).toBe('/recipes/?ingredients=zutat1+zutat2');
   });
 
   it('search', () => {
@@ -82,6 +82,6 @@ describe('urlService Test', () => {
 
     const url = applyFilter(filter);
 
-    expect(url).toBe('recipes/?search=searchWord1+searchWord2');
+    expect(url).toBe('/recipes/?search=searchWord1+searchWord2');
   });
 });

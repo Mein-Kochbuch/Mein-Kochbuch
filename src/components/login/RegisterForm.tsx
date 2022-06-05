@@ -39,7 +39,7 @@ export default function RegisterForm({handleRegister}: RegisterFormProps) {
     }
     setEmailError('');
 
-    handleRegister(email, name, password);
+    handleRegister(name, email, password);
   };
 
   return (

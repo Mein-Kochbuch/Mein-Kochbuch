@@ -1,10 +1,11 @@
 import {RecipeListFilter} from '../models/RecipeListFilter';
 
 const applyFilter = (filter: RecipeListFilter) => {
-  let url = 'recipes/';
+  let url = '/recipes/';
 
   if ('cookbookId' in filter) {
-    url = 'cookbooks/' + filter.cookbookId;
+    console.log('HIER');
+    url = '/cookbooks/' + filter.cookbookId;
   }
 
   if (filter.count) {

@@ -61,8 +61,8 @@ describe('RegisterForm Test', () => {
 
     fireEvent(getByText('Register'), 'onPress');
     expect(handleRegister).toBeCalledWith(
-      'test@mein-kochbuch.org',
       'testName',
+      'test@mein-kochbuch.org',
       'Test123!',
     );
   });

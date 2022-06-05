@@ -13,13 +13,12 @@ export default function RegisterPage() {
 
   const onSubmit = (name: string, email: string, password: string) => {
     return axios
-      .post('account/register/', {
+      .post('/account/register/', {
         email: email,
         password: password,
         username: name,
       })
-      .then(response => {
-        console.log(response);
+      .then(() => {
         history.push('/register/complete');
       })
       .catch(error => {

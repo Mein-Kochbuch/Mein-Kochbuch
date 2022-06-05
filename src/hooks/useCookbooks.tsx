@@ -5,7 +5,7 @@ import {CookbookResponse} from '../models/Responses';
 
 export default function useCookbooks() {
   const [cookbooks, setCookbooks] = useState<Cookbook[]>([]);
-  const url = 'cookbooks/';
+  const url = '/cookbooks/';
 
   const axios = AxiosInstance();
 
