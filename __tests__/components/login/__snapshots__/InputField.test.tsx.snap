@@ -1,0 +1,222 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InputField Test Snapshot light Test 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "marginBottom": 12,
+        "marginLeft": 12,
+        "marginRight": 12,
+        "marginTop": 12,
+      },
+    ]
+  }
+>
+  <Text
+    style={Object {}}
+  >
+    test-title
+  </Text>
+  <TextInput
+    isDarkMode={false}
+    onChangeText={[MockFunction]}
+    placeholder="test-palceholder"
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "borderColor": "#222",
+          "borderRadius": 10,
+          "borderStyle": "solid",
+          "borderWidth": 2,
+          "display": "flex",
+          "flexDirection": "column",
+          "justifyContent": "space-between",
+          "minWidth": 300,
+          "width": "80%",
+        },
+      ]
+    }
+    value=""
+  />
+</View>
+`;
+
+exports[`InputField Test Snapshot with value 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "marginBottom": 12,
+        "marginLeft": 12,
+        "marginRight": 12,
+        "marginTop": 12,
+      },
+    ]
+  }
+>
+  <Text
+    style={Object {}}
+  >
+    test-title
+  </Text>
+  <TextInput
+    isDarkMode={false}
+    onChangeText={[MockFunction]}
+    placeholder="test-palceholder"
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "borderColor": "#222",
+          "borderRadius": 10,
+          "borderStyle": "solid",
+          "borderWidth": 2,
+          "display": "flex",
+          "flexDirection": "column",
+          "justifyContent": "space-between",
+          "minWidth": 300,
+          "width": "80%",
+        },
+      ]
+    }
+    value="test-value"
+  />
+</View>
+`;
+
+exports[`InputField Test Snapshot with value, ErrorTest 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "marginBottom": 12,
+        "marginLeft": 12,
+        "marginRight": 12,
+        "marginTop": 12,
+      },
+    ]
+  }
+>
+  <Text
+    style={
+      Object {
+        "color": "#ff0000",
+      }
+    }
+  >
+    test-Error
+  </Text>
+  <TextInput
+    isDarkMode={false}
+    onChangeText={[MockFunction]}
+    placeholder="test-palceholder"
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "borderColor": "#222",
+          "borderRadius": 10,
+          "borderStyle": "solid",
+          "borderWidth": 2,
+          "display": "flex",
+          "flexDirection": "column",
+          "justifyContent": "space-between",
+          "minWidth": 300,
+          "width": "80%",
+        },
+      ]
+    }
+    value="test-value"
+  />
+</View>
+`;
+
+exports[`InputField Test Snapshot with value, keyboard type email 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "marginBottom": 12,
+        "marginLeft": 12,
+        "marginRight": 12,
+        "marginTop": 12,
+      },
+    ]
+  }
+>
+  <Text
+    style={Object {}}
+  >
+    test-title
+  </Text>
+  <TextInput
+    isDarkMode={false}
+    keyboardType="email-address"
+    onChangeText={[MockFunction]}
+    placeholder="test-palceholder"
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "borderColor": "#222",
+          "borderRadius": 10,
+          "borderStyle": "solid",
+          "borderWidth": 2,
+          "display": "flex",
+          "flexDirection": "column",
+          "justifyContent": "space-between",
+          "minWidth": 300,
+          "width": "80%",
+        },
+      ]
+    }
+    value="test-value"
+  />
+</View>
+`;
+
+exports[`InputField Test Snapshot with value, secureTextEntry 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "marginBottom": 12,
+        "marginLeft": 12,
+        "marginRight": 12,
+        "marginTop": 12,
+      },
+    ]
+  }
+>
+  <Text
+    style={Object {}}
+  >
+    test-title
+  </Text>
+  <TextInput
+    isDarkMode={false}
+    onChangeText={[MockFunction]}
+    placeholder="test-palceholder"
+    secureTextEntry={true}
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "borderColor": "#222",
+          "borderRadius": 10,
+          "borderStyle": "solid",
+          "borderWidth": 2,
+          "display": "flex",
+          "flexDirection": "column",
+          "justifyContent": "space-between",
+          "minWidth": 300,
+          "width": "80%",
+        },
+      ]
+    }
+    value="test-value"
+  />
+</View>
+`;

@@ -1,0 +1,88 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RecipeList Test 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "height": "88%",
+      },
+    ]
+  }
+>
+  <RCTScrollView
+    data={
+      Array [
+        Object {
+          "id": "1",
+          "title": "test-title-1",
+        },
+        Object {
+          "id": "2",
+          "title": "test-title-2",
+        },
+      ]
+    }
+    getItem={[Function]}
+    getItemCount={[Function]}
+    keyExtractor={[Function]}
+    onContentSizeChange={[Function]}
+    onLayout={[Function]}
+    onMomentumScrollBegin={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    removeClippedSubviews={false}
+    renderItem={[Function]}
+    scrollEventThrottle={50}
+    stickyHeaderIndices={Array []}
+    viewabilityConfigCallbackPairs={Array []}
+  >
+    <View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <div
+          item={
+            Object {
+              "index": 0,
+              "item": Object {
+                "id": "1",
+                "title": "test-title-1",
+              },
+              "separators": Object {
+                "highlight": [Function],
+                "unhighlight": [Function],
+                "updateProps": [Function],
+              },
+            }
+          }
+        />
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <div
+          item={
+            Object {
+              "index": 1,
+              "item": Object {
+                "id": "2",
+                "title": "test-title-2",
+              },
+              "separators": Object {
+                "highlight": [Function],
+                "unhighlight": [Function],
+                "updateProps": [Function],
+              },
+            }
+          }
+        />
+      </View>
+    </View>
+  </RCTScrollView>
+</View>
+`;
