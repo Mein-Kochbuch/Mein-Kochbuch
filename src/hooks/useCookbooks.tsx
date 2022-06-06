@@ -1,21 +1,23 @@
 import {useEffect, useState} from 'react';
-import AxiosInstance from '../utils/AxiosInstance';
+import useAxios from '../utils/UseAxios';
 import {Cookbook} from '../models/Cookbook';
-import {CookbookResponse} from '../models/Responses';
 
 export default function useCookbooks() {
   const [cookbooks, setCookbooks] = useState<Cookbook[]>([]);
   const url = '/cookbooks/';
 
-  const axios = AxiosInstance();
+  const axios = useAxios();
 
   useEffect(() => {
     axios
-      .get<CookbookResponse>(url)
-      .then(response => response.data)
-      .then(data => data.results)
-      .then(setCookbooks)
+      .get<Cookbook[]>(url)
+      .then<Cookbook[]>(response => response.data)
+      .then<Cookbook[]>(data => {
+        setCookbooks(data);
+        return data;
+      })
       .catch(console.error);
+    //eslint-disable-next-line
   }, []);
 
   return {cookbooks};

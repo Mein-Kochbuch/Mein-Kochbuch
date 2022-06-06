@@ -1,5 +1,5 @@
 import React from 'react';
-import {BackHandler, Appearance} from 'react-native';
+import {Appearance, BackHandler} from 'react-native';
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import {Route, Switch, useHistory} from 'react-router-native';

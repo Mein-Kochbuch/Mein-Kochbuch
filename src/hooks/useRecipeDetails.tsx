@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import AxiosInstance from '../utils/AxiosInstance';
+import useAxios from '../utils/UseAxios';
 import {Recipe} from '../models/Recipe';
 import {FavorizeResponse, RatingResponse} from '../models/Responses';
 
@@ -9,7 +9,7 @@ export default function useRecipeDetails() {
   );
   const url = '/recipes/';
 
-  const axios = AxiosInstance();
+  const axios = useAxios();
 
   const getRecipeDetailsById = (id: string) => {
     if (!(id in recipeDetails)) {

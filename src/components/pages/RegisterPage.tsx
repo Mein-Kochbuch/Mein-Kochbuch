@@ -3,13 +3,13 @@ import ErrorText from '../../utils/ErrorText';
 import React, {useState} from 'react';
 import styled from 'styled-components/native';
 import RegisterForm from '../login/RegisterForm';
-import AxiosInstance from '../../utils/AxiosInstance';
+import useAxios from '../../utils/UseAxios';
 import {useHistory} from 'react-router-native';
 
 export default function RegisterPage() {
   const [registerError, setRegisterError] = useState<string>();
   const history = useHistory();
-  const axios = AxiosInstance();
+  const axios = useAxios();
 
   const onSubmit = (name: string, email: string, password: string) => {
     return axios

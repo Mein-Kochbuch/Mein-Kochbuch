@@ -9,21 +9,27 @@ import * as axios from 'axios';
 jest.mock('axios');
 axios.create.mockImplementation(() => axios);
 
-it('useCookbooks Test', async () => {
-  axios.get.mockImplementation(() =>
-    Promise.resolve({data: {results: [{recipe: '1'}, {recipe: '2'}]}}),
-  );
-
-  let cookbooksHook;
-  await act(async () => {
-    cookbooksHook = renderHook(() => {
-      return useCookbooks();
-    });
+describe('useCookbooks', () => {
+  afterEach(() => {
+    jest.clearAllMocks();
   });
 
-  expect(axios.get).toBeCalled();
-  expect(cookbooksHook.result.current.cookbooks).toStrictEqual([
-    {recipe: '1'},
-    {recipe: '2'},
-  ]);
+  it('useCookbooks Test', async () => {
+    axios.get.mockImplementation(() =>
+      Promise.resolve({data: [{recipe: '1'}, {recipe: '2'}]}),
+    );
+
+    let cookbooksHook;
+    await act(async () => {
+      cookbooksHook = renderHook(() => {
+        return useCookbooks();
+      });
+    });
+
+    expect(axios.get).toBeCalled();
+    expect(cookbooksHook.result.current.cookbooks).toStrictEqual([
+      {recipe: '1'},
+      {recipe: '2'},
+    ]);
+  });
 });

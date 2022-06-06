@@ -11,7 +11,9 @@ jest.mock('axios');
 axios.create.mockImplementation(() => axios);
 
 it('MyRecipeTest Test', () => {
-  axios.get.mockImplementation(() => Promise.resolve({data: {results: []}}));
+  axios.get.mockImplementation(() =>
+    Promise.resolve({data: {results: [{recipe: '1'}, {recipe: '2'}]}}),
+  );
 
   const component = renderer.create(<MyRecipesPage />);
 

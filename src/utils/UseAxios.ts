@@ -2,10 +2,10 @@ import axios, {AxiosRequestConfig} from 'axios';
 import {useContext} from 'react';
 import {AuthContext} from '../context/AuthProvider';
 
-export default function AxiosInstance() {
+const useAxios = () => {
   const {user} = useContext(AuthContext);
   const options: AxiosRequestConfig = __DEV__
-    ? {baseURL: 'http://localhost:8080/api'}
+    ? {baseURL: 'http://192.168.178.82:8080/api'}
     : {baseURL: 'https://mein-kochbuch.org/api'};
 
   if (user) {
@@ -13,4 +13,6 @@ export default function AxiosInstance() {
   }
 
   return axios.create(options);
-}
+};
+
+export default useAxios;
