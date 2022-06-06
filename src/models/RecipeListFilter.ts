@@ -1,11 +1,13 @@
+import {Difficulty} from './Recipe';
+
 export interface RecipeListFilter {
-  sammlungsID?: number;
+  cookbookId?: string;
   count?: number;
-  owner?: string;
+  ownerId?: string;
   sortBy?: string;
   favorite?: boolean;
-  maxDauer?: number;
-  difficulty?: number;
-  zutaten?: string[];
-  searchWords?: string[];
+  maxDuration?: number;
+  difficulty?: Difficulty;
+  ingredients?: string[];
+  search?: string[];
 }

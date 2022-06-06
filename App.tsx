@@ -1,5 +1,5 @@
 import React from 'react';
-import {BackHandler, Appearance} from 'react-native';
+import {Appearance, BackHandler} from 'react-native';
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import {Route, Switch, useHistory} from 'react-router-native';
@@ -12,6 +12,7 @@ import RecipeDetailsPage from './src/components/pages/RecipeDetailsPage';
 import useRecipeDetails from './src/hooks/useRecipeDetails';
 import LoginPage from './src/components/pages/LoginPage';
 import RegisterPage from './src/components/pages/RegisterPage';
+import useCookbooks from './src/hooks/useCookbooks';
 
 const App = () => {
   const {recipePreviews, setFilter, loadNext} = useRecipePreviews();
@@ -21,6 +22,7 @@ const App = () => {
     favorizeRecipeById,
     rateRecipeById,
   } = useRecipeDetails();
+  const {cookbooks} = useCookbooks();
   const isDarkMode = Appearance.getColorScheme() === 'dark';
   const history = useHistory();
 
@@ -40,7 +42,7 @@ const App = () => {
           <MainMenuPage />
         </Route>
         <Route path="/myrecipes" exact>
-          <MyRecipesPage />
+          <MyRecipesPage cookbooks={cookbooks} />
         </Route>
         <Route path="/recipes" exact>
           <RecipesPage

@@ -22,6 +22,7 @@ import com.facebook.react.uimanager.ViewManagerRegistry;
 import com.meinkochbuchrn.BuildConfig;
 import com.meinkochbuchrn.newarchitecture.components.MainComponentsRegistry;
 import com.meinkochbuchrn.newarchitecture.modules.MainApplicationTurboModuleManagerDelegate;
+
 import java.util.ArrayList;
 import java.util.List;
 

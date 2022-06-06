@@ -5,9 +5,9 @@ import CookbookListItem from '../cookbooks/CookbookListItem';
 import styled from 'styled-components/native';
 import {Cookbook} from '../../models/Cookbook';
 
-interface MyRecipeListProps {
+export type MyRecipeListProps = {
   cookbooks: Cookbook[];
-}
+};
 
 export default function MyRecipesList({cookbooks}: MyRecipeListProps) {
   return (
@@ -16,7 +16,7 @@ export default function MyRecipesList({cookbooks}: MyRecipeListProps) {
       <MultiListItem title={'Favorites'} icon="heart" />
       <Spacer />
       {cookbooks.map(cookbook => (
-        <CookbookListItem key={cookbook.pk} cookbook={cookbook} />
+        <CookbookListItem key={cookbook.id} cookbook={cookbook} />
       ))}
     </View>
   );

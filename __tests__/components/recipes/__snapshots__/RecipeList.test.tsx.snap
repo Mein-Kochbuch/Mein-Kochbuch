@@ -1,0 +1,129 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RecipeList Snapshot Test 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "height": "88%",
+      },
+    ]
+  }
+>
+  <RCTScrollView
+    data={
+      Array [
+        Object {
+          "averageRating": 3.8,
+          "id": "1",
+          "owner": Object {
+            "id": "1",
+            "name": "me",
+          },
+          "ratingCount": 3,
+          "thumbnail": Object {
+            "id": "1",
+            "url": "thumbnail-url-1",
+          },
+          "title": "test-title-1",
+        },
+        Object {
+          "averageRating": 4.1,
+          "id": "2",
+          "owner": Object {
+            "id": "2",
+            "name": "you",
+          },
+          "ratingCount": 8,
+          "thumbnail": Object {
+            "id": "2",
+            "url": "thumbnail-url-2",
+          },
+          "title": "test-title-2",
+        },
+      ]
+    }
+    getItem={[Function]}
+    getItemCount={[Function]}
+    keyExtractor={[Function]}
+    onContentSizeChange={[Function]}
+    onEndReached={[MockFunction]}
+    onLayout={[Function]}
+    onMomentumScrollBegin={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    removeClippedSubviews={false}
+    renderItem={[Function]}
+    scrollEventThrottle={50}
+    stickyHeaderIndices={Array []}
+    viewabilityConfigCallbackPairs={Array []}
+  >
+    <View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <div
+          listItem={
+            Object {
+              "index": 0,
+              "item": Object {
+                "averageRating": 3.8,
+                "id": "1",
+                "owner": Object {
+                  "id": "1",
+                  "name": "me",
+                },
+                "ratingCount": 3,
+                "thumbnail": Object {
+                  "id": "1",
+                  "url": "thumbnail-url-1",
+                },
+                "title": "test-title-1",
+              },
+              "separators": Object {
+                "highlight": [Function],
+                "unhighlight": [Function],
+                "updateProps": [Function],
+              },
+            }
+          }
+        />
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <div
+          listItem={
+            Object {
+              "index": 1,
+              "item": Object {
+                "averageRating": 4.1,
+                "id": "2",
+                "owner": Object {
+                  "id": "2",
+                  "name": "you",
+                },
+                "ratingCount": 8,
+                "thumbnail": Object {
+                  "id": "2",
+                  "url": "thumbnail-url-2",
+                },
+                "title": "test-title-2",
+              },
+              "separators": Object {
+                "highlight": [Function],
+                "unhighlight": [Function],
+                "updateProps": [Function],
+              },
+            }
+          }
+        />
+      </View>
+    </View>
+  </RCTScrollView>
+</View>
+`;

@@ -5,6 +5,7 @@ import com.facebook.react.ReactPackage;
 import com.facebook.react.ReactPackageTurboModuleManagerDelegate;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.soloader.SoLoader;
+
 import java.util.List;
 
 /**
@@ -29,13 +30,6 @@ public class MainApplicationTurboModuleManagerDelegate
 
     native boolean canCreateTurboModule(String moduleName);
 
-    public static class Builder extends ReactPackageTurboModuleManagerDelegate.Builder {
-        protected MainApplicationTurboModuleManagerDelegate build(
-                ReactApplicationContext context, List<ReactPackage> packages) {
-            return new MainApplicationTurboModuleManagerDelegate(context, packages);
-        }
-    }
-
     @Override
     protected synchronized void maybeLoadOtherSoLibraries() {
         if (!sIsSoLibraryLoaded) {
@@ -43,6 +37,13 @@ public class MainApplicationTurboModuleManagerDelegate
             // make sure you update the name here as well.
             SoLoader.loadLibrary("meinkochbuchrn_appmodules");
             sIsSoLibraryLoaded = true;
+        }
+    }
+
+    public static class Builder extends ReactPackageTurboModuleManagerDelegate.Builder {
+        protected MainApplicationTurboModuleManagerDelegate build(
+                ReactApplicationContext context, List<ReactPackage> packages) {
+            return new MainApplicationTurboModuleManagerDelegate(context, packages);
         }
     }
 }

@@ -21,7 +21,7 @@ export default function LoginPage() {
   return (
     <StyledView>
       <Header title={'Login'} />
-      <ErrorText text={loginError} />
+      {loginError && <ErrorText text={loginError} />}
       <LoginForm onSubmit={onSubmit} />
       <View>
         <RegisterButton />
@@ -35,5 +35,3 @@ const StyledView = styled.View`
   align-items: center;
   flex-direction: column;
 `;
-
-

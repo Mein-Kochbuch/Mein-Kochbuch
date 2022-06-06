@@ -1,8 +1,11 @@
+import {Image} from './Image';
+import {ChefUserPreview} from './ChefUserPreview';
+
 export interface RecipePreview {
-  pk: number;
+  id: string;
   title: string;
-  avg_rating: number;
-  thumbnail_url: string;
-  rating_count: number;
-  owner: {};
+  averageRating: number;
+  thumbnail?: Image;
+  ratingCount: number;
+  owner: ChefUserPreview;
 }

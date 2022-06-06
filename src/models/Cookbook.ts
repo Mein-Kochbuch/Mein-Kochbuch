@@ -1,5 +1,12 @@
+import {Image} from './Image';
+import {Recipe} from './Recipe';
+import {ChefUserPreview} from './ChefUserPreview';
+
 export interface Cookbook {
-  pk: number;
+  id: string;
   name: string;
-  thumbnail?: string;
+  owner: ChefUserPreview;
+  privacy: boolean;
+  recipes: Recipe[];
+  thumbnail?: Image;
 }

@@ -2,11 +2,13 @@ import React from 'react';
 import Header from './Header';
 import {ScrollView, StyleSheet} from 'react-native';
 import MyRecipesList from '../recipes/MyRecipesList';
-import useCookbooks from '../../hooks/useCookbooks';
+import {Cookbook} from '../../models/Cookbook';
 
-export default function MyRecipesPage() {
-  const {cookbooks} = useCookbooks();
+export type MyRecipesPageProps = {
+  cookbooks: Cookbook[];
+};
 
+export default function MyRecipesPage({cookbooks}: MyRecipesPageProps) {
   return (
     <ScrollView style={styles.container}>
       <Header title={'My Recipes'} />

@@ -1,16 +1,17 @@
 import {useEffect, useState} from 'react';
 import {applyFilter} from '../utils/urlService';
-import AxiosInstance from '../utils/AxiosInstance';
 import {RecipeListFilter} from '../models/RecipeListFilter';
 import {RecipeListResponse} from '../models/Responses';
 import {RecipePreview} from '../models/RecipePreview';
+import {AxiosInstance} from 'axios';
+import useAxios from '../utils/useAxios';
 
 export default function useRecipePreviews() {
   const [recipePreviews, setRecipePreviews] = useState<RecipePreview[]>([]);
   const [filter, setFilter] = useState<RecipeListFilter>({});
   const [nextUrl, setNextUrl] = useState<string | undefined>();
 
-  const axios = AxiosInstance();
+  const axios: AxiosInstance = useAxios();
 
   useEffect(() => {
     axios
@@ -18,6 +19,7 @@ export default function useRecipePreviews() {
       .then(response => response.data)
       .then(addRecipes)
       .catch(console.error);
+    //eslint-disable-next-line
   }, [filter]);
 
   const loadNext = () => {
@@ -30,12 +32,12 @@ export default function useRecipePreviews() {
     }
   };
 
-  const addRecipes = (data: any) => {
+  const addRecipes = (data: RecipeListResponse) => {
     setNextUrl(data.next);
     setRecipePreviews(existingRecipes =>
       existingRecipes.concat(
         data.results.filter(
-          (newRecipe: any) => !existingRecipes.some(i => i.pk === newRecipe.pk),
+          (newRecipe: any) => !existingRecipes.some(i => i.id === newRecipe.id),
         ),
       ),
     );

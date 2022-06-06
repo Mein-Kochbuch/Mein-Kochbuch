@@ -11,7 +11,7 @@ interface CookbookListItemProps {
 export default function CookbookListItem({cookbook}: CookbookListItemProps) {
   const isDarkMode = Appearance.getColorScheme() === 'dark';
   const imageSource = cookbook.thumbnail
-    ? {uri: cookbook.thumbnail}
+    ? {uri: cookbook.thumbnail.url}
     : require('../../../resources/platzhalter.png');
 
   return (

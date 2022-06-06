@@ -9,7 +9,7 @@ export default function RegisterButton() {
   const isDarkMode = Appearance.getColorScheme() === 'dark';
 
   const onPress = () => {
-    history.push(`/register`);
+    history.push('/register');
   };
 
   return (

@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MyRecipeList MyRecipesList Test 1`] = `
+<View>
+  <div
+    icon="all"
+    title="All Recipes"
+  />
+  <div
+    icon="heart"
+    title="Favorites"
+  />
+  <View
+    style={
+      Array [
+        Object {
+          "marginBottom": 12,
+          "marginLeft": 12,
+          "marginRight": 12,
+          "marginTop": 12,
+        },
+      ]
+    }
+  />
+  <div
+    cookbook={
+      Object {
+        "id": "1",
+        "name": "cookbook-1",
+        "owner": Object {
+          "id": "1",
+          "name": "me",
+        },
+        "privacy": false,
+        "recipes": Array [],
+        "thumbnail": Object {
+          "id": "1",
+          "url": "cookbook-thumbnail-url",
+        },
+      }
+    }
+  />
+  <div
+    cookbook={
+      Object {
+        "id": "2",
+        "name": "cookbook-2",
+        "owner": Object {
+          "id": "2",
+          "name": "you",
+        },
+        "privacy": false,
+        "recipes": Array [],
+        "thumbnail": Object {
+          "id": "2",
+          "url": "cookbook-thumbnail-url-2",
+        },
+      }
+    }
+  />
+</View>
+`;
