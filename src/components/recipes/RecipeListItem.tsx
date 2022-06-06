@@ -1,21 +1,19 @@
 import React from 'react';
 import styled from 'styled-components/native';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
-import {Appearance} from 'react-native';
+import {Appearance, ListRenderItemInfo} from 'react-native';
 import {useHistory} from 'react-router-native';
 import {RecipePreview} from '../../models/RecipePreview';
 
-interface RecipeListItemProps {
-  item: {
-    item: RecipePreview;
-  };
-}
+export type RecipeListItemProps = {
+  listItem: ListRenderItemInfo<RecipePreview>;
+};
 
-export default function RecipeListItem({item}: RecipeListItemProps) {
+export default function RecipeListItem({listItem}: RecipeListItemProps) {
   const history = useHistory();
   const isDarkMode = Appearance.getColorScheme() === 'dark';
 
-  const recipe = item.item;
+  const recipe = listItem.item;
   const imageSource = recipe.thumbnail?.url
     ? {uri: recipe.thumbnail.url}
     : require('../../../resources/platzhalter.png');
@@ -28,7 +26,7 @@ export default function RecipeListItem({item}: RecipeListItemProps) {
     <StyledTouchableOpacity isDarkMode={isDarkMode} onPress={handleOnPress}>
       <ImageStyled source={imageSource} />
       <StyledTest numberOfLines={2} ellipsizeMode={'middle'}>
-        {recipe.name}
+        {recipe.title}
       </StyledTest>
     </StyledTouchableOpacity>
   );

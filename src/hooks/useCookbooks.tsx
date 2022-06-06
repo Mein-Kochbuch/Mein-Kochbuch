@@ -1,5 +1,5 @@
 import {useEffect, useState} from 'react';
-import useAxios from '../utils/UseAxios';
+import useAxios from '../utils/useAxios';
 import {Cookbook} from '../models/Cookbook';
 
 export default function useCookbooks() {

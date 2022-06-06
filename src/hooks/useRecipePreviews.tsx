@@ -4,7 +4,7 @@ import {RecipeListFilter} from '../models/RecipeListFilter';
 import {RecipeListResponse} from '../models/Responses';
 import {RecipePreview} from '../models/RecipePreview';
 import {AxiosInstance} from 'axios';
-import useAxios from '../utils/UseAxios';
+import useAxios from '../utils/useAxios';
 
 export default function useRecipePreviews() {
   const [recipePreviews, setRecipePreviews] = useState<RecipePreview[]>([]);

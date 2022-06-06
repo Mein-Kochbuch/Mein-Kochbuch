@@ -5,9 +5,9 @@ import CookbookListItem from '../cookbooks/CookbookListItem';
 import styled from 'styled-components/native';
 import {Cookbook} from '../../models/Cookbook';
 
-interface MyRecipeListProps {
+export type MyRecipeListProps = {
   cookbooks: Cookbook[];
-}
+};
 
 export default function MyRecipesList({cookbooks}: MyRecipeListProps) {
   return (

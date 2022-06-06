@@ -3,60 +3,77 @@ import React from 'react';
 
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer';
-import {Image} from 'react-native';
-import RecipeListItem from '../../../src/components/recipes/RecipeListItem';
+import RecipeListItem, {
+  RecipeListItemProps,
+} from '../../../src/components/recipes/RecipeListItem';
 import {fireEvent, render} from '@testing-library/react-native';
 import {Router} from 'react-router-native';
 
-describe('RecipeListItem Test', () => {
+describe('RecipeListItem', () => {
   afterEach(() => {
     jest.clearAllMocks();
   });
 
-  it('light', () => {
-    const item = {
-      item: {
-        name: 'test-title',
+  it('Snapshot Test light', () => {
+    const item: RecipeListItemProps = {
+      listItem: {
+        item: {
+          id: '1',
+          title: 'test-title-1',
+          ratingCount: 3,
+          averageRating: 3.8,
+          owner: {
+            id: '1',
+            name: 'me',
+          },
+          thumbnail: {
+            id: '1',
+            url: 'thumbnail-url-1',
+          },
+        },
+        index: 1,
       },
     };
 
-    const component = renderer.create(<RecipeListItem item={item} />);
+    const component = renderer.create(<RecipeListItem {...item} />);
 
     expect(component.toJSON()).toMatchSnapshot();
-    expect(component.toJSON().children.length).toBe(2);
-    expect(component.toJSON().children[1].children[0]).toBe('test-title');
-
-    const testInstance = component.root;
-
-    expect(
-      testInstance.findAllByType(RecipeListItem)[0].props.item.item,
-    ).toStrictEqual({name: 'test-title'});
-    expect(testInstance.findAllByType(Image)[0].props.source).toStrictEqual({
-      testUri: '../../../resources/platzhalter.png',
-    });
   });
 
-  it('click', () => {
+  it('Test click', () => {
     const history = {
       push: jest.fn(),
       listen: jest.fn(),
       location: {pathname: '/'},
     };
 
-    const item = {
-      item: {
-        id: '3',
-        name: 'test-title',
+    const item: RecipeListItemProps = {
+      listItem: {
+        item: {
+          id: '1',
+          title: 'test-title-1',
+          ratingCount: 3,
+          averageRating: 3.8,
+          owner: {
+            id: '1',
+            name: 'me',
+          },
+          thumbnail: {
+            id: '1',
+            url: 'thumbnail-url-1',
+          },
+        },
+        index: 1,
       },
     };
 
     const {getByText} = render(
       <Router history={history}>
-        <RecipeListItem item={item} />
+        <RecipeListItem {...item} />
       </Router>,
     );
 
-    fireEvent(getByText('test-title'), 'onPress');
-    expect(history.push).toBeCalledWith('/recipes/3');
+    fireEvent(getByText('test-title-1'), 'onPress');
+    expect(history.push).toBeCalledWith('/recipes/1');
   });
 });

@@ -4,10 +4,10 @@ import RecipeListItem from './RecipeListItem';
 import styled from 'styled-components/native';
 import {RecipePreview} from '../../models/RecipePreview';
 
-interface RecipeListProps {
+export type RecipeListProps = {
   recipes: RecipePreview[];
   loadMoreRecipes: () => void;
-}
+};
 
 export default function RecipeList({
   recipes,
@@ -17,7 +17,7 @@ export default function RecipeList({
     <ViewStyled>
       <FlatList
         data={recipes}
-        renderItem={item => <RecipeListItem item={item} />}
+        renderItem={item => <RecipeListItem listItem={item} />}
         keyExtractor={item => item.id}
         onEndReached={loadMoreRecipes}
       />

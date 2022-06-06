@@ -3,7 +3,7 @@ import ErrorText from '../../utils/ErrorText';
 import React, {useState} from 'react';
 import styled from 'styled-components/native';
 import RegisterForm from '../login/RegisterForm';
-import useAxios from '../../utils/UseAxios';
+import useAxios from '../../utils/useAxios';
 import {useHistory} from 'react-router-native';
 
 export default function RegisterPage() {

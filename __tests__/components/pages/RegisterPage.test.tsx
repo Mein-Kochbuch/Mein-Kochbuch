@@ -20,6 +20,10 @@ jest.mock('axios');
 axios.create.mockImplementation(() => axios);
 
 describe('RegisterPage Test', () => {
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
   it('Snapshot', () => {
     const component = renderer.create(<RegisterPage />);
 

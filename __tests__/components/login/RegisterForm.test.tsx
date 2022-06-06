@@ -8,7 +8,7 @@ import RegisterForm from '../../../src/components/login/RegisterForm';
 import {fireEvent, render} from '@testing-library/react-native';
 import {Linking} from 'react-native';
 
-describe('RegisterForm Test', () => {
+describe('RegisterForm', () => {
   afterEach(() => {
     jest.clearAllMocks();
   });

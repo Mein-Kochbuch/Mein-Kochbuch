@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`RecipeListItem Test light 1`] = `
+exports[`RecipeListItem Snapshot Test light 1`] = `
 <View
   accessible={true}
   collapsable={false}
@@ -37,7 +37,7 @@ exports[`RecipeListItem Test light 1`] = `
   <Image
     source={
       Object {
-        "testUri": "../../../resources/platzhalter.png",
+        "uri": "thumbnail-url-1",
       }
     }
     style={
@@ -69,7 +69,7 @@ exports[`RecipeListItem Test light 1`] = `
       ]
     }
   >
-    test-title
+    test-title-1
   </Text>
 </View>
 `;

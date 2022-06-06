@@ -21,7 +21,7 @@ jest.mock('react-native-vector-icons/Feather', () => {
   };
 });
 
-describe('RatingComponent Test', () => {
+describe('RatingComponent', () => {
   afterEach(() => {
     jest.clearAllMocks();
   });
@@ -42,23 +42,6 @@ describe('RatingComponent Test', () => {
     );
 
     expect(component.toJSON()).toMatchSnapshot();
-    expect(component.toJSON().children.length).toBe(2);
-
-    expect(component.getByTestId('RatingComponent').props.ownRating).toEqual(5);
-    expect(
-      component.getByTestId('RatingComponent').props.averageRating,
-    ).toEqual(3);
-    expect(component.getByTestId('RatingComponent').props.ratingCount).toEqual(
-      17,
-    );
-    expect(component.getByTestId('RatingComponent').props.handleRating).toEqual(
-      handleRating,
-    );
-
-    expect(component.getByTestId('Icon').props.name).toEqual('heart');
-    expect(component.getByTestId('Icon').props.size).toEqual(35);
-    expect(component.getByTestId('Icon').props.color).toEqual('#F10F0F');
-    expect(component.getByTestId('Icon').props.onPress).toEqual(handleFavorize);
   });
 
   it('Favorite false light theme', () => {
@@ -77,22 +60,5 @@ describe('RatingComponent Test', () => {
     );
 
     expect(component.toJSON()).toMatchSnapshot();
-    expect(component.toJSON().children.length).toBe(2);
-
-    expect(component.getByTestId('RatingComponent').props.ownRating).toEqual(5);
-    expect(
-      component.getByTestId('RatingComponent').props.averageRating,
-    ).toEqual(3);
-    expect(component.getByTestId('RatingComponent').props.ratingCount).toEqual(
-      17,
-    );
-    expect(component.getByTestId('RatingComponent').props.handleRating).toEqual(
-      handleRating,
-    );
-
-    expect(component.getByTestId('Icon').props.name).toEqual('heart');
-    expect(component.getByTestId('Icon').props.size).toEqual(35);
-    expect(component.getByTestId('Icon').props.color).toEqual(Colors.darker);
-    expect(component.getByTestId('Icon').props.onPress).toEqual(handleFavorize);
   });
 });

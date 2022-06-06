@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import useAxios from '../utils/UseAxios';
+import useAxios from '../utils/useAxios';
 import {Recipe} from '../models/Recipe';
 import {FavorizeResponse, RatingResponse} from '../models/Responses';
 

@@ -9,12 +9,12 @@ import Icon from 'react-native-vector-icons/Feather';
 
 import Colors from 'react-native/Libraries/NewAppScreen/components/Colors';
 
-describe('RatingComponent Test', () => {
+describe('RatingComponent', () => {
   afterEach(() => {
     jest.clearAllMocks();
   });
 
-  it('Test light theme', () => {
+  it('Snapshot Test light theme', () => {
     const averageRating = 4;
     const ratingCount = 12;
     const ownRating = 2.5;
@@ -30,29 +30,5 @@ describe('RatingComponent Test', () => {
     );
 
     expect(component.toJSON()).toMatchSnapshot();
-    expect(component.toJSON().children.length).toBe(4);
-    expect(component.toJSON().children[1].children[0]).toBe(
-      averageRating.toString(),
-    );
-    expect(component.toJSON().children[3].children[0]).toBe(`(${ratingCount})`);
-
-    const testInstance = component.root;
-
-    expect(testInstance.findAllByType(Rating)[0].props.type).toBe('custom');
-    expect(testInstance.findAllByType(Rating)[0].props.fractions).toBe(1);
-    expect(testInstance.findAllByType(Rating)[0].props.imageSize).toBe(30);
-    expect(testInstance.findAllByType(Rating)[0].props.startingValue).toBe(
-      ownRating,
-    );
-    expect(testInstance.findAllByType(Rating)[0].props.tintColor).toBe(
-      Colors.lighter,
-    );
-    expect(testInstance.findAllByType(Rating)[0].props.onFinishRating).toBe(
-      handleRating,
-    );
-
-    expect(testInstance.findAllByType(Icon)[0].props.name).toBe('star');
-    expect(testInstance.findAllByType(Icon)[0].props.size).toBe(20);
-    expect(testInstance.findAllByType(Icon)[0].props.color).toBe('#F1C40F');
   });
 });

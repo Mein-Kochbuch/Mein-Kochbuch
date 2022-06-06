@@ -14,7 +14,7 @@ jest.mock('react-router-native', () => ({
   }),
 }));
 
-describe('RecipeDetailsPage Test', () => {
+describe('RecipeDetailsPage', () => {
   afterEach(() => {
     jest.clearAllMocks();
   });

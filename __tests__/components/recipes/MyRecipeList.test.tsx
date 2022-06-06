@@ -3,9 +3,9 @@ import React from 'react';
 
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer';
-import MyRecipesList from '../../../src/components/recipes/MyRecipesList';
-import MultiListItem from '../../../src/components/list/MultiListItem';
-import CookbookListItem from '../../../src/components/cookbooks/CookbookListItem';
+import MyRecipesList, {
+  MyRecipeListProps,
+} from '../../../src/components/recipes/MyRecipesList';
 
 jest.mock('../../../src/components/list/MultiListItem', () => {
   return props => {
@@ -19,32 +19,44 @@ jest.mock('../../../src/components/cookbooks/CookbookListItem', () => {
   };
 });
 
-const cookbooks = [
-  {cookbook: '1', id: '1'},
-  {cookbook: '2', id: '2'},
-];
+describe('MyRecipeList', () => {
+  it('MyRecipesList Test', () => {
+    const myRecipesListProps: MyRecipeListProps = {
+      cookbooks: [
+        {
+          id: '1',
+          name: 'cookbook-1',
+          owner: {
+            id: '1',
+            name: 'me',
+          },
+          privacy: false,
+          recipes: [],
+          thumbnail: {
+            id: '1',
+            url: 'cookbook-thumbnail-url',
+          },
+        },
+        {
+          id: '2',
+          name: 'cookbook-2',
+          owner: {
+            id: '2',
+            name: 'you',
+          },
+          privacy: false,
+          recipes: [],
+          thumbnail: {
+            id: '2',
+            url: 'cookbook-thumbnail-url-2',
+          },
+        },
+      ],
+    };
+    const component = renderer.create(
+      <MyRecipesList {...myRecipesListProps} />,
+    );
 
-it('MyRecipesList Test', () => {
-  const component = renderer.create(<MyRecipesList cookbooks={cookbooks} />);
-
-  expect(component.toJSON()).toMatchSnapshot();
-  expect(component.toJSON().children.length).toBe(5);
-
-  const testInstance = component.root;
-
-  expect(testInstance.findAllByType(MultiListItem)[0].props.title).toBe(
-    'All Recipes',
-  );
-
-  expect(testInstance.findAllByType(MultiListItem)[1].props.title).toBe(
-    'Favorites',
-  );
-
-  expect(
-    testInstance.findAllByType(CookbookListItem)[0].props.cookbook,
-  ).toStrictEqual({cookbook: '1', id: '1'});
-
-  expect(
-    testInstance.findAllByType(CookbookListItem)[1].props.cookbook,
-  ).toStrictEqual({cookbook: '2', id: '2'});
+    expect(component.toJSON()).toMatchSnapshot();
+  });
 });

@@ -6,7 +6,7 @@ import renderer from 'react-test-renderer';
 
 import InputField from '../../../src/components/login/InputField';
 
-describe('InputField Test', () => {
+describe('InputField', () => {
   afterEach(() => {
     jest.clearAllMocks();
   });
