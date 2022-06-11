@@ -5,7 +5,10 @@ import styled from 'styled-components/native';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 
 interface LoginFormProps {
-  onSubmit: (credentials: {username: string; password: string}) => void;
+  onSubmit: (credentials: {
+    username: string;
+    password: string;
+  }) => Promise<void>;
 }
 
 export default function LoginForm({onSubmit}: LoginFormProps) {
@@ -25,6 +28,12 @@ export default function LoginForm({onSubmit}: LoginFormProps) {
   const onPasswordChange = (value: string) => {
     setCredentials(oldCredentials => {
       return {...oldCredentials, password: value};
+    });
+  };
+
+  const handleSubmit = () => {
+    onSubmit(credentials).then(() => {
+      setCredentials({username: '', password: ''});
     });
   };
 
@@ -63,9 +72,7 @@ export default function LoginForm({onSubmit}: LoginFormProps) {
         erfährst du, wie wir deine Daten erfassen, verwenden und teilen.
       </PrivacyBanner>
 
-      <StyledTouchableOpacity
-        isDarkMode={isDarkMode}
-        onPress={() => onSubmit(credentials)}>
+      <StyledTouchableOpacity isDarkMode={isDarkMode} onPress={handleSubmit}>
         <StyledText>Login</StyledText>
       </StyledTouchableOpacity>
     </StyledView>

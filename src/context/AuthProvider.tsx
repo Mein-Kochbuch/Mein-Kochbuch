@@ -1,9 +1,11 @@
-import React, {createContext, ReactElement, useState} from 'react';
-import axios from 'axios';
+import React, {createContext, ReactElement, useEffect, useState} from 'react';
 import {LoginResponse} from '../models/Responses';
+import {getGenericPassword, setGenericPassword} from 'react-native-keychain';
+import axios from 'axios';
 
 type User = {
-  token: string;
+  jwt: string;
+  authorities: string[];
 };
 
 interface AuthContextType {
@@ -17,15 +19,27 @@ export const AuthContext = createContext<AuthContextType>({
 
 export default function AuthProvider({children}: {children: ReactElement}) {
   const [user, setUser] = useState<User>();
-  const url = 'https://mein-kochbuch.org/api/';
+  const url = __DEV__
+    ? 'http://192.168.178.82:8080'
+    : 'https://mein-kochbuch.org';
+
+  useEffect(() => {
+    getGenericPassword().then(genericPassword => {
+      if (genericPassword) {
+        setUser({jwt: genericPassword.password, authorities: []});
+      }
+    });
+  }, []);
 
   const login = (credentials: {username: string; password: string}) => {
     return axios
-      .post<LoginResponse>(`${url}api-token-auth/`, credentials)
+      .post<LoginResponse>(`${url}/auth/login/`, credentials)
       .then(response => response.data)
       .then(data => {
+        setGenericPassword(credentials.username, data.jwt);
         setUser(data);
-      });
+      })
+      .catch(console.error);
   };
 
   return (
