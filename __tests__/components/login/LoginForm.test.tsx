@@ -1,5 +1,5 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
+import renderer, {act} from 'react-test-renderer';
 import LoginForm from '../../../src/components/login/LoginForm';
 
 import {fireEvent, render} from '@testing-library/react-native';
@@ -28,19 +28,23 @@ describe('LoginForm Test', () => {
     expect(component.toJSON()).toMatchSnapshot();
   });
 
-  it('LoginForm Login Button press', () => {
-    const onSubmit = jest.fn();
+  it('LoginForm Login Button press', async () => {
+    const onSubmit = jest.fn(() => Promise.resolve());
 
-    const {getByText} = render(<LoginForm onSubmit={onSubmit} />);
+    const component = render(<LoginForm onSubmit={onSubmit} />);
 
-    fireEvent(getByText('E-Mail'), 'onChangeText', 'testMail');
-    fireEvent(getByText('Password'), 'onChangeText', 'testPassword');
+    fireEvent(component.getByText('E-Mail'), 'onChangeText', 'testMail');
+    fireEvent(component.getByText('Password'), 'onChangeText', 'testPassword');
 
-    fireEvent(getByText('Login'), 'onPress');
+    await act(async () => {
+      fireEvent(component.getByText('Login'), 'onPress');
+    });
+
     expect(onSubmit).toBeCalledWith({
       username: 'testMail',
       password: 'testPassword',
     });
+    expect(component.toJSON()).toMatchSnapshot();
   });
 
   it('LoginForm Privacy Link press', () => {

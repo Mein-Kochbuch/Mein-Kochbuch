@@ -19,7 +19,8 @@ export type RatingResponse = {
 };
 
 export type LoginResponse = {
-  token: string;
+  jwt: string;
+  authorities: string[];
 };
 
 export type CookbookResponse = {

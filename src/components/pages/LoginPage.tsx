@@ -12,8 +12,8 @@ export default function LoginPage() {
   const {login} = useContext(AuthContext);
 
   const onSubmit = (credentials: {username: string; password: string}) => {
-    login(credentials).catch((error: {toString: () => string}) => {
-      console.log(error);
+    return login(credentials).catch((error: {toString: () => string}) => {
+      console.error(error);
       setLoginError(error.toString());
     });
   };

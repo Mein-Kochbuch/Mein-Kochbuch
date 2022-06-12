@@ -9,7 +9,7 @@ const useAxios = () => {
     : {baseURL: 'https://mein-kochbuch.org/api'};
 
   if (user) {
-    options.headers = {Authorization: `Token ${user.token}`};
+    options.headers = {Authorization: `Token ${user.jwt}`};
   }
 
   return axios.create(options);
